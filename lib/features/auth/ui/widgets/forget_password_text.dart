@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class ForgotPasswordText extends StatelessWidget {
   final VoidCallback onTap;
@@ -11,7 +12,7 @@ class ForgotPasswordText extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Text(
-        'Forgotten password?',
+        t.auth.forget_password,
         style: TextStyle(
           fontSize: 13,
           color: AppColors.black,

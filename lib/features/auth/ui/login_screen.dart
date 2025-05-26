@@ -10,6 +10,7 @@ import 'package:old_but_gold/features/auth/ui/widgets/google_auth_button.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/or_divider.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/remember_me_checkbox.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/sign_up_prompt.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -30,14 +31,14 @@ class LoginScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20),
-                const Text(
-                  'Login',
+                Text(
+                  t.auth.login,
                   style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 36),
                 AuthField(
-                  fieldTitle: 'Email',
-                  hintText: 'Email@example.com',
+                  fieldTitle: t.auth.email,
+                  hintText: t.auth.email_example,
                   iconPath: 'assets/icons/user_icon.svg',
                   myController: TextEditingController(),
                   checkValid: (p0) {
@@ -46,8 +47,8 @@ class LoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 AuthField(
-                  fieldTitle: 'Password',
-                  hintText: 'Enter Your Password',
+                  fieldTitle: t.auth.password,
+                  hintText: t.auth.enter_your_password,
                   iconPath: 'assets/icons/lock.svg',
                   myController: TextEditingController(),
                   isObscure: true,
@@ -62,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 AuthButton(
-                  text: 'Login',
+                  text: t.auth.login,
                   onPressed: () {
                     // Handle login logic
                   },
@@ -79,6 +80,7 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 GoogleAuthButton(
                   onPressed: () {
+                    LocaleSettings.setLocale(AppLocale.ar);
                     // Handle Google sign in
                   },
                   isLoading: false,

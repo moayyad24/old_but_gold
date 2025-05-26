@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class GoogleAuthButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -44,7 +45,7 @@ class GoogleAuthButton extends StatelessWidget {
                     ),
                     const SizedBox(width: 12),
                     Text(
-                      'Continue with Google',
+                      t.auth.continue_with_google,
                       style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.w600,

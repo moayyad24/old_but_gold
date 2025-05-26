@@ -1,0 +1,16 @@
+{
+    "auth": {
+        "skip": "تخطي",
+        "login": "تسجيل الدخول",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "enter_your_password": "أدخل كلمة المرور الخاصة بك",
+        "remember_me": "تذكرني",
+        "forget_password": "نسيت كلمة المرور؟",
+        "or": "أو",
+        "continue_with_google": "المتابعة باستخدام جوجل",
+        "email_example": "قم بإدخال البريد الإلكتروني الخاص بك",
+        "do_not_have_an_account": "لا تمتلك حساب؟",
+        "sign_up": "قم بإنشاء حساب"
+    }
+}

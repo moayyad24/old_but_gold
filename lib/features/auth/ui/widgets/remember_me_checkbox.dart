@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class RememberMeCheckbox extends StatefulWidget {
   final ValueChanged<bool>? onChanged;
@@ -69,7 +70,7 @@ class _RememberMeCheckboxState extends State<RememberMeCheckbox> {
             widget.onChanged?.call(_isChecked);
           },
           child: Text(
-            'Remember me',
+            t.auth.remember_me,
             style: TextStyle(
               fontSize: 14,
               color: AppColors.black,

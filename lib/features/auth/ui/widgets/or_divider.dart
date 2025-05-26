@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class OrDivider extends StatelessWidget {
   const OrDivider({super.key});
@@ -12,7 +13,7 @@ class OrDivider extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Text(
-            'Or',
+            t.auth.or,
             style: TextStyle(
               color: AppColors.darkGrey666666,
               fontSize: 16,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_but_gold/core/widgets/app_back_button.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class AuthAppBar extends StatelessWidget {
   final Widget stepper;
@@ -15,7 +16,7 @@ class AuthAppBar extends StatelessWidget {
           AppBackButton(),
           stepper,
           Text(
-            'Skip',
+            t.auth.skip,
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w700,

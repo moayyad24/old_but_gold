@@ -1,0 +1,16 @@
+{
+    "auth": {
+        "skip": "Skip",
+        "login": "Login",
+        "email": "Email",
+        "password": "Password",
+        "enter_your_password": "Enter Your Password",
+        "remember_me": "Remember me",
+        "forget_password": "Forgotten password?",
+        "or": "Or",
+        "continue_with_google": "Continue with Google",
+        "email_example": "Email@example.com",
+        "do_not_have_an_account": "Don't have an account?",
+        "sign_up": "Sign Up"
+    }
+}
