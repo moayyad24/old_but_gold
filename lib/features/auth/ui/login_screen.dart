@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_button.dart';
@@ -26,8 +25,8 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           ContentArea(
-            addPadding: true,
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               children: [
                 DragHandle(),
                 SizedBox(height: 20),

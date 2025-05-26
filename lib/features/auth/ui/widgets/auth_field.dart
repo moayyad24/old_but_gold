@@ -26,11 +26,23 @@ class AuthField extends StatefulWidget {
 
 class _AuthFieldState extends State<AuthField> {
   bool _obscureText = true;
-
+  final FocusNode _focusNode = FocusNode();
+  Color _color = AppColors.whiteFFFFFF;
   @override
   void initState() {
     super.initState();
     _obscureText = widget.isObscure;
+    _focusNode.addListener(() {
+      if (_focusNode.hasFocus) {
+        setState(() {
+          _color = AppColors.blue0D87F9.withAlpha(30);
+        });
+      } else {
+        setState(() {
+          _color = AppColors.whiteFFFFFF;
+        });
+      }
+    });
   }
 
   @override
@@ -48,30 +60,32 @@ class _AuthFieldState extends State<AuthField> {
         ),
         const SizedBox(height: 8),
         TextFormField(
+          focusNode: _focusNode,
           validator: widget.checkValid,
           controller: widget.myController,
-          obscureText: widget.isObscure ? _obscureText : true,
+          obscureText: widget.isObscure ? _obscureText : false,
           style: const TextStyle(
             fontWeight: FontWeight.w500,
             color: AppColors.black,
             fontSize: 16,
           ),
-          cursorColor: AppColors.greyC2C2C2,
+          cursorColor: AppColors.blue0D87F9,
           decoration: InputDecoration(
-            fillColor: AppColors.whiteFFFFFF,
             filled: true,
+            fillColor: _color,
             prefixIcon: Padding(
-              padding: const EdgeInsets.only(left: 18),
+              padding: const EdgeInsets.only(left: 14),
               child: SvgPicture.asset(widget.iconPath),
             ),
-            prefixIconConstraints: const BoxConstraints(minWidth: 50),
+            prefixIconConstraints: const BoxConstraints(minWidth: 40),
             isDense: true,
             suffixIcon:
                 widget.isObscure
                     ? IconButton(
                       icon: Icon(
                         _obscureText ? Icons.visibility_off : Icons.visibility,
-                        color: AppColors.black,
+                        color: AppColors.grey666666,
+                        size: 24,
                       ),
                       onPressed: () {
                         setState(() {
@@ -91,11 +105,17 @@ class _AuthFieldState extends State<AuthField> {
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: AppColors.greyC2C2C2),
+              borderSide: const BorderSide(
+                color: AppColors.greyC2C2C2,
+                width: 1.5,
+              ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: AppColors.greyC2C2C2),
+              borderSide: const BorderSide(
+                color: AppColors.blue2E8DFA,
+                width: 1.5,
+              ),
             ),
           ),
         ),

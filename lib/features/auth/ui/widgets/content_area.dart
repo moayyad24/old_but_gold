@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
 class ContentArea extends StatelessWidget {
-  final bool addPadding;
   final Widget child;
-  const ContentArea({super.key, this.addPadding = true, required this.child});
+  const ContentArea({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.only(top: 25),
-        child: Container(
+        padding: EdgeInsets.only(top: 25),
+        child: Ink(
           decoration: BoxDecoration(
             color: AppColors.whiteFFFDF2,
             borderRadius: const BorderRadius.vertical(top: Radius.circular(34)),
@@ -19,19 +18,17 @@ class ContentArea extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: AppColors.darkGrey666666.withAlpha(100),
-                blurRadius: 10, // Adjust blur
-                spreadRadius: 0, // Adjust spread
-                offset: Offset(0, -1), // This controls direction (x, y)
+                blurRadius: 10,
+                spreadRadius: 0,
+                offset: Offset(0, -1),
               ),
             ],
           ),
-          clipBehavior: Clip.hardEdge,
-          child: Ink(
-            decoration: BoxDecoration(color: AppColors.whiteFFFDF2),
-            padding:
-                addPadding
-                    ? EdgeInsets.only(top: 10, left: 24, right: 24)
-                    : EdgeInsets.zero,
+          padding: EdgeInsets.only(top: 10, left: 24, right: 24),
+
+          child: SingleChildScrollView(
+            physics: NeverScrollableScrollPhysics(),
+
             child: child,
           ),
         ),
