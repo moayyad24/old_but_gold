@@ -13,6 +13,7 @@ class OldButGold extends StatelessWidget {
     return MaterialApp(
       title: 'OBG',
       theme: ThemeData(
+        fontFamily: 'Manrope',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: LoginScreen(),

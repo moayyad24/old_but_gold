@@ -30,7 +30,7 @@ class ContentArea extends StatelessWidget {
             decoration: BoxDecoration(color: AppColors.whiteFFFDF2),
             padding:
                 addPadding
-                    ? EdgeInsets.only(top: 10, left: 10, right: 10)
+                    ? EdgeInsets.only(top: 10, left: 24, right: 24)
                     : EdgeInsets.zero,
             child: child,
           ),
