@@ -17,11 +17,11 @@ class AuthAppBar extends StatelessWidget {
           Text(
             'Skip',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 15,
               fontWeight: FontWeight.w700,
               decoration: TextDecoration.underline,
+              decorationThickness: 1.2,
               decorationColor: Colors.black,
-              decorationThickness: 0.5,
             ),
           ),
         ],

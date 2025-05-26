@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
+import 'package:old_but_gold/features/auth/ui/widgets/auth_button.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_field.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/content_area.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
+import 'package:old_but_gold/features/auth/ui/widgets/forget_password_text.dart';
+import 'package:old_but_gold/features/auth/ui/widgets/google_auth_button.dart';
+import 'package:old_but_gold/features/auth/ui/widgets/or_divider.dart';
+import 'package:old_but_gold/features/auth/ui/widgets/remember_me_checkbox.dart';
+import 'package:old_but_gold/features/auth/ui/widgets/sign_up_prompt.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -24,11 +31,11 @@ class LoginScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20),
-                Text(
+                const Text(
                   'Login',
                   style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 36),
+                const SizedBox(height: 36),
                 AuthField(
                   fieldTitle: 'Email',
                   hintText: 'Email@example.com',
@@ -38,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                     return '';
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 AuthField(
                   fieldTitle: 'Password',
                   hintText: 'Enter Your Password',
@@ -47,6 +54,40 @@ class LoginScreen extends StatelessWidget {
                   isObscure: true,
                   checkValid: (p0) {
                     return '';
+                  },
+                ),
+                const SizedBox(height: 14),
+                Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: RememberMeCheckbox(),
+                ),
+                const SizedBox(height: 30),
+                AuthButton(
+                  text: 'Login',
+                  onPressed: () {
+                    // Handle login logic
+                  },
+                  isLoading: false,
+                ),
+                const SizedBox(height: 24),
+                ForgotPasswordText(
+                  onTap: () {
+                    // Handle forgotten password flow
+                  },
+                ),
+                const SizedBox(height: 24),
+                OrDivider(),
+                const SizedBox(height: 24),
+                GoogleAuthButton(
+                  onPressed: () {
+                    // Handle Google sign in
+                  },
+                  isLoading: false,
+                ),
+                const SizedBox(height: 24),
+                SignUpPrompt(
+                  onSignUpPressed: () {
+                    // Navigate to sign up screen
                   },
                 ),
               ],
