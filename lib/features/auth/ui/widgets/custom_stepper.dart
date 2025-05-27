@@ -32,7 +32,7 @@ class CustomStepper extends StatelessWidget {
             case DotState.completed:
               return CompletedDot();
             case DotState.current:
-              return StepDot(size: 26, color: AppColors.mainFFEECA);
+              return StepDot(size: 26, color: AppColors.mainFFE09C);
             case DotState.next:
               return StepDot(size: 21, color: AppColors.greyC2C2C2);
           }

@@ -6,14 +6,14 @@
         "password": "Password",
         "enter_your_password": "Enter Your Password",
         "remember_me": "Remember me",
-        "forget_password": "Forgotten password?",
+        "forget_password": "Forget your password?",
         "or": "Or",
         "continue_with_google": "Continue with Google",
         "email_example": "Email@example.com",
         "do_not_have_an_account": "Don't have an account?",
         "sign_up": "Sign Up",
         "agree_privacy_terms_and_politics": "Agree Privacy terms & Politics",
-        "already_have_account": "Already have account",
+        "already_have_account": "Already have an account?",
         "repeat_password": "Repeat Password",
         "confirm_password": "Confirm Password"
     }

@@ -52,16 +52,16 @@ class _TranslationsAuthAr implements TranslationsAuthEn {
 	@override String get password => 'كلمة المرور';
 	@override String get enter_your_password => 'أدخل كلمة المرور الخاصة بك';
 	@override String get remember_me => 'تذكرني';
-	@override String get forget_password => 'نسيت كلمة المرور؟';
+	@override String get forget_password => 'هل نسيت كلمة المرور؟';
 	@override String get or => 'أو';
 	@override String get continue_with_google => 'المتابعة باستخدام جوجل';
-	@override String get email_example => 'قم بإدخال البريد الإلكتروني الخاص بك';
-	@override String get do_not_have_an_account => 'لا تمتلك حساب؟';
+	@override String get email_example => 'أدخل البريد الإلكتروني الخاص بك';
+	@override String get do_not_have_an_account => 'ليس لديك حساب؟';
 	@override String get sign_up => 'إنشاء حساب';
 	@override String get agree_privacy_terms_and_politics => 'الموافقة على الشروط والأحكام';
 	@override String get already_have_account => 'لديك حساب بالفعل؟';
-	@override String get repeat_password => 'قم بتأكيد كلمة السر';
-	@override String get confirm_password => 'تأكيد كلمة السر';
+	@override String get repeat_password => 'أعد إدخال كلمة المرور';
+	@override String get confirm_password => 'تأكيد كلمة المرور';
 }
 
 /// Flat map(s) containing all translations.
@@ -75,16 +75,16 @@ extension on TranslationsAr {
 			case 'auth.password': return 'كلمة المرور';
 			case 'auth.enter_your_password': return 'أدخل كلمة المرور الخاصة بك';
 			case 'auth.remember_me': return 'تذكرني';
-			case 'auth.forget_password': return 'نسيت كلمة المرور؟';
+			case 'auth.forget_password': return 'هل نسيت كلمة المرور؟';
 			case 'auth.or': return 'أو';
 			case 'auth.continue_with_google': return 'المتابعة باستخدام جوجل';
-			case 'auth.email_example': return 'قم بإدخال البريد الإلكتروني الخاص بك';
-			case 'auth.do_not_have_an_account': return 'لا تمتلك حساب؟';
+			case 'auth.email_example': return 'أدخل البريد الإلكتروني الخاص بك';
+			case 'auth.do_not_have_an_account': return 'ليس لديك حساب؟';
 			case 'auth.sign_up': return 'إنشاء حساب';
 			case 'auth.agree_privacy_terms_and_politics': return 'الموافقة على الشروط والأحكام';
 			case 'auth.already_have_account': return 'لديك حساب بالفعل؟';
-			case 'auth.repeat_password': return 'قم بتأكيد كلمة السر';
-			case 'auth.confirm_password': return 'تأكيد كلمة السر';
+			case 'auth.repeat_password': return 'أعد إدخال كلمة المرور';
+			case 'auth.confirm_password': return 'تأكيد كلمة المرور';
 			default: return null;
 		}
 	}

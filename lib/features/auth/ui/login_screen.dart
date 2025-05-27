@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_button.dart';
@@ -92,7 +93,9 @@ class LoginScreen extends StatelessWidget {
                   firstWord: t.auth.do_not_have_an_account,
                   secondWord: t.auth.sign_up,
                   onSignUpPressed: () {
-                    // Navigate to sign up screen
+                    Navigator.of(
+                      context,
+                    ).pushReplacementNamed(Routes.signUpScreen);
                   },
                 ),
               ],
