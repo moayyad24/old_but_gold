@@ -24,9 +24,10 @@ class SignUpPrompt extends StatelessWidget {
           style: TextStyle(
             fontSize: 15.sp,
             color: AppColors.darkGrey666666,
-            decoration: TextDecoration.underline,
+            fontWeight: FontWeight.w500,
           ),
         ),
+        SizedBox(width: 6.w),
         GestureDetector(
           onTap: onSignUpPressed,
           child: Text(

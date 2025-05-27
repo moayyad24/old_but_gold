@@ -22,7 +22,7 @@ class AuthButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.mainFFE09C,
+          backgroundColor: AppColors.mainFFEECA,
           foregroundColor: AppColors.black,
           padding: EdgeInsets.symmetric(horizontal: 24.w),
           shape: RoundedRectangleBorder(

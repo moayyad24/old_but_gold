@@ -9,17 +9,19 @@ class OldButGold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Locale appLocale = TranslationProvider.of(context).flutterLocale;
+    AppLocale currentLocale = TranslationProvider.of(context).locale;
     return ScreenUtilInit(
       designSize: const Size(393, 852),
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
         title: 'OBG',
-        locale: TranslationProvider.of(context).flutterLocale,
+        locale: appLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,
         localizationsDelegates: [...GlobalMaterialLocalizations.delegates],
         theme: ThemeData(
-          fontFamily: 'Manrope',
+          fontFamily: currentLocale == AppLocale.en ? 'Manrope' : 'Tajawal',
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         home: SignUpScreen(),
