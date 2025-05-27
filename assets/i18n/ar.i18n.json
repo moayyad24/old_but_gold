@@ -11,6 +11,10 @@
         "continue_with_google": "المتابعة باستخدام جوجل",
         "email_example": "قم بإدخال البريد الإلكتروني الخاص بك",
         "do_not_have_an_account": "لا تمتلك حساب؟",
-        "sign_up": "قم بإنشاء حساب"
+        "sign_up": "إنشاء حساب",
+        "agree_privacy_terms_and_politics": "الموافقة على الشروط والأحكام",
+        "already_have_account": "لديك حساب بالفعل؟",
+        "repeat_password": "قم بتأكيد كلمة السر",
+        "confirm_password": "تأكيد كلمة السر"
     }
 }

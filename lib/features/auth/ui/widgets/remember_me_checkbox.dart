@@ -71,7 +71,7 @@ class _RememberMeCheckboxState extends State<RememberMeCheckbox> {
             widget.onChanged?.call(_isChecked);
           },
           child: Text(
-            t.auth.remember_me,
+            t.auth.agree_privacy_terms_and_politics,
             style: TextStyle(
               fontSize: 14.sp,
               color: AppColors.black,

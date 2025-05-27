@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
-import 'package:old_but_gold/i18n/strings.g.dart';
 
 class SignUpPrompt extends StatelessWidget {
   final VoidCallback onSignUpPressed;
+  final String firstWord;
+  final String secondWord;
 
-  const SignUpPrompt({super.key, required this.onSignUpPressed});
+  const SignUpPrompt({
+    super.key,
+    required this.onSignUpPressed,
+    required this.firstWord,
+    required this.secondWord,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +20,7 @@ class SignUpPrompt extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          t.auth.do_not_have_an_account,
+          firstWord,
           style: TextStyle(
             fontSize: 15.sp,
             color: AppColors.darkGrey666666,
@@ -24,7 +30,7 @@ class SignUpPrompt extends StatelessWidget {
         GestureDetector(
           onTap: onSignUpPressed,
           child: Text(
-            t.auth.sign_up,
+            secondWord,
             style: TextStyle(
               fontSize: 16.sp,
               color: AppColors.blue0D87F9,

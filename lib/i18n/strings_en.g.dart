@@ -61,6 +61,10 @@ class TranslationsAuthEn {
 	String get email_example => 'Email@example.com';
 	String get do_not_have_an_account => 'Don\'t have an account?';
 	String get sign_up => 'Sign Up';
+	String get agree_privacy_terms_and_politics => 'Agree Privacy terms & Politics';
+	String get already_have_account => 'Already have account';
+	String get repeat_password => 'Repeat Password';
+	String get confirm_password => 'Confirm Password';
 }
 
 /// Flat map(s) containing all translations.
@@ -80,6 +84,10 @@ extension on Translations {
 			case 'auth.email_example': return 'Email@example.com';
 			case 'auth.do_not_have_an_account': return 'Don\'t have an account?';
 			case 'auth.sign_up': return 'Sign Up';
+			case 'auth.agree_privacy_terms_and_politics': return 'Agree Privacy terms & Politics';
+			case 'auth.already_have_account': return 'Already have account';
+			case 'auth.repeat_password': return 'Repeat Password';
+			case 'auth.confirm_password': return 'Confirm Password';
 			default: return null;
 		}
 	}

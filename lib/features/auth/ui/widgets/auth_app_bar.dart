@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/widgets/app_back_button.dart';
+import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class AuthAppBar extends StatelessWidget {
-  final Widget stepper;
-  const AuthAppBar({super.key, required this.stepper});
+  final List<DotState> dots;
+  const AuthAppBar({super.key, required this.dots});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class AuthAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           AppBackButton(),
-          stepper,
+          CustomStepper(dots: dots),
           Text(
             t.auth.skip,
             style: TextStyle(

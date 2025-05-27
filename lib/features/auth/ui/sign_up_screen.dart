@@ -6,15 +6,14 @@ import 'package:old_but_gold/features/auth/ui/widgets/auth_button.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_field.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/content_area.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
-import 'package:old_but_gold/features/auth/ui/widgets/forget_password_text.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/google_auth_button.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/or_divider.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/remember_me_checkbox.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/sign_up_prompt.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class LoginScreen extends StatelessWidget {
                 DragHandle(),
                 SizedBox(height: 20.h),
                 Text(
-                  t.auth.login,
+                  t.auth.sign_up,
                   style: TextStyle(
                     fontSize: 26.sp,
                     fontWeight: FontWeight.bold,
@@ -58,6 +57,17 @@ class LoginScreen extends StatelessWidget {
                     return '';
                   },
                 ),
+                SizedBox(height: 20.h),
+                AuthField(
+                  fieldTitle: t.auth.confirm_password,
+                  hintText: t.auth.repeat_password,
+                  iconPath: 'assets/icons/lock.svg',
+                  myController: TextEditingController(),
+                  isObscure: true,
+                  checkValid: (p0) {
+                    return '';
+                  },
+                ),
                 SizedBox(height: 14.h),
                 Align(
                   alignment: AlignmentDirectional.centerStart,
@@ -65,17 +75,11 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h),
                 AuthButton(
-                  text: t.auth.login,
+                  text: t.auth.sign_up,
                   onPressed: () {
                     // Handle login logic
                   },
                   isLoading: false,
-                ),
-                SizedBox(height: 24.h),
-                ForgotPasswordText(
-                  onTap: () {
-                    // Handle forgotten password flow
-                  },
                 ),
                 SizedBox(height: 24.h),
                 OrDivider(),
@@ -89,8 +93,8 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
                 SignUpPrompt(
-                  firstWord: t.auth.do_not_have_an_account,
-                  secondWord: t.auth.sign_up,
+                  firstWord: t.auth.already_have_account,
+                  secondWord: t.auth.login,
                   onSignUpPressed: () {
                     // Navigate to sign up screen
                   },
