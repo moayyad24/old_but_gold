@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
@@ -14,7 +15,7 @@ class ForgotPasswordText extends StatelessWidget {
       child: Text(
         t.auth.forget_password,
         style: TextStyle(
-          fontSize: 13,
+          fontSize: 13.sp,
           color: AppColors.black,
           decoration: TextDecoration.underline,
           decorationColor: AppColors.black,

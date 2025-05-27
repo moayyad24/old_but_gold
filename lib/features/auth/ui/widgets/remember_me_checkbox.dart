@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
@@ -32,10 +33,10 @@ class _RememberMeCheckboxState extends State<RememberMeCheckbox> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsetsDirectional.only(end: 8),
+          padding: EdgeInsetsDirectional.only(end: 8.w),
           child: SizedBox(
-            width: 18,
-            height: 18,
+            width: 18.w,
+            height: 18.h,
             child: Checkbox(
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
               visualDensity: VisualDensity.compact,
@@ -72,7 +73,7 @@ class _RememberMeCheckboxState extends State<RememberMeCheckbox> {
           child: Text(
             t.auth.remember_me,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 14.sp,
               color: AppColors.black,
               fontWeight: FontWeight.w500,
             ),

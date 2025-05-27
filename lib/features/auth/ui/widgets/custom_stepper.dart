@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/steps_dots.dart';
 
@@ -13,16 +14,16 @@ class CustomStepper extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 150,
-      height: 30,
+      height: 30.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: dots.length,
         separatorBuilder:
             (context, index) => SizedBox(
-              width: 40,
+              width: 40.w,
               child: Divider(
                 thickness: 3,
-                height: 27,
+                height: 27.h,
                 color: AppColors.darkGrey666666,
               ),
             ),

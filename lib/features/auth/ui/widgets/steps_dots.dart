@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
 class StepDot extends StatelessWidget {
@@ -42,8 +43,8 @@ class CompletedDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 21,
-      height: 21,
+      width: 21.w,
+      height: 21.h,
       padding: EdgeInsets.zero,
       alignment: Alignment.center,
       decoration: BoxDecoration(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
@@ -15,7 +16,7 @@ class SignUpPrompt extends StatelessWidget {
         Text(
           t.auth.do_not_have_an_account,
           style: TextStyle(
-            fontSize: 15,
+            fontSize: 15.sp,
             color: AppColors.darkGrey666666,
             decoration: TextDecoration.underline,
           ),
@@ -25,7 +26,7 @@ class SignUpPrompt extends StatelessWidget {
           child: Text(
             t.auth.sign_up,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               color: AppColors.blue0D87F9,
               fontWeight: FontWeight.w700,
               decoration: TextDecoration.underline,

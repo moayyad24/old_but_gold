@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
 class ContentArea extends StatelessWidget {
@@ -9,7 +10,7 @@ class ContentArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: EdgeInsets.only(top: 25),
+        padding: EdgeInsets.only(top: 25.sp),
         child: Ink(
           decoration: BoxDecoration(
             color: AppColors.whiteFFFDF2,
@@ -24,7 +25,7 @@ class ContentArea extends StatelessWidget {
               ),
             ],
           ),
-          padding: EdgeInsets.only(top: 10, left: 24, right: 24),
+          padding: EdgeInsets.only(top: 10, left: 24, right: 24).r,
 
           child: SingleChildScrollView(
             physics: NeverScrollableScrollPhysics(),

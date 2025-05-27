@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
@@ -52,32 +53,32 @@ class _AuthFieldState extends State<AuthField> {
       children: [
         Text(
           widget.fieldTitle,
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.w500,
             color: AppColors.black,
-            fontSize: 14,
+            fontSize: 14.sp,
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         TextFormField(
           focusNode: _focusNode,
           validator: widget.checkValid,
           controller: widget.myController,
           obscureText: widget.isObscure ? _obscureText : false,
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.w500,
             color: AppColors.black,
-            fontSize: 16,
+            fontSize: 16.sp,
           ),
           cursorColor: AppColors.blue0D87F9,
           decoration: InputDecoration(
             filled: true,
             fillColor: _color,
             prefixIcon: Padding(
-              padding: const EdgeInsets.only(left: 14),
+              padding: EdgeInsetsDirectional.only(start: 14.w),
               child: SvgPicture.asset(widget.iconPath),
             ),
-            prefixIconConstraints: const BoxConstraints(minWidth: 40),
+            prefixIconConstraints: BoxConstraints(minWidth: 40).w,
             isDense: true,
             suffixIcon:
                 widget.isObscure
@@ -95,9 +96,9 @@ class _AuthFieldState extends State<AuthField> {
                     )
                     : null,
             hintText: widget.hintText,
-            hintStyle: const TextStyle(
+            hintStyle: TextStyle(
               color: AppColors.darkGrey666666,
-              fontSize: 16,
+              fontSize: 16.sp,
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),

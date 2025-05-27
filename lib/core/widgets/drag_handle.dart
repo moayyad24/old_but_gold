@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
 class DragHandle extends StatelessWidget {
@@ -8,7 +9,7 @@ class DragHandle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 5,
-      width: 90,
+      width: 90.w,
       decoration: BoxDecoration(
         color: AppColors.greyB7B7B7,
         borderRadius: BorderRadius.circular(6),

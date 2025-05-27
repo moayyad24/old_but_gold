@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
 class AppBackButton extends StatelessWidget {
@@ -7,8 +8,8 @@ class AppBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 38,
-      height: 38,
+      width: 38.w,
+      height: 38.w,
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(

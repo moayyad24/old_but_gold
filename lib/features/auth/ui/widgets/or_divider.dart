@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
@@ -11,12 +12,12 @@ class OrDivider extends StatelessWidget {
       children: [
         Expanded(child: Divider(color: AppColors.greyB7B7B7, thickness: 0.6)),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Text(
             t.auth.or,
             style: TextStyle(
               color: AppColors.darkGrey666666,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w500,
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_button.dart';
@@ -30,12 +31,15 @@ class LoginScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: [
                 DragHandle(),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Text(
                   t.auth.login,
-                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 26.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                const SizedBox(height: 36),
+                SizedBox(height: 36.h),
                 AuthField(
                   fieldTitle: t.auth.email,
                   hintText: t.auth.email_example,
@@ -45,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                     return '';
                   },
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 AuthField(
                   fieldTitle: t.auth.password,
                   hintText: t.auth.enter_your_password,
@@ -56,12 +60,12 @@ class LoginScreen extends StatelessWidget {
                     return '';
                   },
                 ),
-                const SizedBox(height: 14),
+                SizedBox(height: 14.h),
                 Align(
                   alignment: AlignmentDirectional.centerStart,
                   child: RememberMeCheckbox(),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: 30.h),
                 AuthButton(
                   text: t.auth.login,
                   onPressed: () {
@@ -69,15 +73,15 @@ class LoginScreen extends StatelessWidget {
                   },
                   isLoading: false,
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 ForgotPasswordText(
                   onTap: () {
                     // Handle forgotten password flow
                   },
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 OrDivider(),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 GoogleAuthButton(
                   onPressed: () {
                     LocaleSettings.setLocale(AppLocale.ar);
@@ -85,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                   },
                   isLoading: false,
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 SignUpPrompt(
                   onSignUpPressed: () {
                     // Navigate to sign up screen
