@@ -6,7 +6,7 @@
         "password": "كلمة المرور",
         "enter_your_password": "أدخل كلمة المرور الخاصة بك",
         "remember_me": "تذكرني",
-        "forget_password": "هل نسيت كلمة المرور؟",
+        "forget_your_password": "هل نسيت كلمة المرور؟",
         "or": "أو",
         "continue_with_google": "المتابعة باستخدام جوجل",
         "email_example": "أدخل البريد الإلكتروني الخاص بك",
@@ -15,6 +15,16 @@
         "agree_privacy_terms_and_politics": "الموافقة على الشروط والأحكام",
         "already_have_account": "لديك حساب بالفعل؟",
         "repeat_password": "أعد إدخال كلمة المرور",
-        "confirm_password": "تأكيد كلمة المرور"
+        "confirm_password": "تأكيد كلمة المرور",
+        "forget_password": "استعادة كلمة المرور",
+        "its_ok": "لا بأس، هذا يحدث لأفضلنا، أدخل بريدك الإلكتروني",
+        "use_phone_instead": "استخدم رقم الهاتف بدلاً من ذلك",
+        "we_may_use_your_email_address": "قد نستخدم بريدك الإلكتروني لإرسال رسائل تتعلق بحسابك",
+        "recover_password": "استرداد كلمة المرور",
+        "you_can_check_out_our": "يمكنك الاطلاع على ",
+        "terms_of_service": "شروط الخدمة",
+        "and_also": " وأيضاً ",
+        "privacy_policy": "سياسة الخصوصية",
+        "for_more_details": " للمزيد من التفاصيل."
     }
 }

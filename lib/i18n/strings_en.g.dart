@@ -55,7 +55,7 @@ class TranslationsAuthEn {
 	String get password => 'Password';
 	String get enter_your_password => 'Enter Your Password';
 	String get remember_me => 'Remember me';
-	String get forget_password => 'Forget your password?';
+	String get forget_your_password => 'Forget your password?';
 	String get or => 'Or';
 	String get continue_with_google => 'Continue with Google';
 	String get email_example => 'Email@example.com';
@@ -65,6 +65,16 @@ class TranslationsAuthEn {
 	String get already_have_account => 'Already have an account?';
 	String get repeat_password => 'Repeat Password';
 	String get confirm_password => 'Confirm Password';
+	String get forget_password => 'Forget Password';
+	String get its_ok => 'It’s ok, it happens to the best of us, enter your address email';
+	String get use_phone_instead => 'Use phone instead';
+	String get we_may_use_your_email_address => 'We may use your email address to send you messages with information regarding your account';
+	String get recover_password => 'Recover Password';
+	String get you_can_check_out_our  => 'You can check out our ';
+	String get terms_of_service => 'Terms of Service';
+	String get and_also => ' and also ';
+	String get privacy_policy => 'Privacy Policy';
+	String get for_more_details => ', for more details.';
 }
 
 /// Flat map(s) containing all translations.
@@ -78,7 +88,7 @@ extension on Translations {
 			case 'auth.password': return 'Password';
 			case 'auth.enter_your_password': return 'Enter Your Password';
 			case 'auth.remember_me': return 'Remember me';
-			case 'auth.forget_password': return 'Forget your password?';
+			case 'auth.forget_your_password': return 'Forget your password?';
 			case 'auth.or': return 'Or';
 			case 'auth.continue_with_google': return 'Continue with Google';
 			case 'auth.email_example': return 'Email@example.com';
@@ -88,6 +98,16 @@ extension on Translations {
 			case 'auth.already_have_account': return 'Already have an account?';
 			case 'auth.repeat_password': return 'Repeat Password';
 			case 'auth.confirm_password': return 'Confirm Password';
+			case 'auth.forget_password': return 'Forget Password';
+			case 'auth.its_ok': return 'It’s ok, it happens to the best of us, enter your address email';
+			case 'auth.use_phone_instead': return 'Use phone instead';
+			case 'auth.we_may_use_your_email_address': return 'We may use your email address to send you messages with information regarding your account';
+			case 'auth.recover_password': return 'Recover Password';
+			case 'auth.you_can_check_out_our ': return 'You can check out our ';
+			case 'auth.terms_of_service': return 'Terms of Service';
+			case 'auth.and_also': return ' and also ';
+			case 'auth.privacy_policy': return 'Privacy Policy';
+			case 'auth.for_more_details': return ', for more details.';
 			default: return null;
 		}
 	}

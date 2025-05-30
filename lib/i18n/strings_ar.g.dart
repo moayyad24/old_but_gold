@@ -52,7 +52,7 @@ class _TranslationsAuthAr implements TranslationsAuthEn {
 	@override String get password => 'كلمة المرور';
 	@override String get enter_your_password => 'أدخل كلمة المرور الخاصة بك';
 	@override String get remember_me => 'تذكرني';
-	@override String get forget_password => 'هل نسيت كلمة المرور؟';
+	@override String get forget_your_password => 'هل نسيت كلمة المرور؟';
 	@override String get or => 'أو';
 	@override String get continue_with_google => 'المتابعة باستخدام جوجل';
 	@override String get email_example => 'أدخل البريد الإلكتروني الخاص بك';
@@ -62,6 +62,16 @@ class _TranslationsAuthAr implements TranslationsAuthEn {
 	@override String get already_have_account => 'لديك حساب بالفعل؟';
 	@override String get repeat_password => 'أعد إدخال كلمة المرور';
 	@override String get confirm_password => 'تأكيد كلمة المرور';
+	@override String get forget_password => 'استعادة كلمة المرور';
+	@override String get its_ok => 'لا بأس، هذا يحدث لأفضلنا، أدخل بريدك الإلكتروني';
+	@override String get use_phone_instead => 'استخدم رقم الهاتف بدلاً من ذلك';
+	@override String get we_may_use_your_email_address => 'قد نستخدم بريدك الإلكتروني لإرسال رسائل تتعلق بحسابك';
+	@override String get recover_password => 'استرداد كلمة المرور';
+	@override String get you_can_check_out_our => 'يمكنك الاطلاع على ';
+	@override String get terms_of_service => 'شروط الخدمة';
+	@override String get and_also => ' وأيضاً ';
+	@override String get privacy_policy => 'سياسة الخصوصية';
+	@override String get for_more_details => ' للمزيد من التفاصيل.';
 }
 
 /// Flat map(s) containing all translations.
@@ -75,7 +85,7 @@ extension on TranslationsAr {
 			case 'auth.password': return 'كلمة المرور';
 			case 'auth.enter_your_password': return 'أدخل كلمة المرور الخاصة بك';
 			case 'auth.remember_me': return 'تذكرني';
-			case 'auth.forget_password': return 'هل نسيت كلمة المرور؟';
+			case 'auth.forget_your_password': return 'هل نسيت كلمة المرور؟';
 			case 'auth.or': return 'أو';
 			case 'auth.continue_with_google': return 'المتابعة باستخدام جوجل';
 			case 'auth.email_example': return 'أدخل البريد الإلكتروني الخاص بك';
@@ -85,6 +95,16 @@ extension on TranslationsAr {
 			case 'auth.already_have_account': return 'لديك حساب بالفعل؟';
 			case 'auth.repeat_password': return 'أعد إدخال كلمة المرور';
 			case 'auth.confirm_password': return 'تأكيد كلمة المرور';
+			case 'auth.forget_password': return 'استعادة كلمة المرور';
+			case 'auth.its_ok': return 'لا بأس، هذا يحدث لأفضلنا، أدخل بريدك الإلكتروني';
+			case 'auth.use_phone_instead': return 'استخدم رقم الهاتف بدلاً من ذلك';
+			case 'auth.we_may_use_your_email_address': return 'قد نستخدم بريدك الإلكتروني لإرسال رسائل تتعلق بحسابك';
+			case 'auth.recover_password': return 'استرداد كلمة المرور';
+			case 'auth.you_can_check_out_our': return 'يمكنك الاطلاع على ';
+			case 'auth.terms_of_service': return 'شروط الخدمة';
+			case 'auth.and_also': return ' وأيضاً ';
+			case 'auth.privacy_policy': return 'سياسة الخصوصية';
+			case 'auth.for_more_details': return ' للمزيد من التفاصيل.';
 			default: return null;
 		}
 	}

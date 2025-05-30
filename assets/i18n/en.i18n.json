@@ -6,7 +6,7 @@
         "password": "Password",
         "enter_your_password": "Enter Your Password",
         "remember_me": "Remember me",
-        "forget_password": "Forget your password?",
+        "forget_your_password": "Forget your password?",
         "or": "Or",
         "continue_with_google": "Continue with Google",
         "email_example": "Email@example.com",
@@ -15,6 +15,16 @@
         "agree_privacy_terms_and_politics": "Agree Privacy terms & Politics",
         "already_have_account": "Already have an account?",
         "repeat_password": "Repeat Password",
-        "confirm_password": "Confirm Password"
+        "confirm_password": "Confirm Password",
+        "forget_password": "Forget Password",
+        "its_ok": "It’s ok, it happens to the best of us, enter your address email",
+        "use_phone_instead": "Use phone instead",
+        "we_may_use_your_email_address": "We may use your email address to send you messages with information regarding your account",
+        "recover_password": "Recover Password",
+        "you_can_check_out_our ": "You can check out our ",
+        "terms_of_service": "Terms of Service",
+        "and_also": " and also ",
+        "privacy_policy": "Privacy Policy",
+        "for_more_details": ", for more details."
     }
 }

@@ -75,7 +75,9 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 24.h),
                 ForgotPasswordText(
                   onTap: () {
-                    // Handle forgotten password flow
+                    Navigator.of(
+                      context,
+                    ).pushNamed(Routes.forgetPasswordScreen);
                   },
                 ),
                 SizedBox(height: 24.h),

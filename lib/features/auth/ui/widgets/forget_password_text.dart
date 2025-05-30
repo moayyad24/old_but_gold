@@ -13,7 +13,7 @@ class ForgotPasswordText extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Text(
-        t.auth.forget_password,
+        t.auth.forget_your_password,
         style: TextStyle(
           fontSize: 13.sp,
           color: AppColors.black,

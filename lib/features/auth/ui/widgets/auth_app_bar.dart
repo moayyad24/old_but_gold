@@ -5,8 +5,8 @@ import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class AuthAppBar extends StatelessWidget {
-  final List<DotState> dots;
-  const AuthAppBar({super.key, required this.dots});
+  final List<DotState>? dots;
+  const AuthAppBar({super.key, this.dots});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class AuthAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           AppBackButton(),
-          CustomStepper(dots: dots),
+          dots != null ? CustomStepper(dots: dots!) : SizedBox.shrink(),
           Text(
             t.auth.skip,
             style: TextStyle(
