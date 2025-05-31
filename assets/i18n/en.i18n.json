@@ -25,6 +25,10 @@
         "terms_of_service": "Terms of Service",
         "and_also": " and also ",
         "privacy_policy": "Privacy Policy",
-        "for_more_details": ", for more details."
+        "for_more_details": ", for more details.",
+        "verify_code": "Verify Code",
+        "four_digit_code": "Please enter the 4-digit code we’ve sent to you email",
+        "have_not_received_the_code": "Haven’t received the code?",
+        "verify": "Verify"
     }
 }

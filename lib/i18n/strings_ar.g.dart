@@ -72,6 +72,10 @@ class _TranslationsAuthAr implements TranslationsAuthEn {
 	@override String get and_also => ' وأيضاً ';
 	@override String get privacy_policy => 'سياسة الخصوصية';
 	@override String get for_more_details => ' للمزيد من التفاصيل.';
+	@override String get verify_code => 'تحقق من الرمز';
+	@override String get four_digit_code => 'الرجاء إدخال الرمز المكون من 4 أرقام الذي أرسلناه إلى بريدك الإلكتروني';
+	@override String get have_not_received_the_code => 'لم تستلم الرمز؟';
+	@override String get verify => 'تحقق';
 }
 
 /// Flat map(s) containing all translations.
@@ -105,6 +109,10 @@ extension on TranslationsAr {
 			case 'auth.and_also': return ' وأيضاً ';
 			case 'auth.privacy_policy': return 'سياسة الخصوصية';
 			case 'auth.for_more_details': return ' للمزيد من التفاصيل.';
+			case 'auth.verify_code': return 'تحقق من الرمز';
+			case 'auth.four_digit_code': return 'الرجاء إدخال الرمز المكون من 4 أرقام الذي أرسلناه إلى بريدك الإلكتروني';
+			case 'auth.have_not_received_the_code': return 'لم تستلم الرمز؟';
+			case 'auth.verify': return 'تحقق';
 			default: return null;
 		}
 	}

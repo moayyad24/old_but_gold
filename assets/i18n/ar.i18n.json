@@ -25,6 +25,10 @@
         "terms_of_service": "شروط الخدمة",
         "and_also": " وأيضاً ",
         "privacy_policy": "سياسة الخصوصية",
-        "for_more_details": " للمزيد من التفاصيل."
+        "for_more_details": " للمزيد من التفاصيل.",
+        "verify_code": "تحقق من الرمز",
+        "four_digit_code": "الرجاء إدخال الرمز المكون من 4 أرقام الذي أرسلناه إلى بريدك الإلكتروني",
+        "have_not_received_the_code": "لم تستلم الرمز؟",
+        "verify": "تحقق"
     }
 }

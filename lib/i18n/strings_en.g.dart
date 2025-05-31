@@ -75,6 +75,10 @@ class TranslationsAuthEn {
 	String get and_also => ' and also ';
 	String get privacy_policy => 'Privacy Policy';
 	String get for_more_details => ', for more details.';
+	String get verify_code => 'Verify Code';
+	String get four_digit_code => 'Please enter the 4-digit code we’ve sent to you email';
+	String get have_not_received_the_code => 'Haven’t received the code?';
+	String get verify => 'Verify';
 }
 
 /// Flat map(s) containing all translations.
@@ -108,6 +112,10 @@ extension on Translations {
 			case 'auth.and_also': return ' and also ';
 			case 'auth.privacy_policy': return 'Privacy Policy';
 			case 'auth.for_more_details': return ', for more details.';
+			case 'auth.verify_code': return 'Verify Code';
+			case 'auth.four_digit_code': return 'Please enter the 4-digit code we’ve sent to you email';
+			case 'auth.have_not_received_the_code': return 'Haven’t received the code?';
+			case 'auth.verify': return 'Verify';
 			default: return null;
 		}
 	}
