@@ -6,7 +6,7 @@ import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_button.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_field.dart';
-import 'package:old_but_gold/features/auth/ui/widgets/content_area.dart';
+import 'package:old_but_gold/core/widgets/content_area.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/terms_and_privacy_text.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
