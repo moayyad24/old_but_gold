@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
-import 'package:old_but_gold/features/auth/ui/widgets/auth_button.dart';
-import 'package:old_but_gold/features/auth/ui/widgets/auth_field.dart';
+import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
+import 'package:old_but_gold/core/widgets/app_text_field.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/forget_password_text.dart';
@@ -39,7 +39,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 36.h),
-                AuthField(
+                AppTextField(
                   fieldTitle: t.auth.email,
                   hintText: t.auth.email_example,
                   iconPath: 'assets/icons/user_icon.svg',
@@ -49,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: 20.h),
-                AuthField(
+                AppTextField(
                   fieldTitle: t.auth.password,
                   hintText: t.auth.enter_your_password,
                   iconPath: 'assets/icons/lock.svg',
@@ -65,10 +65,12 @@ class LoginScreen extends StatelessWidget {
                   child: RememberMeCheckbox(),
                 ),
                 SizedBox(height: 30.h),
-                AuthButton(
+                AppConfirmButton(
                   text: t.auth.login,
                   onPressed: () {
-                    // Handle login logic
+                    Navigator.of(
+                      context,
+                    ).pushNamed(Routes.personalInformationScreen);
                   },
                   isLoading: false,
                 ),

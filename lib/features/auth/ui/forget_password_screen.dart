@@ -4,8 +4,8 @@ import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
-import 'package:old_but_gold/features/auth/ui/widgets/auth_button.dart';
-import 'package:old_but_gold/features/auth/ui/widgets/auth_field.dart';
+import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
+import 'package:old_but_gold/core/widgets/app_text_field.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/terms_and_privacy_text.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
@@ -44,7 +44,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 32.h),
-                AuthField(
+                AppTextField(
                   fieldTitle: t.auth.email,
                   hintText: t.auth.email_example,
                   iconPath: 'assets/icons/user_icon.svg',
@@ -78,7 +78,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 SizedBox(height: 23.h),
                 TermsAndPrivacyText(),
                 SizedBox(height: 53.h),
-                AuthButton(
+                AppConfirmButton(
                   text: t.auth.recover_password,
                   onPressed: () {
                     Navigator.of(context).pushNamed(Routes.verifyCodeScreen);

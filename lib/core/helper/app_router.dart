@@ -4,6 +4,7 @@ import 'package:old_but_gold/features/auth/ui/forget_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/login_screen.dart';
 import 'package:old_but_gold/features/auth/ui/sign_up_screen.dart';
 import 'package:old_but_gold/features/auth/ui/verify_code_screen.dart';
+import 'package:old_but_gold/features/settings/ui/personal_information_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -16,6 +17,8 @@ class AppRouter {
         return _buildForgetPasswordScreen();
       case Routes.verifyCodeScreen:
         return _buildVerifyCodeScreen();
+      case Routes.personalInformationScreen:
+        return _buildPersonalInformationScreen();
       default:
         return null;
     }
@@ -35,5 +38,9 @@ class AppRouter {
 
   Route _buildVerifyCodeScreen() {
     return MaterialPageRoute(builder: (_) => const VerifyCodeScreen());
+  }
+
+  Route _buildPersonalInformationScreen() {
+    return MaterialPageRoute(builder: (_) => const PersonalInformationScreen());
   }
 }

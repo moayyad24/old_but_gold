@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
-class AuthButton extends StatelessWidget {
+class AppConfirmButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final bool isLoading;
 
-  const AuthButton({
+  const AppConfirmButton({
     super.key,
     required this.text,
     required this.onPressed,
@@ -24,7 +24,6 @@ class AuthButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.mainFFE09C,
           foregroundColor: AppColors.black,
-          padding: EdgeInsets.symmetric(horizontal: 24.w),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -37,18 +36,13 @@ class AuthButton extends StatelessWidget {
                   color: Colors.white,
                   strokeWidth: 2,
                 )
-                : Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      text,
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.black,
-                      ),
-                    ),
-                  ],
+                : Text(
+                  text,
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.black,
+                  ),
                 ),
       ),
     );

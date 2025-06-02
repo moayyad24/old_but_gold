@@ -3,29 +3,29 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
-class AuthField extends StatefulWidget {
+class AppTextField extends StatefulWidget {
   final String hintText;
   final String fieldTitle;
-  final String iconPath;
+  final String? iconPath;
   final TextEditingController myController;
   final String? Function(String?)? checkValid;
   final bool isObscure;
 
-  const AuthField({
+  const AppTextField({
     super.key,
     required this.hintText,
     required this.fieldTitle,
-    required this.iconPath,
+    this.iconPath,
     required this.myController,
     required this.checkValid,
     this.isObscure = false,
   });
 
   @override
-  State<AuthField> createState() => _AuthFieldState();
+  State<AppTextField> createState() => _AppTextFieldState();
 }
 
-class _AuthFieldState extends State<AuthField> {
+class _AppTextFieldState extends State<AppTextField> {
   bool _obscureText = true;
   final FocusNode _focusNode = FocusNode();
   Color _color = AppColors.whiteFFFFFF;
@@ -74,10 +74,13 @@ class _AuthFieldState extends State<AuthField> {
           decoration: InputDecoration(
             filled: true,
             fillColor: _color,
-            prefixIcon: Padding(
-              padding: EdgeInsetsDirectional.only(start: 14.w),
-              child: SvgPicture.asset(widget.iconPath),
-            ),
+            prefixIcon:
+                widget.iconPath != null
+                    ? Padding(
+                      padding: EdgeInsetsDirectional.only(start: 14.w),
+                      child: SvgPicture.asset(widget.iconPath!),
+                    )
+                    : null,
             prefixIconConstraints: BoxConstraints(minWidth: 40).w,
             isDense: true,
             suffixIcon:

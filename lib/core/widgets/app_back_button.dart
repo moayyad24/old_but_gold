@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
 class AppBackButton extends StatelessWidget {
-  const AppBackButton({super.key});
-
+  final IconData? icon;
+  const AppBackButton({super.key, this.icon = Icons.arrow_back_rounded});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,7 +20,7 @@ class AppBackButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        child: Icon(Icons.arrow_back_rounded, size: 24, color: AppColors.black),
+        child: Icon(icon, size: 24, color: AppColors.black),
       ),
     );
   }
