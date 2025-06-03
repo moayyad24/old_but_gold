@@ -33,7 +33,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 10.h),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 42),
+                  padding: EdgeInsets.symmetric(horizontal: 42.w),
                   child: Text(
                     t.auth.its_ok,
                     style: TextStyle(

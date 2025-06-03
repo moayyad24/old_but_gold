@@ -2,6 +2,7 @@ import 'package:adoptive_calendar/adoptive_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/text_with_icon_app_bar.dart';
 
@@ -15,7 +16,7 @@ class ChooseDate extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 24, right: 24).r,
+            padding: UiParameters.dPadding,
             child: TextWithIconAppBar(title: 'Choose Date of Birth'),
           ),
           Spacer(flex: 3),
@@ -33,7 +34,7 @@ class ChooseDate extends StatelessWidget {
           ),
           Spacer(),
           Padding(
-            padding: EdgeInsets.only(left: 24, right: 24).r,
+            padding: UiParameters.hPadding,
             child: Column(
               children: [
                 Text(

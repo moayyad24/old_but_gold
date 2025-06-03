@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/search_text_field.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/text_with_icon_app_bar.dart';
@@ -58,7 +59,7 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 10, left: 24, right: 24).r,
+            padding: UiParameters.dPadding,
             child: Column(
               children: [
                 TextWithIconAppBar(
