@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_back_button.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
@@ -20,11 +20,9 @@ class AuthAppBar extends StatelessWidget {
           dots != null ? CustomStepper(dots: dots!) : SizedBox.shrink(),
           Text(
             t.auth.skip,
-            style: TextStyle(
-              fontSize: 15.sp,
-              fontWeight: FontWeight.w700,
+            style: AppTextStyles.bold16.copyWith(
               decoration: TextDecoration.underline,
-              decorationThickness: 1.2,
+              decorationThickness: 1.5,
               decorationColor: Colors.black,
             ),
           ),

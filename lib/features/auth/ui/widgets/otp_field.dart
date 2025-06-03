@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
 class OtpField extends StatefulWidget {
   final ValueChanged<String>? onCompleted;
@@ -86,10 +87,7 @@ class _OtpFieldState extends State<OtpField> {
                 focusNode: _focusNodes[index],
                 keyboardType: TextInputType.number,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTextStyles.bold20,
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(1),
                   FilteringTextInputFormatter.digitsOnly,

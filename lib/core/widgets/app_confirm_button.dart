@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
 class AppConfirmButton extends StatelessWidget {
   final String text;
@@ -36,14 +37,7 @@ class AppConfirmButton extends StatelessWidget {
                   color: Colors.white,
                   strokeWidth: 2,
                 )
-                : Text(
-                  text,
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.black,
-                  ),
-                ),
+                : Text(text, style: AppTextStyles.bold20),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class RememberMeCheckbox extends StatefulWidget {
@@ -72,11 +73,7 @@ class _RememberMeCheckboxState extends State<RememberMeCheckbox> {
           },
           child: Text(
             t.auth.agree_privacy_terms_and_politics,
-            style: TextStyle(
-              fontSize: 14.sp,
-              color: AppColors.black,
-              fontWeight: FontWeight.w500,
-            ),
+            style: AppTextStyles.medium14,
           ),
         ),
       ],

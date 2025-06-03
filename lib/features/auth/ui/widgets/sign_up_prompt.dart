@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
 class SignUpPrompt extends StatelessWidget {
   final VoidCallback onSignUpPressed;
@@ -21,10 +22,8 @@ class SignUpPrompt extends StatelessWidget {
       children: [
         Text(
           firstWord,
-          style: TextStyle(
-            fontSize: 15.sp,
+          style: AppTextStyles.medium15.copyWith(
             color: AppColors.darkGrey666666,
-            fontWeight: FontWeight.w500,
           ),
         ),
         SizedBox(width: 6.w),
@@ -32,10 +31,8 @@ class SignUpPrompt extends StatelessWidget {
           onTap: onSignUpPressed,
           child: Text(
             secondWord,
-            style: TextStyle(
-              fontSize: 16.sp,
+            style: AppTextStyles.bold16.copyWith(
               color: AppColors.blue0D87F9,
-              fontWeight: FontWeight.w700,
               decoration: TextDecoration.underline,
             ),
           ),

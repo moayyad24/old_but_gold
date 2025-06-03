@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
@@ -24,22 +25,13 @@ class ForgetPasswordScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text(
-                  t.auth.forget_password,
-                  style: TextStyle(
-                    fontSize: 26.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text(t.auth.forget_password, style: AppTextStyles.bold26),
                 SizedBox(height: 10.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 42.w),
                   child: Text(
                     t.auth.its_ok,
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: AppTextStyles.medium15,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -58,21 +50,17 @@ class ForgetPasswordScreen extends StatelessWidget {
                   alignment: AlignmentDirectional.centerStart,
                   child: Text(
                     t.auth.use_phone_instead,
-                    style: TextStyle(
-                      fontSize: 13.sp,
-                      decoration: TextDecoration.underline,
+                    style: AppTextStyles.semiBold13.copyWith(
                       color: AppColors.blue2E8DFA,
-                      fontWeight: FontWeight.w600,
+                      decoration: TextDecoration.underline,
                     ),
                   ),
                 ),
                 SizedBox(height: 34.h),
                 Text(
                   t.auth.we_may_use_your_email_address,
-                  style: TextStyle(
-                    fontSize: 14.sp,
+                  style: AppTextStyles.medium14.copyWith(
                     color: AppColors.grey666666,
-                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(height: 23.h),

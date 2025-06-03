@@ -2,6 +2,7 @@ import 'package:adoptive_calendar/adoptive_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/text_with_icon_app_bar.dart';
@@ -39,10 +40,8 @@ class ChooseDate extends StatelessWidget {
               children: [
                 Text(
                   'We may use your date of birth to give you tailored recommendations to whom they are in your age',
-                  style: TextStyle(
-                    fontSize: 14.sp,
+                  style: AppTextStyles.medium14.copyWith(
                     color: AppColors.grey666666,
-                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 50.verticalSpace,

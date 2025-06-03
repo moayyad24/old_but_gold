@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
 class PhoneNumberField extends StatefulWidget {
   final String hintText;
@@ -50,14 +51,7 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.fieldTitle,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            color: AppColors.black,
-            fontSize: 14.sp,
-          ),
-        ),
+        Text(widget.fieldTitle, style: AppTextStyles.medium14),
         SizedBox(height: 8.h),
         Row(
           children: [
@@ -90,11 +84,7 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
                 validator: widget.checkValid,
                 controller: widget.myController,
                 keyboardType: TextInputType.phone,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.black,
-                  fontSize: 16.sp,
-                ),
+                style: AppTextStyles.medium16,
                 cursorColor: AppColors.blue0D87F9,
                 decoration: _buildInputDecoration(
                   prefixIcon: Icon(

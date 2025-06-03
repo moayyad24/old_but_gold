@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class OrDivider extends StatelessWidget {
@@ -15,10 +16,8 @@ class OrDivider extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Text(
             t.auth.or,
-            style: TextStyle(
+            style: AppTextStyles.medium16.copyWith(
               color: AppColors.darkGrey666666,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
             ),
           ),
         ),

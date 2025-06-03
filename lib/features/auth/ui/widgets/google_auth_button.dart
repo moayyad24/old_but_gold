@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class GoogleAuthButton extends StatelessWidget {
@@ -47,11 +48,7 @@ class GoogleAuthButton extends StatelessWidget {
                     SizedBox(width: 12.w),
                     Text(
                       t.auth.continue_with_google,
-                      style: TextStyle(
-                        fontSize: 17.sp,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.black,
-                      ),
+                      style: AppTextStyles.semiBold17,
                     ),
                   ],
                 ),

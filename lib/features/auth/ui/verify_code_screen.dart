@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
@@ -22,22 +23,13 @@ class VerifyCodeScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text(
-                  t.auth.verify_code,
-                  style: TextStyle(
-                    fontSize: 26.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text(t.auth.verify_code, style: AppTextStyles.bold26),
                 SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 42),
                   child: Text(
                     t.auth.four_digit_code,
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: AppTextStyles.medium15,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -50,20 +42,16 @@ class VerifyCodeScreen extends StatelessWidget {
                 SizedBox(height: 32.h),
                 Text(
                   t.auth.have_not_received_the_code,
-                  style: TextStyle(
+                  style: AppTextStyles.semiBold13.copyWith(
+                    color: AppColors.blue2E8DFA,
                     decoration: TextDecoration.underline,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blue,
                   ),
                 ),
                 SizedBox(height: 34.h),
                 Text(
                   t.auth.we_may_use_your_email_address,
-                  style: TextStyle(
-                    fontSize: 14.sp,
+                  style: AppTextStyles.medium14.copyWith(
                     color: AppColors.grey666666,
-                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(height: 36.h),

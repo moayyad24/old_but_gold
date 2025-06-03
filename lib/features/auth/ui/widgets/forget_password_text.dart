@@ -20,7 +20,6 @@ class ForgotPasswordText extends StatelessWidget {
           decoration: TextDecoration.underline,
           decorationColor: AppColors.black,
           decorationThickness: 1.2,
-          decorationStyle: TextDecorationStyle.solid,
           fontWeight: FontWeight.w500,
         ),
       ),

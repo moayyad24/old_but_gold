@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
 class AppTextField extends StatefulWidget {
   final String hintText;
@@ -65,11 +66,7 @@ class _AppTextFieldState extends State<AppTextField> {
           validator: widget.checkValid,
           controller: widget.myController,
           obscureText: widget.isObscure ? _obscureText : false,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            color: AppColors.black,
-            fontSize: 16.sp,
-          ),
+          style: AppTextStyles.medium16,
           cursorColor: AppColors.blue0D87F9,
           decoration: InputDecoration(
             filled: true,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
@@ -27,13 +28,7 @@ class PersonalInformationScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text(
-                  'Personal Information',
-                  style: TextStyle(
-                    fontSize: 26.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text('Personal Information', style: AppTextStyles.bold26),
                 SizedBox(height: 36.h),
                 FirstAndLastNameField(),
                 SizedBox(height: 30.h),
@@ -65,10 +60,8 @@ class PersonalInformationScreen extends StatelessWidget {
                 SizedBox(height: 40.h),
                 Text(
                   'We may use your phone number to send you messages with information regarding your account',
-                  style: TextStyle(
-                    fontSize: 14.sp,
+                  style: AppTextStyles.medium14.copyWith(
                     color: AppColors.grey666666,
-                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(height: 52.h),

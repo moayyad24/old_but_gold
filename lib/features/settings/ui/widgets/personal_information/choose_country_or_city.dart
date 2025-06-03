@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/search_text_field.dart';
@@ -134,11 +135,7 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
                               width: 1.sw / 4.5,
                               child: Text(
                                 data['name']!,
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  color: AppColors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                                style: AppTextStyles.medium20,
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
@@ -156,11 +153,7 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
                               width: 50.w,
                               child: Text(
                                 data['dial_code']!,
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  color: AppColors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                                style: AppTextStyles.medium20,
                               ),
                             ),
                             Container(

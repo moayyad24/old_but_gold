@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:intl/intl.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/personal_information/choose_date.dart';
 
 class DatePickerRow extends StatefulWidget {
@@ -76,14 +77,7 @@ class _DatePickerRowState extends State<DatePickerRow> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Date of Birth',
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            color: AppColors.black,
-            fontSize: 14.sp,
-          ),
-        ),
+        Text('Date of Birth', style: AppTextStyles.medium14),
         SizedBox(height: 8.h),
         GestureDetector(
           onTap: () => _showDatePicker(context),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
@@ -30,13 +31,7 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text(
-                  t.auth.sign_up,
-                  style: TextStyle(
-                    fontSize: 26.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text(t.auth.sign_up, style: AppTextStyles.bold26),
                 SizedBox(height: 36.h),
                 AppTextField(
                   fieldTitle: t.auth.email,

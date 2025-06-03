@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/constants/test_constants.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/personal_information/choose_country_or_city.dart';
 
 class CountryCityPickerRow extends StatefulWidget {
@@ -83,14 +84,7 @@ class _CountryCityPickerRowState extends State<CountryCityPickerRow> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Country',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.black,
-                  fontSize: 14.sp,
-                ),
-              ),
+              Text('Country', style: AppTextStyles.medium14),
               SizedBox(height: 8.h),
               GestureDetector(
                 onTap: () => _showCountryPicker(context),
@@ -110,14 +104,7 @@ class _CountryCityPickerRowState extends State<CountryCityPickerRow> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'City',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.black,
-                  fontSize: 14.sp,
-                ),
-              ),
+              Text('City', style: AppTextStyles.medium14),
               SizedBox(height: 8.h),
               GestureDetector(
                 onTap: () => _showCityPicker(context),
