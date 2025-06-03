@@ -26,12 +26,7 @@ class ContentArea extends StatelessWidget {
             ],
           ),
           padding: EdgeInsets.only(top: 10, left: 24, right: 24).r,
-
-          child: SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
-
-            child: child,
-          ),
+          child: SingleChildScrollView(child: child),
         ),
       ),
     );
