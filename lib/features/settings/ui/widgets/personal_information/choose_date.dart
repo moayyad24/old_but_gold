@@ -26,6 +26,7 @@ class ChooseDate extends StatelessWidget {
             minYear: 1940,
             maxYear: DateTime.now().year,
             datePickerOnly: true,
+            fontColor: Colors.black,
             selectedColor: AppColors.mainFFE09C,
             backgroundColor: AppColors.whiteFFFFFF,
             contentPadding: EdgeInsets.only(left: 16, right: 16, top: 16),
