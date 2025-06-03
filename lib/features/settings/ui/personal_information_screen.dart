@@ -39,8 +39,6 @@ class PersonalInformationScreen extends StatelessWidget {
                 SizedBox(height: 30.h),
                 DatePickerRow(
                   initialDate: DateTime(1998, 1, 1),
-                  firstDate: DateTime(1900),
-                  lastDate: DateTime.now(),
                   onDateSelected: (date) {
                     // print('Selected date: $date');
                   },
