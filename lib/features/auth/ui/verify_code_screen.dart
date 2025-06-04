@@ -23,12 +23,12 @@ class VerifyCodeScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text(t.auth.verify_code, style: AppTextStyles.bold26),
+                Text(t.auth.verifyCode, style: AppTextStyles.bold26),
                 SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 42),
                   child: Text(
-                    t.auth.four_digit_code,
+                    t.auth.fourDigitCode,
                     style: AppTextStyles.medium15,
                     textAlign: TextAlign.center,
                   ),
@@ -41,7 +41,7 @@ class VerifyCodeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 32.h),
                 Text(
-                  t.auth.have_not_received_the_code,
+                  t.auth.haveNotReceivedTheCode,
                   style: AppTextStyles.semiBold13.copyWith(
                     color: AppColors.blue2E8DFA,
                     decoration: TextDecoration.underline,
@@ -49,7 +49,7 @@ class VerifyCodeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 34.h),
                 Text(
-                  t.auth.we_may_use_your_email_address,
+                  t.auth.weMayUseYourEmailAddress,
                   style: AppTextStyles.medium14.copyWith(
                     color: AppColors.grey666666,
                   ),

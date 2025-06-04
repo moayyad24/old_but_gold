@@ -25,12 +25,12 @@ class ForgetPasswordScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text(t.auth.forget_password, style: AppTextStyles.bold26),
+                Text(t.auth.forgetPassword, style: AppTextStyles.bold26),
                 SizedBox(height: 10.h),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 42.w),
                   child: Text(
-                    t.auth.its_ok,
+                    t.auth.itsOk,
                     style: AppTextStyles.medium15,
                     textAlign: TextAlign.center,
                   ),
@@ -38,7 +38,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 SizedBox(height: 32.h),
                 AppTextField(
                   fieldTitle: t.auth.email,
-                  hintText: t.auth.email_example,
+                  hintText: t.auth.emailExample,
                   iconPath: 'assets/icons/user_icon.svg',
                   myController: TextEditingController(),
                   checkValid: (_) {
@@ -49,7 +49,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 Align(
                   alignment: AlignmentDirectional.centerStart,
                   child: Text(
-                    t.auth.use_phone_instead,
+                    t.auth.usePhoneInstead,
                     style: AppTextStyles.semiBold13.copyWith(
                       color: AppColors.blue2E8DFA,
                       decoration: TextDecoration.underline,
@@ -58,7 +58,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 34.h),
                 Text(
-                  t.auth.we_may_use_your_email_address,
+                  t.auth.weMayUseYourEmailAddress,
                   style: AppTextStyles.medium14.copyWith(
                     color: AppColors.grey666666,
                   ),
@@ -67,7 +67,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 TermsAndPrivacyText(),
                 SizedBox(height: 53.h),
                 AppConfirmButton(
-                  text: t.auth.recover_password,
+                  text: t.auth.recoverPassword,
                   onPressed: () {
                     Navigator.of(context).pushNamed(Routes.verifyCodeScreen);
                   },

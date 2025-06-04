@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 36.h),
                 AppTextField(
                   fieldTitle: t.auth.email,
-                  hintText: t.auth.email_example,
+                  hintText: t.auth.emailExample,
                   iconPath: 'assets/icons/user_icon.svg',
                   myController: TextEditingController(),
                   checkValid: (p0) {
@@ -46,7 +46,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 20.h),
                 AppTextField(
                   fieldTitle: t.auth.password,
-                  hintText: t.auth.enter_your_password,
+                  hintText: t.auth.enterYourPassword,
                   iconPath: 'assets/icons/lock.svg',
                   myController: TextEditingController(),
                   isObscure: true,
@@ -88,8 +88,8 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
                 SignUpPrompt(
-                  firstWord: t.auth.do_not_have_an_account,
-                  secondWord: t.auth.sign_up,
+                  firstWord: t.auth.doNotHaveAnAccount,
+                  secondWord: t.auth.signUp,
                   onSignUpPressed: () {
                     Navigator.of(
                       context,

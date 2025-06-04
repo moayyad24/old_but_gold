@@ -17,9 +17,9 @@ class TermsAndPrivacyText extends StatelessWidget {
           color: Colors.grey[600],
         ),
         children: [
-          TextSpan(text: t.auth.you_can_check_out_our),
+          TextSpan(text: t.auth.youCanCheckOutOur),
           TextSpan(
-            text: t.auth.terms_of_service,
+            text: t.auth.termsOfService,
             style: const TextStyle(
               decoration: TextDecoration.underline,
               fontWeight: FontWeight.w500,
@@ -27,9 +27,9 @@ class TermsAndPrivacyText extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),
-          TextSpan(text: t.auth.and_also),
+          TextSpan(text: t.auth.andAlso),
           TextSpan(
-            text: t.auth.privacy_policy,
+            text: t.auth.privacyPolicy,
             style: const TextStyle(
               decoration: TextDecoration.underline,
               fontWeight: FontWeight.w500,
@@ -37,7 +37,7 @@ class TermsAndPrivacyText extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),
-          TextSpan(text: t.auth.for_more_details),
+          TextSpan(text: t.auth.forMoreDetails),
         ],
       ),
     );

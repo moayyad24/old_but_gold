@@ -47,7 +47,7 @@ class GoogleAuthButton extends StatelessWidget {
                     ),
                     SizedBox(width: 12.w),
                     Text(
-                      t.auth.continue_with_google,
+                      t.auth.continueWithGoogle,
                       style: AppTextStyles.semiBold17,
                     ),
                   ],

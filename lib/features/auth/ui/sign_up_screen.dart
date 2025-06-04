@@ -31,11 +31,11 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text(t.auth.sign_up, style: AppTextStyles.bold26),
+                Text(t.auth.signUp, style: AppTextStyles.bold26),
                 SizedBox(height: 36.h),
                 AppTextField(
                   fieldTitle: t.auth.email,
-                  hintText: t.auth.email_example,
+                  hintText: t.auth.emailExample,
                   iconPath: 'assets/icons/user_icon.svg',
                   myController: TextEditingController(),
                   checkValid: (p0) {
@@ -45,7 +45,7 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(height: 20.h),
                 AppTextField(
                   fieldTitle: t.auth.password,
-                  hintText: t.auth.enter_your_password,
+                  hintText: t.auth.enterYourPassword,
                   iconPath: 'assets/icons/lock.svg',
                   myController: TextEditingController(),
                   isObscure: true,
@@ -55,8 +55,8 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20.h),
                 AppTextField(
-                  fieldTitle: t.auth.confirm_password,
-                  hintText: t.auth.repeat_password,
+                  fieldTitle: t.auth.confirmPassword,
+                  hintText: t.auth.repeatPassword,
                   iconPath: 'assets/icons/lock.svg',
                   myController: TextEditingController(),
                   isObscure: true,
@@ -71,7 +71,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h),
                 AppConfirmButton(
-                  text: t.auth.sign_up,
+                  text: t.auth.signUp,
                   onPressed: () {
                     // Handle login logic
                   },
@@ -89,7 +89,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
                 SignUpPrompt(
-                  firstWord: t.auth.already_have_account,
+                  firstWord: t.auth.alreadyHaveAccount,
                   secondWord: t.auth.login,
                   onSignUpPressed: () {
                     Navigator.of(
