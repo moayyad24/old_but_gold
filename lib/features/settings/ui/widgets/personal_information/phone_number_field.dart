@@ -55,47 +55,53 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
         SizedBox(height: 8.h),
         Row(
           children: [
-            Expanded(
-              flex: 1,
-              child: TextFormField(
-                enabled: false,
-                decoration: _buildInputDecoration(
-                  prefixIcon: SvgPicture.asset(
-                    widget.countryFlag,
-                    width: 24.w,
-                    height: 16.h,
-                  ),
-                  suffixIcon: Padding(
-                    padding: EdgeInsetsDirectional.only(start: 14.w),
-                    child: Icon(
-                      Icons.keyboard_arrow_down,
-                      size: 24,
-                      color: AppColors.black,
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Expanded(
+                flex: 1,
+                child: TextFormField(
+                  enabled: false,
+                  decoration: _buildInputDecoration(
+                    prefixIcon: SvgPicture.asset(
+                      widget.countryFlag,
+                      width: 24.w,
+                      height: 16.h,
+                    ),
+                    suffixIcon: Padding(
+                      padding: EdgeInsetsDirectional.only(start: 14.w),
+                      child: Icon(
+                        Icons.keyboard_arrow_down,
+                        size: 24,
+                        color: AppColors.black,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
             SizedBox(width: 12.h),
-            Expanded(
-              flex: 3,
-              child: TextFormField(
-                focusNode: _focusNode,
-                validator: widget.checkValid,
-                controller: widget.myController,
-                keyboardType: TextInputType.phone,
-                style: AppTextStyles.medium16,
-                cursorColor: AppColors.blue0D87F9,
-                decoration: _buildInputDecoration(
-                  prefixIcon: Icon(
-                    Icons.phone,
-                    color: AppColors.black,
-                    size: 24,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.check_circle,
-                    color: AppColors.green006A6F,
-                    size: 16,
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Expanded(
+                flex: 3,
+                child: TextFormField(
+                  focusNode: _focusNode,
+                  validator: widget.checkValid,
+                  controller: widget.myController,
+                  keyboardType: TextInputType.phone,
+                  style: AppTextStyles.medium16,
+                  cursorColor: AppColors.blue0D87F9,
+                  decoration: _buildInputDecoration(
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: AppColors.black,
+                      size: 24,
+                    ),
+                    suffixIcon: Icon(
+                      Icons.check_circle,
+                      color: AppColors.green006A6F,
+                      size: 16,
+                    ),
                   ),
                 ),
               ),
@@ -115,7 +121,7 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
       fillColor: _color,
       suffixIcon: suffixIcon,
       prefixIcon: Padding(
-        padding: EdgeInsetsDirectional.only(start: 14.w),
+        padding: EdgeInsetsDirectional.only(start: 14.w, end: 3.w),
         child: prefixIcon,
       ),
       isDense: true,

@@ -40,6 +40,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	// Translations
 	late final TranslationsAuthEn auth = TranslationsAuthEn._(_root);
+	late final TranslationsPersonalInfoEn personalInfo = TranslationsPersonalInfoEn._(_root);
 }
 
 // Path: auth
@@ -81,6 +82,34 @@ class TranslationsAuthEn {
 	String get verify => 'Verify';
 }
 
+// Path: personalInfo
+class TranslationsPersonalInfoEn {
+	TranslationsPersonalInfoEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get personalInformation => 'Personal Information';
+	String get phoneNumber => 'Phone Number';
+	String get pleaseEnterPhoneNumber => 'Please enter phone number';
+	String get weMayUseYourPhoneNumber => 'We may use your phone number to send you messages with information regarding your account';
+	String get confirmYourInfo => 'Confirm Your Info';
+	String get chooseCountry => 'Choose Country';
+	String get chooseCity => 'Choose City';
+	String get searchForCountryName => 'Search for country name..';
+	String get searchForCityName => 'Search for city name..';
+	String get confirmYourCountry => 'Confirm Your Country';
+	String get confirmYourCity => 'Confirm Your City';
+	String get chooseDateOfBirth => 'Choose Date of Birth';
+	String get weMayUseYourDateOfBirth => 'We may use your date of birth to give you tailored recommendations to whom they are in your age';
+	String get country => 'Country';
+	String get city => 'City';
+	String get dateOfBirth => 'Date of Birth';
+	String get required => 'Required';
+	String get firstName => 'First Name';
+	String get lastName => 'Last Name';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -116,6 +145,25 @@ extension on Translations {
 			case 'auth.four_digit_code': return 'Please enter the 4-digit code we’ve sent to you email';
 			case 'auth.have_not_received_the_code': return 'Haven’t received the code?';
 			case 'auth.verify': return 'Verify';
+			case 'personalInfo.personalInformation': return 'Personal Information';
+			case 'personalInfo.phoneNumber': return 'Phone Number';
+			case 'personalInfo.pleaseEnterPhoneNumber': return 'Please enter phone number';
+			case 'personalInfo.weMayUseYourPhoneNumber': return 'We may use your phone number to send you messages with information regarding your account';
+			case 'personalInfo.confirmYourInfo': return 'Confirm Your Info';
+			case 'personalInfo.chooseCountry': return 'Choose Country';
+			case 'personalInfo.chooseCity': return 'Choose City';
+			case 'personalInfo.searchForCountryName': return 'Search for country name..';
+			case 'personalInfo.searchForCityName': return 'Search for city name..';
+			case 'personalInfo.confirmYourCountry': return 'Confirm Your Country';
+			case 'personalInfo.confirmYourCity': return 'Confirm Your City';
+			case 'personalInfo.chooseDateOfBirth': return 'Choose Date of Birth';
+			case 'personalInfo.weMayUseYourDateOfBirth': return 'We may use your date of birth to give you tailored recommendations to whom they are in your age';
+			case 'personalInfo.country': return 'Country';
+			case 'personalInfo.city': return 'City';
+			case 'personalInfo.dateOfBirth': return 'Date of Birth';
+			case 'personalInfo.required': return 'Required';
+			case 'personalInfo.firstName': return 'First Name';
+			case 'personalInfo.lastName': return 'Last Name';
 			default: return null;
 		}
 	}

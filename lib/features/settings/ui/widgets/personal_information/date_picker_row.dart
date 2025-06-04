@@ -4,6 +4,7 @@ import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:intl/intl.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/personal_information/choose_date.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class DatePickerRow extends StatefulWidget {
   final Function(DateTime)? onDateSelected;
@@ -16,37 +17,20 @@ class DatePickerRow extends StatefulWidget {
 }
 
 class _DatePickerRowState extends State<DatePickerRow> {
-  late TextEditingController _monthController;
-  late TextEditingController _dayController;
-  late TextEditingController _yearController;
   late DateTime _selectedDate;
 
   @override
   void initState() {
     super.initState();
     _selectedDate = widget.initialDate ?? DateTime.now();
-    _monthController = TextEditingController(
-      text: _getMonthName(_selectedDate.month),
-    );
-    _dayController = TextEditingController(
-      text: _formatNumber(_selectedDate.day),
-    );
-    _yearController = TextEditingController(
-      text: _selectedDate.year.toString(),
-    );
-  }
-
-  @override
-  void dispose() {
-    _monthController.dispose();
-    _dayController.dispose();
-    _yearController.dispose();
-    super.dispose();
   }
 
   String _getMonthName(int monthNumber) {
     final date = DateTime(2000, monthNumber);
-    return DateFormat('MMM').format(date);
+    return DateFormat(
+      'MMM',
+      LocaleSettings.currentLocale.languageCode,
+    ).format(date);
   }
 
   String _formatNumber(int number) => number.toString().padLeft(2, '0');
@@ -60,9 +44,6 @@ class _DatePickerRowState extends State<DatePickerRow> {
     if (date != null) {
       setState(() {
         _selectedDate = DateTime(date.year, date.month, date.day);
-        _yearController.text = _selectedDate.year.toString();
-        _monthController.text = _getMonthName(_selectedDate.month);
-        _dayController.text = _formatNumber(_selectedDate.day);
         _updateDate();
       });
     }
@@ -77,40 +58,28 @@ class _DatePickerRowState extends State<DatePickerRow> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Date of Birth', style: AppTextStyles.medium14),
+        Text(t.personalInfo.dateOfBirth, style: AppTextStyles.medium14),
         SizedBox(height: 8.h),
         GestureDetector(
           onTap: () => _showDatePicker(context),
           child: Row(
             children: [
-              // Month Field
-              Expanded(
-                child: AbsorbPointer(
-                  child: TextFormField(
-                    controller: _monthController,
-                    decoration: _buildDecoration('MM'),
-                  ),
-                ),
-              ),
-              SizedBox(width: 10.w),
               // Day Field
               Expanded(
-                child: AbsorbPointer(
-                  child: TextFormField(
-                    controller: _dayController,
-                    decoration: _buildDecoration('DD'),
-                  ),
-                ),
+                flex: 3,
+                child: _buildContainer(_formatNumber(_selectedDate.day)),
+              ),
+              SizedBox(width: 10.w),
+              // Month Field
+              Expanded(
+                flex: 5,
+                child: _buildContainer(_getMonthName(_selectedDate.month)),
               ),
               SizedBox(width: 10.w),
               // Year Field
               Expanded(
-                child: AbsorbPointer(
-                  child: TextFormField(
-                    controller: _yearController,
-                    decoration: _buildDecoration('YYYY'),
-                  ),
-                ),
+                flex: 4,
+                child: _buildContainer(_selectedDate.year.toString()),
               ),
             ],
           ),
@@ -119,26 +88,23 @@ class _DatePickerRowState extends State<DatePickerRow> {
     );
   }
 
-  InputDecoration _buildDecoration(String hint) {
-    return InputDecoration(
-      filled: true,
-      fillColor: AppColors.whiteFFFFFF,
-      isDense: true,
-      hintText: hint,
-      suffixIcon: Icon(Icons.unfold_more, size: 24),
-      hintStyle: TextStyle(color: AppColors.darkGrey666666, fontSize: 16.sp),
-      contentPadding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 17.w),
-      enabledBorder: OutlineInputBorder(
+  Widget _buildContainer(String text) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 12.h),
+      decoration: BoxDecoration(
+        color: AppColors.whiteFFFFFF,
         borderRadius: BorderRadius.circular(12.r),
-        borderSide: const BorderSide(color: AppColors.greyC2C2C2),
+        border: Border.all(color: AppColors.greyC2C2C2, width: 1),
       ),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12.r),
-        borderSide: const BorderSide(color: AppColors.greyC2C2C2, width: 1.5),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12.r),
-        borderSide: const BorderSide(color: AppColors.blue2E8DFA, width: 1.5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsetsDirectional.only(start: 10.0),
+            child: Text(text, style: AppTextStyles.medium14),
+          ),
+          Icon(Icons.unfold_more, size: 24, color: AppColors.black),
+        ],
       ),
     );
   }
