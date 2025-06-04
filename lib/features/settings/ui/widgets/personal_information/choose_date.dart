@@ -6,6 +6,7 @@ import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/text_with_icon_app_bar.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class ChooseDate extends StatelessWidget {
   const ChooseDate({super.key});
@@ -18,7 +19,7 @@ class ChooseDate extends StatelessWidget {
         children: [
           Padding(
             padding: UiParameters.dPadding,
-            child: TextWithIconAppBar(title: 'Choose Date of Birth'),
+            child: TextWithIconAppBar(title: t.personalInfo.chooseDateOfBirth),
           ),
           Spacer(flex: 3),
           AdoptiveCalendar(
@@ -40,14 +41,14 @@ class ChooseDate extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'We may use your date of birth to give you tailored recommendations to whom they are in your age',
+                  t.personalInfo.weMayUseYourDateOfBirth,
                   style: AppTextStyles.medium14.copyWith(
                     color: AppColors.grey666666,
                   ),
                 ),
                 50.verticalSpace,
                 AppConfirmButton(
-                  text: 'Confirm Your Info',
+                  text: t.personalInfo.confirmYourInfo,
                   onPressed: () {
                     Navigator.pop(context, selectedDate);
                   },

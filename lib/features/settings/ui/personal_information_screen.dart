@@ -11,6 +11,7 @@ import 'package:old_but_gold/features/settings/ui/widgets/personal_information/c
 import 'package:old_but_gold/features/settings/ui/widgets/personal_information/date_picker_row.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/personal_information/first_and_last_name_field.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/personal_information/phone_number_field.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class PersonalInformationScreen extends StatelessWidget {
   const PersonalInformationScreen({super.key});
@@ -28,7 +29,10 @@ class PersonalInformationScreen extends StatelessWidget {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text('Personal Information', style: AppTextStyles.bold26),
+                Text(
+                  t.personalInfo.personalInformation,
+                  style: AppTextStyles.bold26,
+                ),
                 SizedBox(height: 36.h),
                 FirstAndLastNameField(),
                 SizedBox(height: 30.h),
@@ -46,12 +50,12 @@ class PersonalInformationScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h),
                 PhoneNumberField(
-                  fieldTitle: 'Phone Number',
+                  fieldTitle: t.personalInfo.phoneNumber,
                   hintText: '+213 542-382-179',
                   myController: TextEditingController(),
                   checkValid: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter phone number';
+                      return t.personalInfo.pleaseEnterPhoneNumber;
                     }
                     return null;
                   },
@@ -59,13 +63,16 @@ class PersonalInformationScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 40.h),
                 Text(
-                  'We may use your phone number to send you messages with information regarding your account',
+                  t.personalInfo.weMayUseYourPhoneNumber,
                   style: AppTextStyles.medium14.copyWith(
                     color: AppColors.grey666666,
                   ),
                 ),
                 SizedBox(height: 52.h),
-                AppConfirmButton(text: 'Confirm Your Info', onPressed: () {}),
+                AppConfirmButton(
+                  text: t.personalInfo.confirmYourInfo,
+                  onPressed: () {},
+                ),
               ],
             ),
           ),

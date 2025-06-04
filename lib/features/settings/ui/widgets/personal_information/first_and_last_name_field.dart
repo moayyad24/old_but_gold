@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/widgets/app_text_field.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class FirstAndLastNameField extends StatelessWidget {
   const FirstAndLastNameField({super.key});
@@ -11,8 +12,8 @@ class FirstAndLastNameField extends StatelessWidget {
       children: [
         Expanded(
           child: AppTextField(
-            hintText: 'Required',
-            fieldTitle: 'First Name',
+            hintText: t.personalInfo.required,
+            fieldTitle: t.personalInfo.firstName,
             myController: TextEditingController(),
             checkValid: (_) {
               return null;
@@ -22,8 +23,8 @@ class FirstAndLastNameField extends StatelessWidget {
         SizedBox(width: 10.w),
         Expanded(
           child: AppTextField(
-            hintText: 'Required',
-            fieldTitle: 'Last Name',
+            hintText: t.personalInfo.required,
+            fieldTitle: t.personalInfo.lastName,
             myController: TextEditingController(),
             checkValid: (_) {
               return null;

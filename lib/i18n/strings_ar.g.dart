@@ -37,6 +37,7 @@ class TranslationsAr implements Translations {
 
 	// Translations
 	@override late final _TranslationsAuthAr auth = _TranslationsAuthAr._(_root);
+	@override late final _TranslationsPersonalInfoAr personalInfo = _TranslationsPersonalInfoAr._(_root);
 }
 
 // Path: auth
@@ -78,6 +79,34 @@ class _TranslationsAuthAr implements TranslationsAuthEn {
 	@override String get verify => 'تحقق';
 }
 
+// Path: personalInfo
+class _TranslationsPersonalInfoAr implements TranslationsPersonalInfoEn {
+	_TranslationsPersonalInfoAr._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get personalInformation => 'المعلومات الشخصية';
+	@override String get phoneNumber => 'رقم الهاتف';
+	@override String get pleaseEnterPhoneNumber => 'يرجى إدخال رقم الهاتف';
+	@override String get weMayUseYourPhoneNumber => 'قد نستخدم رقم هاتفك لإرسال رسائل تحتوي على معلومات حول حسابك';
+	@override String get confirmYourInfo => 'تأكيد معلوماتك';
+	@override String get chooseCountry => 'اختر الدولة';
+	@override String get chooseCity => 'اختر المدينة';
+	@override String get searchForCountryName => 'ابحث عن اسم الدولة..';
+	@override String get searchForCityName => 'ابحث عن اسم المدينة..';
+	@override String get confirmYourCountry => 'تأكيد دولتك';
+	@override String get confirmYourCity => 'تأكيد مدينتك';
+	@override String get chooseDateOfBirth => 'اختر تاريخ الميلاد';
+	@override String get weMayUseYourDateOfBirth => 'قد نستخدم تاريخ ميلادك لتزويدك بتوصيات مخصصة لمن هم في فئتك العمرية';
+	@override String get country => 'الدولة';
+	@override String get city => 'المدينة';
+	@override String get dateOfBirth => 'تاريخ الميلاد';
+	@override String get required => 'مطلوب';
+	@override String get firstName => 'الاسم الأول';
+	@override String get lastName => 'الاسم الأخير';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsAr {
@@ -113,6 +142,25 @@ extension on TranslationsAr {
 			case 'auth.four_digit_code': return 'الرجاء إدخال الرمز المكون من 4 أرقام الذي أرسلناه إلى بريدك الإلكتروني';
 			case 'auth.have_not_received_the_code': return 'لم تستلم الرمز؟';
 			case 'auth.verify': return 'تحقق';
+			case 'personalInfo.personalInformation': return 'المعلومات الشخصية';
+			case 'personalInfo.phoneNumber': return 'رقم الهاتف';
+			case 'personalInfo.pleaseEnterPhoneNumber': return 'يرجى إدخال رقم الهاتف';
+			case 'personalInfo.weMayUseYourPhoneNumber': return 'قد نستخدم رقم هاتفك لإرسال رسائل تحتوي على معلومات حول حسابك';
+			case 'personalInfo.confirmYourInfo': return 'تأكيد معلوماتك';
+			case 'personalInfo.chooseCountry': return 'اختر الدولة';
+			case 'personalInfo.chooseCity': return 'اختر المدينة';
+			case 'personalInfo.searchForCountryName': return 'ابحث عن اسم الدولة..';
+			case 'personalInfo.searchForCityName': return 'ابحث عن اسم المدينة..';
+			case 'personalInfo.confirmYourCountry': return 'تأكيد دولتك';
+			case 'personalInfo.confirmYourCity': return 'تأكيد مدينتك';
+			case 'personalInfo.chooseDateOfBirth': return 'اختر تاريخ الميلاد';
+			case 'personalInfo.weMayUseYourDateOfBirth': return 'قد نستخدم تاريخ ميلادك لتزويدك بتوصيات مخصصة لمن هم في فئتك العمرية';
+			case 'personalInfo.country': return 'الدولة';
+			case 'personalInfo.city': return 'المدينة';
+			case 'personalInfo.dateOfBirth': return 'تاريخ الميلاد';
+			case 'personalInfo.required': return 'مطلوب';
+			case 'personalInfo.firstName': return 'الاسم الأول';
+			case 'personalInfo.lastName': return 'الاسم الأخير';
 			default: return null;
 		}
 	}

@@ -30,5 +30,26 @@
         "four_digit_code": "الرجاء إدخال الرمز المكون من 4 أرقام الذي أرسلناه إلى بريدك الإلكتروني",
         "have_not_received_the_code": "لم تستلم الرمز؟",
         "verify": "تحقق"
+    },
+    "personalInfo": {
+        "personalInformation": "المعلومات الشخصية",
+        "phoneNumber": "رقم الهاتف",
+        "pleaseEnterPhoneNumber": "يرجى إدخال رقم الهاتف",
+        "weMayUseYourPhoneNumber": "قد نستخدم رقم هاتفك لإرسال رسائل تحتوي على معلومات حول حسابك",
+        "confirmYourInfo": "تأكيد معلوماتك",
+        "chooseCountry": "اختر الدولة",
+        "chooseCity": "اختر المدينة",
+        "searchForCountryName": "ابحث عن اسم الدولة..",
+        "searchForCityName": "ابحث عن اسم المدينة..",
+        "confirmYourCountry": "تأكيد دولتك",
+        "confirmYourCity": "تأكيد مدينتك",
+        "chooseDateOfBirth": "اختر تاريخ الميلاد",
+        "weMayUseYourDateOfBirth": "قد نستخدم تاريخ ميلادك لتزويدك بتوصيات مخصصة لمن هم في فئتك العمرية",
+        "country": "الدولة",
+        "city": "المدينة",
+        "dateOfBirth": "تاريخ الميلاد",
+        "required": "مطلوب",
+        "firstName": "الاسم الأول",
+        "lastName": "الاسم الأخير"
     }
 }

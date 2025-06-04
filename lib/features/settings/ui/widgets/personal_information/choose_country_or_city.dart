@@ -7,6 +7,7 @@ import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/search_text_field.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/text_with_icon_app_bar.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class ChooseCountryOrCity extends StatefulWidget {
   final List<Map<String, String>> dataList;
@@ -64,15 +65,18 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
             child: Column(
               children: [
                 TextWithIconAppBar(
-                  title: !widget.isCity ? 'Choose Country' : 'Choose City',
+                  title:
+                      !widget.isCity
+                          ? t.personalInfo.chooseCountry
+                          : t.personalInfo.chooseCity,
                 ),
                 SizedBox(height: 20.h),
                 SearchTextField(
                   searchController: _searchController,
                   hintText:
                       !widget.isCity
-                          ? 'Search for country name..'
-                          : 'Search for city name..',
+                          ? t.personalInfo.searchForCountryName
+                          : t.personalInfo.searchForCityName,
                 ),
               ],
             ),
@@ -134,7 +138,9 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
                             SizedBox(
                               width: 1.sw / 4.5,
                               child: Text(
-                                data['name']!,
+                                LocaleSettings.currentLocale == AppLocale.ar
+                                    ? data['ar']!
+                                    : data['name']!,
                                 style: AppTextStyles.medium20,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -154,6 +160,7 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
                               child: Text(
                                 data['dial_code']!,
                                 style: AppTextStyles.medium20,
+                                textDirection: TextDirection.ltr,
                               ),
                             ),
                             Container(
@@ -194,7 +201,9 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
             child: AppConfirmButton(
               onPressed: () => Navigator.pop(context, _selectedData),
               text:
-                  !widget.isCity ? 'Confirm Your Country' : 'Confirm Your City',
+                  !widget.isCity
+                      ? t.personalInfo.confirmYourCountry
+                      : t.personalInfo.confirmYourCity,
             ),
           ),
         ],
