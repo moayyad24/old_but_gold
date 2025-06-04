@@ -11,7 +11,9 @@ class AppBackButton extends StatelessWidget {
       width: 38.w,
       height: 38.w,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.mainFFEECA,
           elevation: 3,

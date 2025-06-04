@@ -82,7 +82,6 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 24.h),
                 GoogleAuthButton(
                   onPressed: () {
-                    LocaleSettings.setLocale(AppLocale.ar);
                     // Handle Google sign in
                   },
                   isLoading: false,
