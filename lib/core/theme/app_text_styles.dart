@@ -52,4 +52,9 @@ class AppTextStyles {
     fontSize: 26.sp,
     fontWeight: FontWeight.bold,
   );
+  static TextStyle bold28 = TextStyle(
+    color: Colors.black,
+    fontSize: 28.sp,
+    fontWeight: FontWeight.bold,
+  );
 }

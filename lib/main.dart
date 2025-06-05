@@ -7,12 +7,12 @@ import 'i18n/strings.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  LocaleSettings.setLocale(AppLocale.ar);
+  LocaleSettings.setLocale(AppLocale.en);
   await ScreenUtil.ensureScreenSize();
   runApp(
     TranslationProvider(
       child: DevicePreview(
-        enabled: false,
+        enabled: true,
         builder: (context) => OldButGold(appRouter: AppRouter()),
       ),
     ),

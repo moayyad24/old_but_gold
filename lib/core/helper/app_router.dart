@@ -4,11 +4,16 @@ import 'package:old_but_gold/features/auth/ui/forget_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/login_screen.dart';
 import 'package:old_but_gold/features/auth/ui/sign_up_screen.dart';
 import 'package:old_but_gold/features/auth/ui/verify_code_screen.dart';
+import 'package:old_but_gold/features/onboarding/ui/onboarding_screen.dart';
 import 'package:old_but_gold/features/settings/ui/personal_information_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      //OnBoarding
+      case Routes.onboardingScreen:
+        return _buildOnboardingScreen();
+      //Auth
       case Routes.loginScreen:
         return _buildLoginScreen();
       case Routes.signUpScreen:
@@ -17,11 +22,16 @@ class AppRouter {
         return _buildForgetPasswordScreen();
       case Routes.verifyCodeScreen:
         return _buildVerifyCodeScreen();
+      //Settings
       case Routes.personalInformationScreen:
         return _buildPersonalInformationScreen();
       default:
         return null;
     }
+  }
+
+  Route _buildOnboardingScreen() {
+    return MaterialPageRoute(builder: (_) => const OnboardingScreen());
   }
 
   Route _buildLoginScreen() {

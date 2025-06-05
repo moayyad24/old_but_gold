@@ -17,6 +17,7 @@ class OldButGold extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         systemNavigationBarColor: AppColors.whiteFFFDF2,
+        statusBarColor: AppColors.black,
       ),
     );
     return ScreenUtilInit(

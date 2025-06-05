@@ -7,12 +7,15 @@ class AppConfirmButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final bool isLoading;
-
+  final bool border;
+  final Color? backgroundColor;
   const AppConfirmButton({
     super.key,
     required this.text,
     required this.onPressed,
+    this.border = false,
     this.isLoading = false,
+    this.backgroundColor = AppColors.mainFFE09C,
   });
 
   @override
@@ -23,11 +26,16 @@ class AppConfirmButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.mainFFE09C,
+          backgroundColor: backgroundColor,
           foregroundColor: AppColors.black,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
+            side:
+                border
+                    ? BorderSide(color: AppColors.greyC2C2C2)
+                    : BorderSide.none,
           ),
+
           elevation: 0.2,
           shadowColor: AppColors.greyC2C2C2,
         ),
