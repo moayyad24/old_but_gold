@@ -11,10 +11,12 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(RegisterLoading());
     var result = await authRepo.register(data);
     result.fold(
-      (l) {
-        emit(RegisterFailure());
+      (f) {
+        //failure
+        emit(RegisterFailure(errorMessage: f.message));
       },
-      (r) {
+      (s) {
+        //success
         emit(RegisterSuccess());
       },
     );

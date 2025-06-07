@@ -1,6 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class ApiService {
+  //! start xampp server:
+  //! php artisan serve --host=0.0.0.0 --port=8000
+  //! php artisan queue:work
   final String _baseUrl = "http://192.168.1.111:8000/api/";
   final Dio _dio;
 
@@ -11,7 +15,7 @@ class ApiService {
       receiveTimeout: const Duration(seconds: 10),
       headers: {
         'Accept': 'application/json',
-        'Accept-Language': 'ar',
+        'Accept-Language': LocaleSettings.currentLocale.languageCode,
         'Content-Type': 'multipart/form-data',
       },
     );
