@@ -7,6 +7,7 @@ import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/otp_field.dart';
+import 'package:old_but_gold/features/auth/ui/widgets/otp_timer.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class VerifyCodeScreen extends StatelessWidget {
@@ -38,6 +39,11 @@ class VerifyCodeScreen extends StatelessWidget {
                   onCompleted: (value) {
                     //
                   },
+                ),
+                SizedBox(height: 10.h),
+                OtpTimer(
+                  onResend: () {},
+                  countdownDuration: 30, // Optional: customize countdown
                 ),
                 SizedBox(height: 32.h),
                 Text(

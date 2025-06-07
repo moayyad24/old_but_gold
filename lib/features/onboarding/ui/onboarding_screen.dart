@@ -46,7 +46,12 @@ class OnboardingScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                AppConfirmButton(text: 'Get Started', onPressed: () {}),
+                AppConfirmButton(
+                  text: 'Get Started',
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.verifyCodeScreen);
+                  },
+                ),
                 12.verticalSpace,
                 AppConfirmButton(
                   text: 'Login',
