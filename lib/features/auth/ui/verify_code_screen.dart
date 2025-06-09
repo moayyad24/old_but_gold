@@ -1,8 +1,13 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/helper/dependency_injection.dart';
+import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
+import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_cubit.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
@@ -10,8 +15,22 @@ import 'package:old_but_gold/features/auth/ui/widgets/otp_field.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/otp_timer.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
-class VerifyCodeScreen extends StatelessWidget {
+class VerifyCodeScreen extends StatefulWidget {
   const VerifyCodeScreen({super.key});
+
+  @override
+  State<VerifyCodeScreen> createState() => _VerifyCodeScreenState();
+}
+
+class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
+  late String code, email;
+  late LocalStorageService storage;
+  @override
+  void initState() {
+    storage = getIt<LocalStorageService>();
+    email = storage.getString('user_email')!;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +56,9 @@ class VerifyCodeScreen extends StatelessWidget {
                 SizedBox(height: 32.h),
                 OtpField(
                   onCompleted: (value) {
-                    //
+                    setState(() {
+                      code = value;
+                    });
                   },
                 ),
                 SizedBox(height: 10.h),
@@ -64,7 +85,13 @@ class VerifyCodeScreen extends StatelessWidget {
                 AppConfirmButton(
                   text: t.auth.verify,
                   onPressed: () {
-                    //
+                    FormData data = FormData.fromMap({
+                      'code': code,
+                      'email': email,
+                    });
+                    BlocProvider.of<VerifyEmailCubit>(
+                      context,
+                    ).verifyEmail(data);
                   },
                 ),
               ],

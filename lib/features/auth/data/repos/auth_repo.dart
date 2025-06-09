@@ -8,5 +8,5 @@ import 'package:old_but_gold/features/auth/data/models/verify_email_model.dart';
 abstract class AuthRepo {
   Future<Either<Failure, RegisterModel>> register(FormData data);
   Future<Either<Failure, LoginModel>> login();
-  Future<Either<Failure, VerifyEmailModel>> verifyEmail();
+  Future<Either<Failure, VerifyEmailModel>> verifyEmail(FormData data);
 }

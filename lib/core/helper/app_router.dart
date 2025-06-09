@@ -4,6 +4,7 @@ import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:old_but_gold/features/auth/manager/register_cubit/register_cubit.dart';
+import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_cubit.dart';
 import 'package:old_but_gold/features/auth/ui/forget_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/login_screen.dart';
 import 'package:old_but_gold/features/auth/ui/sign_up_screen.dart';
@@ -57,7 +58,13 @@ class AppRouter {
   }
 
   Route _buildVerifyCodeScreen() {
-    return MaterialPageRoute(builder: (_) => const VerifyCodeScreen());
+    return MaterialPageRoute(
+      builder:
+          (_) => BlocProvider(
+            create: (context) => VerifyEmailCubit(getIt.get<AuthRepoImpl>()),
+            child: const VerifyCodeScreen(),
+          ),
+    );
   }
 
   Route _buildPersonalInformationScreen() {

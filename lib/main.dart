@@ -10,7 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LocaleSettings.setLocale(AppLocale.en);
   await ScreenUtil.ensureScreenSize();
-  setupGetIt();
+  await setupGetIt();
   runApp(
     TranslationProvider(
       child: DevicePreview(

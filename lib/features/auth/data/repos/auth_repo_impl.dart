@@ -34,8 +34,17 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure, VerifyEmailModel>> verifyEmail() {
-    // TODO: implement verifyEmail
-    throw UnimplementedError();
+  Future<Either<Failure, VerifyEmailModel>> verifyEmail(data) async {
+    try {
+      Map<String, dynamic> response = await apiService.post(
+        endPoint: 'verify-email',
+        data: data,
+      );
+      VerifyEmailModel verifyEmailModel = VerifyEmailModel.fromJson(response);
+      return right(verifyEmailModel);
+    } catch (e) {
+      if (e is DioException) return left(ServerFailure.fromDioError(e));
+      return left(ServerFailure(e.toString()));
+    }
   }
 }
