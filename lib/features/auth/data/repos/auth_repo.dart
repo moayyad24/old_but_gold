@@ -9,4 +9,5 @@ abstract class AuthRepo {
   Future<Either<Failure, RegisterModel>> register(FormData data);
   Future<Either<Failure, LoginModel>> login();
   Future<Either<Failure, VerifyEmailModel>> verifyEmail(FormData data);
+  Future<Either<Failure, bool>> resendCode(String email);
 }

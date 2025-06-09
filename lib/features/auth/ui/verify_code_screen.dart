@@ -8,6 +8,7 @@ import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_cubit.dart';
+import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_state.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
@@ -63,7 +64,11 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                 ),
                 SizedBox(height: 10.h),
                 OtpTimer(
-                  onResend: () {},
+                  onResend: () {
+                    BlocProvider.of<VerifyEmailCubit>(
+                      context,
+                    ).resendCode(email);
+                  },
                   countdownDuration: 30, // Optional: customize countdown
                 ),
                 SizedBox(height: 32.h),
@@ -82,17 +87,31 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                   ),
                 ),
                 SizedBox(height: 36.h),
-                AppConfirmButton(
-                  text: t.auth.verify,
-                  onPressed: () {
-                    FormData data = FormData.fromMap({
-                      'code': code,
-                      'email': email,
-                    });
-                    BlocProvider.of<VerifyEmailCubit>(
-                      context,
-                    ).verifyEmail(data);
+                BlocListener<VerifyEmailCubit, VerifyEmailState>(
+                  listener: (context, state) {
+                    if (state is VerifyEmailFailure) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(state.errorMessage),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    } else if (state is VerifyEmailSuccess) {
+                      //ToDo: navigate to home screen
+                    }
                   },
+                  child: AppConfirmButton(
+                    text: t.auth.verify,
+                    onPressed: () {
+                      FormData data = FormData.fromMap({
+                        'code': code,
+                        'email': email,
+                      });
+                      BlocProvider.of<VerifyEmailCubit>(
+                        context,
+                      ).verifyEmail(data);
+                    },
+                  ),
                 ),
               ],
             ),

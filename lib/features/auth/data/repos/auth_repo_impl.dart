@@ -22,7 +22,12 @@ class AuthRepoImpl extends AuthRepo {
       RegisterModel registerModel = RegisterModel.fromJson(response);
       return right(registerModel);
     } catch (e) {
-      if (e is DioException) return left(ServerFailure.fromDioError(e));
+      if (e is DioException) {
+        if (e.response!.statusCode == 400) {
+          return left(ServerFailure('should_resend_code'));
+        }
+        return left(ServerFailure.fromDioError(e));
+      }
       return left(ServerFailure(e.toString()));
     }
   }
@@ -42,6 +47,21 @@ class AuthRepoImpl extends AuthRepo {
       );
       VerifyEmailModel verifyEmailModel = VerifyEmailModel.fromJson(response);
       return right(verifyEmailModel);
+    } catch (e) {
+      if (e is DioException) return left(ServerFailure.fromDioError(e));
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> resendCode(String email) async {
+    try {
+      Map<String, dynamic> response = await apiService.post(
+        endPoint: 'resendCode',
+        data: FormData.fromMap({'email': email}),
+      );
+      String status = response['status'];
+      return right(status == 'success' ? true : false);
     } catch (e) {
       if (e is DioException) return left(ServerFailure.fromDioError(e));
       return left(ServerFailure(e.toString()));

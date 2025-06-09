@@ -9,7 +9,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   final AuthRepo authRepo;
   RegisterCubit(this.authRepo) : super(RegisterInitial());
 
-  Future<void> _storeUserEmail(String email) async {
+  Future<void> storeUserEmail(String email) async {
     final LocalStorageService storage = getIt<LocalStorageService>();
     await storage.setString('user_email', email);
   }
@@ -20,11 +20,14 @@ class RegisterCubit extends Cubit<RegisterState> {
     result.fold(
       (f) {
         //failure
-        emit(RegisterFailure(errorMessage: f.message));
+        if (f.message == 'should_resend_code') {
+          emit(RegisterSuccess());
+        } else {
+          emit(RegisterFailure(errorMessage: f.message));
+        }
       },
       (s) async {
         //success
-        await _storeUserEmail(s.data.email);
         emit(RegisterSuccess());
       },
     );

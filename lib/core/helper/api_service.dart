@@ -7,7 +7,7 @@ class ApiService {
   //! php artisan queue:work
   //! final String _baseUrl = "http://192.168.1.111:8000/api/";
   //? Run on a New Server
-  //! http --url=adapting-bass-fine.ngrok-free.app 8000 --host-header=rewrite
+  //! ngrok http --url=adapting-bass-fine.ngrok-free.app 8000 --host-header=rewrite
   //! php artisan serve --port=8000
   //! php artisan queue:work
   

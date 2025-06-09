@@ -21,4 +21,8 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
       },
     );
   }
+
+  Future<void> resendCode(String email) async {
+    await authRepo.resendCode(email);
+  }
 }

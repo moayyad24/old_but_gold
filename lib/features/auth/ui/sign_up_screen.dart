@@ -151,11 +151,12 @@ class SignUpConfirmButton extends StatelessWidget {
         if (state is RegisterFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(state.errorMessage), // Display error from state
+              content: Text(state.errorMessage),
               backgroundColor: Colors.red,
             ),
           );
         } else if (state is RegisterSuccess) {
+          BlocProvider.of<RegisterCubit>(context).storeUserEmail(email.text);
           Navigator.pushNamed(context, Routes.verifyCodeScreen);
         }
       },
