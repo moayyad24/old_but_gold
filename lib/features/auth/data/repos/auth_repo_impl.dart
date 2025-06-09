@@ -33,9 +33,18 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure, LoginModel>> login() {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<Either<Failure, LoginModel>> login(data) async {
+    try {
+      Map<String, dynamic> response = await apiService.post(
+        endPoint: 'login',
+        data: data,
+      );
+      LoginModel loginModel = LoginModel.fromJson(response);
+      return right(loginModel);
+    } catch (e) {
+      if (e is DioException) return left(ServerFailure.fromDioError(e));
+      return left(ServerFailure(e.toString()));
+    }
   }
 
   @override

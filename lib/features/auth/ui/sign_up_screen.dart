@@ -27,17 +27,26 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  GlobalKey<FormState> formkey = GlobalKey();
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  late TextEditingController confirmPasswordController;
+  late GlobalKey<FormState> formkey;
+
+  @override
+  void initState() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    confirmPasswordController = TextEditingController();
+    formkey = GlobalKey();
+    super.initState();
+  }
 
   @override
   void dispose() {
-    super.dispose();
     emailController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
+    super.dispose();
   }
 
   @override

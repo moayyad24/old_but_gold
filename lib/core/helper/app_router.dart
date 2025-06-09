@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:old_but_gold/features/auth/manager/login_cubit/login_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/register_cubit/register_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_cubit.dart';
 import 'package:old_but_gold/features/auth/ui/forget_password_screen.dart';
@@ -40,7 +41,13 @@ class AppRouter {
   }
 
   Route _buildLoginScreen() {
-    return MaterialPageRoute(builder: (_) => const LoginScreen());
+    return MaterialPageRoute(
+      builder:
+          (_) => BlocProvider(
+            create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
+            child: const LoginScreen(),
+          ),
+    );
   }
 
   Route _buildSignUpScreen() {

@@ -58,6 +58,8 @@ class ServerFailure extends Failure {
       return ServerFailure(response['errors']['email'][0]);
     } else if (statusCode == 400) {
       return ServerFailure(response['message']['errorDetails'][0]);
+    } else if (statusCode == 401) {
+      return ServerFailure(response['message']['errorDetails'][0]);
     } else {
       return ServerFailure("Unexpected response from the server.");
     }
