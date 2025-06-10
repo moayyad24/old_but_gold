@@ -1,4 +1,6 @@
 // Enum for input types
+import 'package:old_but_gold/i18n/strings.g.dart';
+
 enum InputType { username, email, password, phone }
 
 class InputValidator {
@@ -34,7 +36,7 @@ class InputValidator {
   }) {
     // Check for empty value
     if (isRequired && value.isEmpty) {
-      return 'This field cannot be empty';
+      return t.validator.thisFieldCannotBeEmpty;
     }
 
     // Skip further validation if empty and not required
@@ -42,32 +44,36 @@ class InputValidator {
 
     // Length validation
     if (value.length < minLength) {
-      return 'Must be at least $minLength characters';
+      return t.validator.mustBeAtLeastCharacters(minLength: minLength);
     }
     if (value.length > maxLength) {
-      return 'Cannot exceed $maxLength characters';
+      return t.validator.cannotExceedCharacters(maxLength: maxLength);
     }
 
     // Type-specific validation
     switch (type) {
       case InputType.username:
         if (!isValidUsername(value)) {
-          return 'Username can only contain letters, numbers, spaces, and underscores';
+          return t
+              .validator
+              .usernameCanOnlyContainLettersNumbersSpacesAndUnderscores;
         }
         break;
       case InputType.email:
         if (!isValidEmail(value)) {
-          return 'Please enter a valid email address';
+          return t.validator.pleaseEnterAValidEmailAddress;
         }
         break;
       case InputType.password:
         if (!isValidPassword(value)) {
-          return 'Password must be at least 8 characters with at least one letter and one number';
+          return t
+              .validator
+              .passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber;
         }
         break;
       case InputType.phone:
         if (!isValidPhone(value)) {
-          return 'Please enter a valid phone number';
+          return t.validator.pleaseEnterAValidPhoneNumber;
         }
         break;
     }

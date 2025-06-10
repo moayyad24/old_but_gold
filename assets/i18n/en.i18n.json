@@ -51,5 +51,26 @@
         "required": "Required",
         "firstName": "First Name",
         "lastName": "Last Name"
+    },
+    "failures": {
+        "connectionTimeoutWithTheServer": "Connection timeout with the server.",
+        "sendTimeoutOccurred": "Send timeout occurred. Please try again.",
+        "receiveTimeout": "Receive timeout. Server is taking too long to respond.",
+        "invalidServerCertificate": "Invalid server certificate detected.",
+        "requestCanceled": "Request was canceled.",
+        "connectionError": "Connection error. Please check your internet.",
+        "noInternetConnection": "No internet connection.",
+        "unexpectedError": "Unexpected error occurred. Please try again.",
+        "serverError": "Server error $statusCode. Please try again later.",
+        "unexpectedResponse": "Unexpected response from the server."
+    },
+    "validator": {
+        "thisFieldCannotBeEmpty": "This field cannot be empty",
+        "mustBeAtLeastCharacters": "Must be at least $minLength characters",
+        "cannotExceedCharacters": "Cannot exceed $maxLength characters",
+        "usernameCanOnlyContainLettersNumbersSpacesAndUnderscores": "Username can only contain letters, numbers, spaces, and underscores",
+        "pleaseEnterAValidEmailAddress": "Please enter a valid email address",
+        "passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber": "Password must be at least 8 characters with at least one letter and one number",
+        "pleaseEnterAValidPhoneNumber": "Please enter a valid phone number"
     }
 }

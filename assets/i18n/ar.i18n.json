@@ -51,5 +51,26 @@
         "required": "مطلوب",
         "firstName": "الاسم الأول",
         "lastName": "الاسم الأخير"
+    },
+    "failures": {
+        "connectionTimeoutWithTheServer": "انتهت مهلة الاتصال بالخادم.",
+        "sendTimeoutOccurred": "انتهت مهلة الإرسال. يرجى المحاولة مرة أخرى.",
+        "receiveTimeout": "انتهت مهلة الاستقبال. الخادم يستغرق وقتًا طويلاً للرد.",
+        "invalidServerCertificate": "تم اكتشاف شهادة خادم غير صالحة.",
+        "requestCanceled": "تم إلغاء الطلب.",
+        "connectionError": "خطأ في الاتصال. يرجى التحقق من الإنترنت لديك.",
+        "noInternetConnection": "لا يوجد اتصال بالإنترنت.",
+        "unexpectedError": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
+        "serverError": "خطأ في الخادم $statusCode. يرجى المحاولة لاحقًا.",
+        "unexpectedResponse": "استجابة غير متوقعة من الخادم."
+    },
+    "validator": {
+        "thisFieldCannotBeEmpty": "لا يمكن أن يكون هذا الحقل فارغًا",
+        "mustBeAtLeastCharacters": "يجب أن يحتوي على ما لا يقل عن $minLength حرفًا",
+        "cannotExceedCharacters": "لا يمكن أن يتجاوز $maxLength حرفًا",
+        "usernameCanOnlyContainLettersNumbersSpacesAndUnderscores": "يمكن لاسم المستخدم أن يحتوي فقط على حروف وأرقام ومسافات وشرطات سفلية",
+        "pleaseEnterAValidEmailAddress": "يرجى إدخال عنوان بريد إلكتروني صالح",
+        "passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وتحتوي على حرف واحد ورقم واحد على الأقل",
+        "pleaseEnterAValidPhoneNumber": "يرجى إدخال رقم هاتف صالح"
     }
 }

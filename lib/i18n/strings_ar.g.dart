@@ -38,6 +38,8 @@ class TranslationsAr implements Translations {
 	// Translations
 	@override late final _TranslationsAuthAr auth = _TranslationsAuthAr._(_root);
 	@override late final _TranslationsPersonalInfoAr personalInfo = _TranslationsPersonalInfoAr._(_root);
+	@override late final _TranslationsFailuresAr failures = _TranslationsFailuresAr._(_root);
+	@override late final _TranslationsValidatorAr validator = _TranslationsValidatorAr._(_root);
 }
 
 // Path: auth
@@ -107,6 +109,41 @@ class _TranslationsPersonalInfoAr implements TranslationsPersonalInfoEn {
 	@override String get lastName => 'الاسم الأخير';
 }
 
+// Path: failures
+class _TranslationsFailuresAr implements TranslationsFailuresEn {
+	_TranslationsFailuresAr._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get connectionTimeoutWithTheServer => 'انتهت مهلة الاتصال بالخادم.';
+	@override String get sendTimeoutOccurred => 'انتهت مهلة الإرسال. يرجى المحاولة مرة أخرى.';
+	@override String get receiveTimeout => 'انتهت مهلة الاستقبال. الخادم يستغرق وقتًا طويلاً للرد.';
+	@override String get invalidServerCertificate => 'تم اكتشاف شهادة خادم غير صالحة.';
+	@override String get requestCanceled => 'تم إلغاء الطلب.';
+	@override String get connectionError => 'خطأ في الاتصال. يرجى التحقق من الإنترنت لديك.';
+	@override String get noInternetConnection => 'لا يوجد اتصال بالإنترنت.';
+	@override String get unexpectedError => 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.';
+	@override String serverError({required Object statusCode}) => 'خطأ في الخادم ${statusCode}. يرجى المحاولة لاحقًا.';
+	@override String get unexpectedResponse => 'استجابة غير متوقعة من الخادم.';
+}
+
+// Path: validator
+class _TranslationsValidatorAr implements TranslationsValidatorEn {
+	_TranslationsValidatorAr._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get thisFieldCannotBeEmpty => 'لا يمكن أن يكون هذا الحقل فارغًا';
+	@override String mustBeAtLeastCharacters({required Object minLength}) => 'يجب أن يحتوي على ما لا يقل عن ${minLength} حرفًا';
+	@override String cannotExceedCharacters({required Object maxLength}) => 'لا يمكن أن يتجاوز ${maxLength} حرفًا';
+	@override String get usernameCanOnlyContainLettersNumbersSpacesAndUnderscores => 'يمكن لاسم المستخدم أن يحتوي فقط على حروف وأرقام ومسافات وشرطات سفلية';
+	@override String get pleaseEnterAValidEmailAddress => 'يرجى إدخال عنوان بريد إلكتروني صالح';
+	@override String get passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber => 'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وتحتوي على حرف واحد ورقم واحد على الأقل';
+	@override String get pleaseEnterAValidPhoneNumber => 'يرجى إدخال رقم هاتف صالح';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsAr {
@@ -161,6 +198,23 @@ extension on TranslationsAr {
 			case 'personalInfo.required': return 'مطلوب';
 			case 'personalInfo.firstName': return 'الاسم الأول';
 			case 'personalInfo.lastName': return 'الاسم الأخير';
+			case 'failures.connectionTimeoutWithTheServer': return 'انتهت مهلة الاتصال بالخادم.';
+			case 'failures.sendTimeoutOccurred': return 'انتهت مهلة الإرسال. يرجى المحاولة مرة أخرى.';
+			case 'failures.receiveTimeout': return 'انتهت مهلة الاستقبال. الخادم يستغرق وقتًا طويلاً للرد.';
+			case 'failures.invalidServerCertificate': return 'تم اكتشاف شهادة خادم غير صالحة.';
+			case 'failures.requestCanceled': return 'تم إلغاء الطلب.';
+			case 'failures.connectionError': return 'خطأ في الاتصال. يرجى التحقق من الإنترنت لديك.';
+			case 'failures.noInternetConnection': return 'لا يوجد اتصال بالإنترنت.';
+			case 'failures.unexpectedError': return 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.';
+			case 'failures.serverError': return ({required Object statusCode}) => 'خطأ في الخادم ${statusCode}. يرجى المحاولة لاحقًا.';
+			case 'failures.unexpectedResponse': return 'استجابة غير متوقعة من الخادم.';
+			case 'validator.thisFieldCannotBeEmpty': return 'لا يمكن أن يكون هذا الحقل فارغًا';
+			case 'validator.mustBeAtLeastCharacters': return ({required Object minLength}) => 'يجب أن يحتوي على ما لا يقل عن ${minLength} حرفًا';
+			case 'validator.cannotExceedCharacters': return ({required Object maxLength}) => 'لا يمكن أن يتجاوز ${maxLength} حرفًا';
+			case 'validator.usernameCanOnlyContainLettersNumbersSpacesAndUnderscores': return 'يمكن لاسم المستخدم أن يحتوي فقط على حروف وأرقام ومسافات وشرطات سفلية';
+			case 'validator.pleaseEnterAValidEmailAddress': return 'يرجى إدخال عنوان بريد إلكتروني صالح';
+			case 'validator.passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber': return 'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وتحتوي على حرف واحد ورقم واحد على الأقل';
+			case 'validator.pleaseEnterAValidPhoneNumber': return 'يرجى إدخال رقم هاتف صالح';
 			default: return null;
 		}
 	}

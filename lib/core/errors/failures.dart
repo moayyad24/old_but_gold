@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 /// Abstract class representing a generic failure.
 abstract class Failure {
@@ -15,18 +16,16 @@ class ServerFailure extends Failure {
   factory ServerFailure.fromDioError(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure("Connection timeout with the server.");
+        return ServerFailure(t.failures.connectionTimeoutWithTheServer);
 
       case DioExceptionType.sendTimeout:
-        return ServerFailure("Send timeout occurred. Please try again.");
+        return ServerFailure(t.failures.sendTimeoutOccurred);
 
       case DioExceptionType.receiveTimeout:
-        return ServerFailure(
-          "Receive timeout. Server is taking too long to respond.",
-        );
+        return ServerFailure(t.failures.receiveTimeout);
 
       case DioExceptionType.badCertificate:
-        return ServerFailure("Invalid server certificate detected.");
+        return ServerFailure(t.failures.invalidServerCertificate);
 
       case DioExceptionType.badResponse:
         return ServerFailure.fromBadResponse(
@@ -35,25 +34,23 @@ class ServerFailure extends Failure {
         );
 
       case DioExceptionType.cancel:
-        return ServerFailure("Request was canceled.");
+        return ServerFailure(t.failures.requestCanceled);
 
       case DioExceptionType.connectionError:
-        return ServerFailure("Connection error. Please check your internet.");
+        return ServerFailure(t.failures.connectionError);
 
       case DioExceptionType.unknown:
         if (dioException.message?.contains("SocketException") ?? false) {
-          return ServerFailure("No internet connection.");
+          return ServerFailure(t.failures.noInternetConnection);
         }
-        return ServerFailure("Unexpected error occurred. Please try again.");
+        return ServerFailure(t.failures.unexpectedError);
     }
   }
 
   /// Handles bad responses with appropriate error messages.
   factory ServerFailure.fromBadResponse(int statusCode, dynamic response) {
     if (statusCode >= 500) {
-      return ServerFailure(
-        "Server error ($statusCode). Please try again later.",
-      );
+      return ServerFailure(t.failures.serverError(statusCode: statusCode));
     } else if (statusCode == 422) {
       return ServerFailure(response['errors']['email'][0]);
     } else if (statusCode == 400) {
@@ -61,7 +58,7 @@ class ServerFailure extends Failure {
     } else if (statusCode == 401) {
       return ServerFailure(response['message']['errorDetails'][0]);
     } else {
-      return ServerFailure("Unexpected response from the server.");
+      return ServerFailure(t.failures.unexpectedResponse);
     }
   }
 }

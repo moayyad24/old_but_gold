@@ -41,6 +41,8 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	// Translations
 	late final TranslationsAuthEn auth = TranslationsAuthEn._(_root);
 	late final TranslationsPersonalInfoEn personalInfo = TranslationsPersonalInfoEn._(_root);
+	late final TranslationsFailuresEn failures = TranslationsFailuresEn._(_root);
+	late final TranslationsValidatorEn validator = TranslationsValidatorEn._(_root);
 }
 
 // Path: auth
@@ -110,6 +112,41 @@ class TranslationsPersonalInfoEn {
 	String get lastName => 'Last Name';
 }
 
+// Path: failures
+class TranslationsFailuresEn {
+	TranslationsFailuresEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get connectionTimeoutWithTheServer => 'Connection timeout with the server.';
+	String get sendTimeoutOccurred => 'Send timeout occurred. Please try again.';
+	String get receiveTimeout => 'Receive timeout. Server is taking too long to respond.';
+	String get invalidServerCertificate => 'Invalid server certificate detected.';
+	String get requestCanceled => 'Request was canceled.';
+	String get connectionError => 'Connection error. Please check your internet.';
+	String get noInternetConnection => 'No internet connection.';
+	String get unexpectedError => 'Unexpected error occurred. Please try again.';
+	String serverError({required Object statusCode}) => 'Server error ${statusCode}. Please try again later.';
+	String get unexpectedResponse => 'Unexpected response from the server.';
+}
+
+// Path: validator
+class TranslationsValidatorEn {
+	TranslationsValidatorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get thisFieldCannotBeEmpty => 'This field cannot be empty';
+	String mustBeAtLeastCharacters({required Object minLength}) => 'Must be at least ${minLength} characters';
+	String cannotExceedCharacters({required Object maxLength}) => 'Cannot exceed ${maxLength} characters';
+	String get usernameCanOnlyContainLettersNumbersSpacesAndUnderscores => 'Username can only contain letters, numbers, spaces, and underscores';
+	String get pleaseEnterAValidEmailAddress => 'Please enter a valid email address';
+	String get passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber => 'Password must be at least 8 characters with at least one letter and one number';
+	String get pleaseEnterAValidPhoneNumber => 'Please enter a valid phone number';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -164,6 +201,23 @@ extension on Translations {
 			case 'personalInfo.required': return 'Required';
 			case 'personalInfo.firstName': return 'First Name';
 			case 'personalInfo.lastName': return 'Last Name';
+			case 'failures.connectionTimeoutWithTheServer': return 'Connection timeout with the server.';
+			case 'failures.sendTimeoutOccurred': return 'Send timeout occurred. Please try again.';
+			case 'failures.receiveTimeout': return 'Receive timeout. Server is taking too long to respond.';
+			case 'failures.invalidServerCertificate': return 'Invalid server certificate detected.';
+			case 'failures.requestCanceled': return 'Request was canceled.';
+			case 'failures.connectionError': return 'Connection error. Please check your internet.';
+			case 'failures.noInternetConnection': return 'No internet connection.';
+			case 'failures.unexpectedError': return 'Unexpected error occurred. Please try again.';
+			case 'failures.serverError': return ({required Object statusCode}) => 'Server error ${statusCode}. Please try again later.';
+			case 'failures.unexpectedResponse': return 'Unexpected response from the server.';
+			case 'validator.thisFieldCannotBeEmpty': return 'This field cannot be empty';
+			case 'validator.mustBeAtLeastCharacters': return ({required Object minLength}) => 'Must be at least ${minLength} characters';
+			case 'validator.cannotExceedCharacters': return ({required Object maxLength}) => 'Cannot exceed ${maxLength} characters';
+			case 'validator.usernameCanOnlyContainLettersNumbersSpacesAndUnderscores': return 'Username can only contain letters, numbers, spaces, and underscores';
+			case 'validator.pleaseEnterAValidEmailAddress': return 'Please enter a valid email address';
+			case 'validator.passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber': return 'Password must be at least 8 characters with at least one letter and one number';
+			case 'validator.pleaseEnterAValidPhoneNumber': return 'Please enter a valid phone number';
 			default: return null;
 		}
 	}
