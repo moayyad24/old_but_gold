@@ -8,7 +8,7 @@ import 'i18n/strings.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  LocaleSettings.setLocale(AppLocale.en);
+  LocaleSettings.setLocale(AppLocale.ar);
   await ScreenUtil.ensureScreenSize();
   await setupGetIt();
   runApp(

@@ -79,6 +79,8 @@ class _TranslationsAuthAr implements TranslationsAuthEn {
 	@override String get fourDigitCode => 'الرجاء إدخال الرمز المكون من 4 أرقام الذي أرسلناه إلى بريدك الإلكتروني';
 	@override String get haveNotReceivedTheCode => 'لم تستلم الرمز؟';
 	@override String get verify => 'تحقق';
+	@override String get resend => 'إعادة الإرسال';
+	@override String resendInSeconds({required Object remainingTime}) => 'إعادة الإرسال خلال ${remainingTime} ثانية';
 }
 
 // Path: personalInfo
@@ -179,6 +181,8 @@ extension on TranslationsAr {
 			case 'auth.fourDigitCode': return 'الرجاء إدخال الرمز المكون من 4 أرقام الذي أرسلناه إلى بريدك الإلكتروني';
 			case 'auth.haveNotReceivedTheCode': return 'لم تستلم الرمز؟';
 			case 'auth.verify': return 'تحقق';
+			case 'auth.resend': return 'إعادة الإرسال';
+			case 'auth.resendInSeconds': return ({required Object remainingTime}) => 'إعادة الإرسال خلال ${remainingTime} ثانية';
 			case 'personalInfo.personalInformation': return 'المعلومات الشخصية';
 			case 'personalInfo.phoneNumber': return 'رقم الهاتف';
 			case 'personalInfo.pleaseEnterPhoneNumber': return 'يرجى إدخال رقم الهاتف';

@@ -62,7 +62,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                     });
                   },
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(height: 32.h),
                 OtpTimer(
                   onResend: () {
                     BlocProvider.of<VerifyEmailCubit>(
@@ -70,14 +70,6 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                     ).resendCode(email);
                   },
                   countdownDuration: 30, // Optional: customize countdown
-                ),
-                SizedBox(height: 32.h),
-                Text(
-                  t.auth.haveNotReceivedTheCode,
-                  style: AppTextStyles.semiBold13.copyWith(
-                    color: AppColors.blue2E8DFA,
-                    decoration: TextDecoration.underline,
-                  ),
                 ),
                 SizedBox(height: 34.h),
                 Text(

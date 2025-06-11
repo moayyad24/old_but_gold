@@ -82,6 +82,8 @@ class TranslationsAuthEn {
 	String get fourDigitCode => 'Please enter the 4-digit code we’ve sent to you email';
 	String get haveNotReceivedTheCode => 'Haven’t received the code?';
 	String get verify => 'Verify';
+	String get resend => 'Resend';
+	String resendInSeconds({required Object remainingTime}) => 'Resend in ${remainingTime} seconds';
 }
 
 // Path: personalInfo
@@ -182,6 +184,8 @@ extension on Translations {
 			case 'auth.fourDigitCode': return 'Please enter the 4-digit code we’ve sent to you email';
 			case 'auth.haveNotReceivedTheCode': return 'Haven’t received the code?';
 			case 'auth.verify': return 'Verify';
+			case 'auth.resend': return 'Resend';
+			case 'auth.resendInSeconds': return ({required Object remainingTime}) => 'Resend in ${remainingTime} seconds';
 			case 'personalInfo.personalInformation': return 'Personal Information';
 			case 'personalInfo.phoneNumber': return 'Phone Number';
 			case 'personalInfo.pleaseEnterPhoneNumber': return 'Please enter phone number';

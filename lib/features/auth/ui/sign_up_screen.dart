@@ -126,7 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     onSignUpPressed: () {
                       Navigator.of(
                         context,
-                      ).pushReplacementNamed(Routes.homeScreen);
+                      ).pushReplacementNamed(Routes.loginScreen);
                     },
                   ),
                 ],

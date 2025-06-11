@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class OtpTimer extends StatefulWidget {
   final VoidCallback onResend;
@@ -60,17 +61,19 @@ class _OtpTimerWidgetState extends State<OtpTimer> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Didn't receive code? ",
+          t.auth.haveNotReceivedTheCode,
           style: TextStyle(fontSize: 14.sp, color: AppColors.grey666666),
         ),
         GestureDetector(
           onTap: _handleResend,
           child: Text(
-            _canResend ? "Resend" : "Resend in $_remainingTime seconds",
+            _canResend
+                ? t.auth.resend
+                : t.auth.resendInSeconds(remainingTime: _remainingTime),
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.bold,

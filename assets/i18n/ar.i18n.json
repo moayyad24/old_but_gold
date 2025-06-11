@@ -29,7 +29,9 @@
         "verifyCode": "تحقق من الرمز",
         "fourDigitCode": "الرجاء إدخال الرمز المكون من 4 أرقام الذي أرسلناه إلى بريدك الإلكتروني",
         "haveNotReceivedTheCode": "لم تستلم الرمز؟",
-        "verify": "تحقق"
+        "verify": "تحقق",
+        "resend": "إعادة الإرسال",
+        "resendInSeconds": "إعادة الإرسال خلال $remainingTime ثانية"
     },
     "personalInfo": {
         "personalInformation": "المعلومات الشخصية",

@@ -29,7 +29,9 @@
         "verifyCode": "Verify Code",
         "fourDigitCode": "Please enter the 4-digit code we’ve sent to you email",
         "haveNotReceivedTheCode": "Haven’t received the code?",
-        "verify": "Verify"
+        "verify": "Verify",
+        "resend": "Resend",
+        "resendInSeconds": "Resend in $remainingTime seconds"
     },
     "personalInfo": {
         "personalInformation": "Personal Information",
