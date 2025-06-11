@@ -31,6 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   late TextEditingController passwordController;
   late TextEditingController confirmPasswordController;
   late GlobalKey<FormState> formkey;
+  late bool isApplyToPrivacyPolicy;
 
   @override
   void initState() {
@@ -38,6 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     passwordController = TextEditingController();
     confirmPasswordController = TextEditingController();
     formkey = GlobalKey();
+    isApplyToPrivacyPolicy = false;
     super.initState();
   }
 
@@ -99,16 +101,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     },
                   ),
                   SizedBox(height: 14.h),
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: RememberMeCheckbox(),
+
+                  RememberMeCheckbox(
+                    onChanged: (v) {
+                      setState(() {
+                        isApplyToPrivacyPolicy = v;
+                      });
+                    },
                   ),
+
                   SizedBox(height: 30.h),
                   SignUpConfirmButton(
                     formkey: formkey,
                     email: emailController,
                     password: passwordController,
                     confirmPassword: confirmPasswordController,
+                    isApplyToPrivacyPolicy: isApplyToPrivacyPolicy,
                   ),
                   SizedBox(height: 24.h),
                   OrDivider(),
@@ -146,12 +154,14 @@ class SignUpConfirmButton extends StatelessWidget {
     required this.email,
     required this.password,
     required this.confirmPassword,
+    required this.isApplyToPrivacyPolicy,
   });
 
   final GlobalKey<FormState> formkey;
   final TextEditingController email;
   final TextEditingController password;
   final TextEditingController confirmPassword;
+  final bool isApplyToPrivacyPolicy;
 
   @override
   Widget build(BuildContext context) {
@@ -174,12 +184,23 @@ class SignUpConfirmButton extends StatelessWidget {
           text: t.auth.signUp,
           onPressed: () async {
             if (formkey.currentState!.validate()) {
-              FormData data = FormData.fromMap({
-                'email': email.text,
-                'password': password.text,
-                'password_confirmation': confirmPassword.text,
-              });
-              await BlocProvider.of<RegisterCubit>(context).register(data);
+              if (isApplyToPrivacyPolicy) {
+                FormData data = FormData.fromMap({
+                  'email': email.text,
+                  'password': password.text,
+                  'password_confirmation': confirmPassword.text,
+                });
+                await BlocProvider.of<RegisterCubit>(context).register(data);
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      t.auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue,
+                    ),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
             }
           },
           isLoading: (state is RegisterLoading) ? true : false,

@@ -31,7 +31,8 @@
         "haveNotReceivedTheCode": "لم تستلم الرمز؟",
         "verify": "تحقق",
         "resend": "إعادة الإرسال",
-        "resendInSeconds": "إعادة الإرسال خلال $remainingTime ثانية"
+        "resendInSeconds": "إعادة الإرسال خلال $remainingTime ثانية",
+        "pleaseAcceptOurPrivacyTermsAndPoliciesToContinue": "يرجى الموافقة على سياسة الخصوصية وشروط الخدمة"
     },
     "personalInfo": {
         "personalInformation": "المعلومات الشخصية",

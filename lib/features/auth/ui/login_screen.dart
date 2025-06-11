@@ -31,11 +31,13 @@ class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late GlobalKey<FormState> formkey;
+  late bool isApplyToPrivacyPolicy;
   @override
   void initState() {
     emailController = TextEditingController();
     passwordController = TextEditingController();
     formkey = GlobalKey();
+    isApplyToPrivacyPolicy = false;
     super.initState();
   }
 
@@ -85,15 +87,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ),
                   SizedBox(height: 14.h),
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: RememberMeCheckbox(),
+                  RememberMeCheckbox(
+                    onChanged: (v) {
+                      setState(() {
+                        isApplyToPrivacyPolicy = v;
+                      });
+                    },
                   ),
                   SizedBox(height: 30.h),
                   LoginConfirmButton(
                     formkey: formkey,
                     email: emailController,
                     password: passwordController,
+                    isApplyToPrivacyPolicy: isApplyToPrivacyPolicy,
                   ),
                   SizedBox(height: 24.h),
                   ForgotPasswordText(
@@ -138,11 +144,13 @@ class LoginConfirmButton extends StatelessWidget {
     required this.formkey,
     required this.email,
     required this.password,
+    required this.isApplyToPrivacyPolicy,
   });
 
   final GlobalKey<FormState> formkey;
   final TextEditingController email;
   final TextEditingController password;
+  final bool isApplyToPrivacyPolicy;
 
   @override
   Widget build(BuildContext context) {
@@ -164,11 +172,22 @@ class LoginConfirmButton extends StatelessWidget {
           text: t.auth.login,
           onPressed: () async {
             if (formkey.currentState!.validate()) {
-              FormData data = FormData.fromMap({
-                'email': email.text,
-                'password': password.text,
-              });
-              await BlocProvider.of<LoginCubit>(context).login(data);
+              if (isApplyToPrivacyPolicy) {
+                FormData data = FormData.fromMap({
+                  'email': email.text,
+                  'password': password.text,
+                });
+                await BlocProvider.of<LoginCubit>(context).login(data);
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      t.auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue,
+                    ),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
             }
           },
           isLoading: (state is LoginLoading) ? true : false,

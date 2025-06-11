@@ -31,7 +31,8 @@
         "haveNotReceivedTheCode": "Haven’t received the code?",
         "verify": "Verify",
         "resend": "Resend",
-        "resendInSeconds": "Resend in $remainingTime seconds"
+        "resendInSeconds": "Resend in $remainingTime seconds",
+        "pleaseAcceptOurPrivacyTermsAndPoliciesToContinue": "Please accept our privacy terms and policies to continue."
     },
     "personalInfo": {
         "personalInformation": "Personal Information",

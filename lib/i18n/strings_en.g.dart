@@ -84,6 +84,7 @@ class TranslationsAuthEn {
 	String get verify => 'Verify';
 	String get resend => 'Resend';
 	String resendInSeconds({required Object remainingTime}) => 'Resend in ${remainingTime} seconds';
+	String get pleaseAcceptOurPrivacyTermsAndPoliciesToContinue => 'Please accept our privacy terms and policies to continue.';
 }
 
 // Path: personalInfo
@@ -186,6 +187,7 @@ extension on Translations {
 			case 'auth.verify': return 'Verify';
 			case 'auth.resend': return 'Resend';
 			case 'auth.resendInSeconds': return ({required Object remainingTime}) => 'Resend in ${remainingTime} seconds';
+			case 'auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue': return 'Please accept our privacy terms and policies to continue.';
 			case 'personalInfo.personalInformation': return 'Personal Information';
 			case 'personalInfo.phoneNumber': return 'Phone Number';
 			case 'personalInfo.pleaseEnterPhoneNumber': return 'Please enter phone number';

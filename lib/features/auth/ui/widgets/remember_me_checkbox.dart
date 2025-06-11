@@ -29,54 +29,56 @@ class _RememberMeCheckboxState extends State<RememberMeCheckbox> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsetsDirectional.only(end: 8.w),
-          child: SizedBox(
-            width: 18.w,
-            height: 18.h,
-            child: Checkbox(
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              visualDensity: VisualDensity.compact,
-              side: BorderSide(width: 1),
-              value: _isChecked,
-              onChanged: (bool? value) {
-                setState(() {
-                  _isChecked = value ?? false;
-                });
-                widget.onChanged?.call(_isChecked);
-              },
-              activeColor: Theme.of(context).primaryColor,
-              fillColor: WidgetStateProperty.resolveWith<Color>((
-                Set<WidgetState> states,
-              ) {
-                if (states.contains(WidgetState.selected)) {
-                  return AppColors.blue0D87F9;
-                }
-                return AppColors.whiteFFFFFF;
-              }),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
+    return Align(
+      alignment: AlignmentDirectional.centerStart,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: EdgeInsetsDirectional.only(end: 8.w),
+            child: SizedBox(
+              width: 18.w,
+              height: 18.h,
+              child: Checkbox(
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                visualDensity: VisualDensity.compact,
+                side: BorderSide(width: 1),
+                value: _isChecked,
+                onChanged: (bool? value) {
+                  setState(() {
+                    _isChecked = value ?? false;
+                  });
+                  widget.onChanged?.call(_isChecked);
+                },
+                activeColor: Theme.of(context).primaryColor,
+                fillColor: WidgetStateProperty.resolveWith<Color>((
+                  Set<WidgetState> states,
+                ) {
+                  if (states.contains(WidgetState.selected)) {
+                    return AppColors.blue0D87F9;
+                  }
+                  return AppColors.whiteFFFFFF;
+                }),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
+                ),
               ),
             ),
           ),
-        ),
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              _isChecked = !_isChecked;
-            });
-            widget.onChanged?.call(_isChecked);
-          },
-          child: Text(
-            t.auth.agreePrivacyTermsAndPolitics,
-            style: AppTextStyles.medium14,
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                _isChecked = !_isChecked;
+              });
+              widget.onChanged?.call(_isChecked);
+            },
+            child: Text(
+              t.auth.agreePrivacyTermsAndPolitics,
+              style: AppTextStyles.medium14,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

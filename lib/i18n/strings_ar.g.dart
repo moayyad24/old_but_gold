@@ -81,6 +81,7 @@ class _TranslationsAuthAr implements TranslationsAuthEn {
 	@override String get verify => 'تحقق';
 	@override String get resend => 'إعادة الإرسال';
 	@override String resendInSeconds({required Object remainingTime}) => 'إعادة الإرسال خلال ${remainingTime} ثانية';
+	@override String get pleaseAcceptOurPrivacyTermsAndPoliciesToContinue => 'يرجى الموافقة على سياسة الخصوصية وشروط الخدمة';
 }
 
 // Path: personalInfo
@@ -183,6 +184,7 @@ extension on TranslationsAr {
 			case 'auth.verify': return 'تحقق';
 			case 'auth.resend': return 'إعادة الإرسال';
 			case 'auth.resendInSeconds': return ({required Object remainingTime}) => 'إعادة الإرسال خلال ${remainingTime} ثانية';
+			case 'auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue': return 'يرجى الموافقة على سياسة الخصوصية وشروط الخدمة';
 			case 'personalInfo.personalInformation': return 'المعلومات الشخصية';
 			case 'personalInfo.phoneNumber': return 'رقم الهاتف';
 			case 'personalInfo.pleaseEnterPhoneNumber': return 'يرجى إدخال رقم الهاتف';
