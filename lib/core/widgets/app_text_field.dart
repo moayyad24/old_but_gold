@@ -100,6 +100,7 @@ class _AppTextFieldState extends State<AppTextField> {
               color: AppColors.darkGrey666666,
               fontSize: 16.sp,
             ),
+            errorMaxLines: 2,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(color: AppColors.greyC2C2C2),
