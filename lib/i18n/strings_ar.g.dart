@@ -40,6 +40,7 @@ class TranslationsAr implements Translations {
 	@override late final _TranslationsPersonalInfoAr personalInfo = _TranslationsPersonalInfoAr._(_root);
 	@override late final _TranslationsFailuresAr failures = _TranslationsFailuresAr._(_root);
 	@override late final _TranslationsValidatorAr validator = _TranslationsValidatorAr._(_root);
+	@override late final _TranslationsOnboardingAr onboarding = _TranslationsOnboardingAr._(_root);
 }
 
 // Path: auth
@@ -147,6 +148,22 @@ class _TranslationsValidatorAr implements TranslationsValidatorEn {
 	@override String get pleaseEnterAValidPhoneNumber => 'يرجى إدخال رقم هاتف صالح';
 }
 
+// Path: onboarding
+class _TranslationsOnboardingAr implements TranslationsOnboardingEn {
+	_TranslationsOnboardingAr._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get getStarted => 'ابدأ الآن';
+	@override String get lowestPricesEverInTheMarket => 'أقل الأسعار في السوق على الإطلاق';
+	@override String get findBestDealsDescription => 'ابحث عن أفضل العروض في السوق، قيمة ممتازة بأقل الأسعار على الإطلاق';
+	@override String get tailoredFeatures => 'ميزات مصممة خصيصًا لك';
+	@override String get tailoredRecommendationsDescription => 'توصيات مخصصة تلبي احتياجاتك مع خيار تحديد تفضيلاتك الشخصية';
+	@override String get buyAndGetPaidTitle => 'اشترِ منتجاتك، احصل على أمولك والمزيد..';
+	@override String get buyAndGetPaidDescription => 'أنشئ منشورًا، اجذب العملاء، وقم بشراء وبيع المنتجات مع مستخدمين موثوق بهم';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on TranslationsAr {
@@ -221,6 +238,13 @@ extension on TranslationsAr {
 			case 'validator.pleaseEnterAValidEmailAddress': return 'يرجى إدخال عنوان بريد إلكتروني صالح';
 			case 'validator.passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber': return 'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وتحتوي على حرف واحد ورقم واحد على الأقل';
 			case 'validator.pleaseEnterAValidPhoneNumber': return 'يرجى إدخال رقم هاتف صالح';
+			case 'onboarding.getStarted': return 'ابدأ الآن';
+			case 'onboarding.lowestPricesEverInTheMarket': return 'أقل الأسعار في السوق على الإطلاق';
+			case 'onboarding.findBestDealsDescription': return 'ابحث عن أفضل العروض في السوق، قيمة ممتازة بأقل الأسعار على الإطلاق';
+			case 'onboarding.tailoredFeatures': return 'ميزات مصممة خصيصًا لك';
+			case 'onboarding.tailoredRecommendationsDescription': return 'توصيات مخصصة تلبي احتياجاتك مع خيار تحديد تفضيلاتك الشخصية';
+			case 'onboarding.buyAndGetPaidTitle': return 'اشترِ منتجاتك، احصل على أمولك والمزيد..';
+			case 'onboarding.buyAndGetPaidDescription': return 'أنشئ منشورًا، اجذب العملاء، وقم بشراء وبيع المنتجات مع مستخدمين موثوق بهم';
 			default: return null;
 		}
 	}

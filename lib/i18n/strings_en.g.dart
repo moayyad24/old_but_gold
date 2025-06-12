@@ -43,6 +43,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsPersonalInfoEn personalInfo = TranslationsPersonalInfoEn._(_root);
 	late final TranslationsFailuresEn failures = TranslationsFailuresEn._(_root);
 	late final TranslationsValidatorEn validator = TranslationsValidatorEn._(_root);
+	late final TranslationsOnboardingEn onboarding = TranslationsOnboardingEn._(_root);
 }
 
 // Path: auth
@@ -150,6 +151,22 @@ class TranslationsValidatorEn {
 	String get pleaseEnterAValidPhoneNumber => 'Please enter a valid phone number';
 }
 
+// Path: onboarding
+class TranslationsOnboardingEn {
+	TranslationsOnboardingEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get getStarted => 'Get Started';
+	String get lowestPricesEverInTheMarket => 'Lowest Prices Ever in the market';
+	String get findBestDealsDescription => 'Find the best deals in the market, good value with the lowest prices ever';
+	String get tailoredFeatures => 'Tailored Features just for you';
+	String get tailoredRecommendationsDescription => 'Tailored recommendations catering you needs, with the option of selecting you preferences';
+	String get buyAndGetPaidTitle => 'Buy your stuff , Get paid and more..';
+	String get buyAndGetPaidDescription => 'Create a post, have clients, and buy your items with trusted users';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 extension on Translations {
@@ -224,6 +241,13 @@ extension on Translations {
 			case 'validator.pleaseEnterAValidEmailAddress': return 'Please enter a valid email address';
 			case 'validator.passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber': return 'Password must be at least 8 characters with at least one letter and one number';
 			case 'validator.pleaseEnterAValidPhoneNumber': return 'Please enter a valid phone number';
+			case 'onboarding.getStarted': return 'Get Started';
+			case 'onboarding.lowestPricesEverInTheMarket': return 'Lowest Prices Ever in the market';
+			case 'onboarding.findBestDealsDescription': return 'Find the best deals in the market, good value with the lowest prices ever';
+			case 'onboarding.tailoredFeatures': return 'Tailored Features just for you';
+			case 'onboarding.tailoredRecommendationsDescription': return 'Tailored recommendations catering you needs, with the option of selecting you preferences';
+			case 'onboarding.buyAndGetPaidTitle': return 'Buy your stuff , Get paid and more..';
+			case 'onboarding.buyAndGetPaidDescription': return 'Create a post, have clients, and buy your items with trusted users';
 			default: return null;
 		}
 	}

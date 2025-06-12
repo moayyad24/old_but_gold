@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
+import 'package:old_but_gold/i18n/strings.g.dart';
 
 class GetStartedButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -29,7 +30,7 @@ class GetStartedButton extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Get Started', style: AppTextStyles.bold20),
+          Text(t.onboarding.getStarted, style: AppTextStyles.bold20),
           SizedBox(width: 18.w),
           Icon(Icons.arrow_forward, size: 24),
         ],

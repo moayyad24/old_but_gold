@@ -75,5 +75,14 @@
         "pleaseEnterAValidEmailAddress": "Please enter a valid email address",
         "passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber": "Password must be at least 8 characters with at least one letter and one number",
         "pleaseEnterAValidPhoneNumber": "Please enter a valid phone number"
+    },
+    "onboarding": {
+        "getStarted": "Get Started",
+        "lowestPricesEverInTheMarket": "Lowest Prices Ever in the market",
+        "findBestDealsDescription": "Find the best deals in the market, good value with the lowest prices ever",
+        "tailoredFeatures": "Tailored Features just for you",
+        "tailoredRecommendationsDescription": "Tailored recommendations catering you needs, with the option of selecting you preferences",
+        "buyAndGetPaidTitle": "Buy your stuff , Get paid and more..",
+        "buyAndGetPaidDescription": "Create a post, have clients, and buy your items with trusted users"
     }
 }

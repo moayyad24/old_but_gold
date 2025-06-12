@@ -75,5 +75,14 @@
         "pleaseEnterAValidEmailAddress": "يرجى إدخال عنوان بريد إلكتروني صالح",
         "passwordMustBeAtLeast8CharactersWithAtLeastOneLetterAndOneNumber": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وتحتوي على حرف واحد ورقم واحد على الأقل",
         "pleaseEnterAValidPhoneNumber": "يرجى إدخال رقم هاتف صالح"
+    },
+    "onboarding": {
+        "getStarted": "ابدأ الآن",
+        "lowestPricesEverInTheMarket": "أقل الأسعار في السوق على الإطلاق",
+        "findBestDealsDescription": "ابحث عن أفضل العروض في السوق، قيمة ممتازة بأقل الأسعار على الإطلاق",
+        "tailoredFeatures": "ميزات مصممة خصيصًا لك",
+        "tailoredRecommendationsDescription": "توصيات مخصصة تلبي احتياجاتك مع خيار تحديد تفضيلاتك الشخصية",
+        "buyAndGetPaidTitle": "اشترِ منتجاتك، احصل على أمولك والمزيد..",
+        "buyAndGetPaidDescription": "أنشئ منشورًا، اجذب العملاء، وقم بشراء وبيع المنتجات مع مستخدمين موثوق بهم"
     }
 }

@@ -1,3 +1,5 @@
+import 'package:old_but_gold/i18n/strings.g.dart';
+
 class IntroductionModel {
   final String image;
   final String title;
@@ -12,20 +14,17 @@ class IntroductionModel {
 List<IntroductionModel> introList = [
   IntroductionModel(
     image: 'assets/images/intro_01.png',
-    title: 'Lowest Prices Ever in the market',
-    subTitle:
-        'Find the best deals in the market, good value with the lowest prices ever',
+    title: t.onboarding.lowestPricesEverInTheMarket,
+    subTitle: t.onboarding.findBestDealsDescription,
   ),
   IntroductionModel(
     image: 'assets/images/intro_02.png',
-    title: 'Tailored Features just for you',
-    subTitle:
-        'Tailored recommendations catering you needs, with the option of selecting you preferences ',
+    title: t.onboarding.tailoredFeatures,
+    subTitle: t.onboarding.tailoredRecommendationsDescription,
   ),
   IntroductionModel(
     image: 'assets/images/intro_03.png',
-    title: 'Buy your stuff , Get paid and more..',
-    subTitle:
-        'Create a post, have clients, and buy your items with trusted users',
+    title: t.onboarding.buyAndGetPaidTitle,
+    subTitle: t.onboarding.buyAndGetPaidDescription,
   ),
 ];

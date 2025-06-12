@@ -45,7 +45,7 @@ class IntroductionScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 24.0),
+                      padding: const EdgeInsetsDirectional.only(start: 24.0),
                       child: DotsIndicator(
                         dotsCount: 3,
                         currentDot: state.currentIndex,
