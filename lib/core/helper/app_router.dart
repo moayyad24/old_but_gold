@@ -10,6 +10,7 @@ import 'package:old_but_gold/features/auth/ui/forget_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/login_screen.dart';
 import 'package:old_but_gold/features/auth/ui/sign_up_screen.dart';
 import 'package:old_but_gold/features/auth/ui/verify_code_screen.dart';
+import 'package:old_but_gold/features/onboarding/ui/introduction_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/onboarding_screen.dart';
 import 'package:old_but_gold/features/settings/ui/personal_information_screen.dart';
 
@@ -19,6 +20,8 @@ class AppRouter {
       //OnBoarding
       case Routes.onboardingScreen:
         return _buildOnboardingScreen();
+      case Routes.introductionScreen:
+        return _buildIntroductionScreen();
       //Auth
       case Routes.loginScreen:
         return _buildLoginScreen();
@@ -38,6 +41,10 @@ class AppRouter {
 
   Route _buildOnboardingScreen() {
     return MaterialPageRoute(builder: (_) => const OnboardingScreen());
+  }
+
+  Route _buildIntroductionScreen() {
+    return MaterialPageRoute(builder: (_) => const IntroductionScreen());
   }
 
   Route _buildLoginScreen() {

@@ -49,7 +49,7 @@ class OnboardingScreen extends StatelessWidget {
                 AppConfirmButton(
                   text: 'Get Started',
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.verifyCodeScreen);
+                    Navigator.pushNamed(context, Routes.introductionScreen);
                   },
                 ),
                 12.verticalSpace,
