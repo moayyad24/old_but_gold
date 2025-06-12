@@ -19,7 +19,7 @@ class IntroPageViewColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(image, height: 282.h, width: 403.w),
+        Image.asset(image, height: 0.3.sh),
         47.verticalSpace,
         Padding(
           padding: UiParameters.hPadding,
