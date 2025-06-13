@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/helper/app_router.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_theme.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class OldButGold extends StatelessWidget {
@@ -13,7 +14,6 @@ class OldButGold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Locale appLocale = TranslationProvider.of(context).flutterLocale;
-    AppLocale currentLocale = TranslationProvider.of(context).locale;
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         systemNavigationBarColor: AppColors.whiteFFFDF2,
@@ -29,10 +29,7 @@ class OldButGold extends StatelessWidget {
         locale: appLocale,
         supportedLocales: AppLocaleUtils.supportedLocales,
         localizationsDelegates: [...GlobalMaterialLocalizations.delegates],
-        theme: ThemeData(
-          fontFamily: currentLocale == AppLocale.en ? 'Manrope' : 'Tajawal',
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        ),
+        theme: AppTheme().defaultTheme,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );
