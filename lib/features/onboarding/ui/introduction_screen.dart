@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/features/onboarding/data/model/introduction_model.dart';
 import 'package:old_but_gold/features/onboarding/manager/introduction_cubit/introduction_cubit.dart';
@@ -55,7 +56,14 @@ class IntroductionScreen extends StatelessWidget {
                         activeDotWidth: 42.0,
                       ),
                     ),
-                    GetStartedButton(onPressed: cubit.nextPage),
+                    GetStartedButton(
+                      onPressed: () {
+                        if (cubit.currentIndex == introList.length - 1) {
+                          Navigator.pushNamed(context, Routes.homeScreen);
+                        }
+                        cubit.nextPage();
+                      },
+                    ),
                   ],
                 ),
                 47.verticalSpace,
