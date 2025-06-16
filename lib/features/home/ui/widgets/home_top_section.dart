@@ -3,6 +3,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 
+class HomeSliverAppBar extends StatelessWidget {
+  const HomeSliverAppBar({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return SliverAppBar(
+      expandedHeight: 280,
+      flexibleSpace: FlexibleSpaceBar(background: HomeTopSection()),
+      leading: Padding(
+        padding: const EdgeInsetsDirectional.only(start: 20.0, top: 10),
+        child: Row(
+          children: [
+            Icon(Icons.location_on),
+            8.horizontalSpace,
+            Text('Homs, Syria', style: AppTextStyles.medium16),
+          ],
+        ),
+      ),
+      leadingWidth: 200,
+    );
+  }
+}
+
 class HomeTopSection extends StatelessWidget {
   const HomeTopSection({super.key});
 
