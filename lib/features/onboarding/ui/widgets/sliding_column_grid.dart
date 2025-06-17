@@ -1,11 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
 class SlidingColumnGrid extends StatefulWidget {
   final int columns;
-  final List<IconData> icons;
+  final List<String> icons;
   final double iconSize;
   final double gap;
   final Duration duration;
@@ -94,7 +95,7 @@ class _SlidingColumnGridState extends State<SlidingColumnGrid>
 }
 
 class _AnimatedGridItem extends StatelessWidget {
-  final IconData icon;
+  final String icon;
   final double size;
   final Animation<double> animation;
   final bool startFromTop;
@@ -130,11 +131,12 @@ class _AnimatedGridItem extends StatelessWidget {
           child: Container(
             height: 98,
             width: 98,
+            padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
               color: AppColors.mainFFE09C,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(icon, size: size, color: Colors.black),
+            child: SvgPicture.asset(icon),
           ),
         );
       },

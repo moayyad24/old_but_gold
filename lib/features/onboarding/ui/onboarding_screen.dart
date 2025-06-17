@@ -16,17 +16,10 @@ class OnboardingScreen extends StatelessWidget {
       body: Stack(
         children: [
           SlidingColumnGrid(
-            icons: [
-              Icons.star,
-              Icons.favorite,
-              Icons.home,
-              Icons.settings,
-              Icons.person,
-              Icons.work,
-              Icons.email,
-              Icons.notifications,
-              Icons.music_note,
-            ],
+            icons: List.generate(
+              10,
+              (index) => 'assets/icons/onboarding/onboarding_$index.svg',
+            ),
             columns: 1.sw > 384 ? 5 : 4,
           ),
           Align(
