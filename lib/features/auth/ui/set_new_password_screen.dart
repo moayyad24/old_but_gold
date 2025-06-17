@@ -71,7 +71,7 @@ class _SetNewPasswordScreenState extends State<SetNewPasswordScreen> {
                   AppTextField(
                     fieldTitle: t.auth.password,
                     hintText: t.auth.enterYourPassword,
-                    iconPath: 'assets/icons/lock.svg',
+                    prefixIconPath: 'assets/icons/lock.svg',
                     myController: passwordController,
                     isObscure: true,
                     checkValid: (v) {
@@ -82,7 +82,7 @@ class _SetNewPasswordScreenState extends State<SetNewPasswordScreen> {
                   AppTextField(
                     fieldTitle: t.auth.confirmPassword,
                     hintText: t.auth.repeatPassword,
-                    iconPath: 'assets/icons/lock.svg',
+                    prefixIconPath: 'assets/icons/lock.svg',
                     myController: confirmPasswordController,
                     isObscure: true,
                     checkValid: (v) {

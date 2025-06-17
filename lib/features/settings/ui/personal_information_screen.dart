@@ -7,9 +7,9 @@ import 'package:old_but_gold/core/widgets/content_area.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
-import 'package:old_but_gold/features/settings/ui/widgets/personal_information/country_city_picker_row.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/personal_information/date_picker_row.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/personal_information/first_and_last_name_field.dart';
+import 'package:old_but_gold/features/settings/ui/widgets/personal_information/location_picker_field.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/personal_information/phone_number_field.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
@@ -43,11 +43,7 @@ class PersonalInformationScreen extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: 30.h),
-                CountryCityPickerRow(
-                  onCitySelected: (city) {
-                    // print(city);
-                  },
-                ),
+                LocationPickerField(),
                 SizedBox(height: 30.h),
                 PhoneNumberField(
                   fieldTitle: t.personalInfo.phoneNumber,

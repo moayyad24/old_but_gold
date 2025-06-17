@@ -7,7 +7,8 @@ import 'package:old_but_gold/core/theme/app_text_styles.dart';
 class AppTextField extends StatefulWidget {
   final String hintText;
   final String fieldTitle;
-  final String? iconPath;
+  final String? prefixIconPath;
+  final IconData? suffixIcon;
   final TextEditingController myController;
   final String? Function(String?)? checkValid;
   final bool isObscure;
@@ -16,7 +17,8 @@ class AppTextField extends StatefulWidget {
     super.key,
     required this.hintText,
     required this.fieldTitle,
-    this.iconPath,
+    this.prefixIconPath,
+    this.suffixIcon,
     required this.myController,
     required this.checkValid,
     this.isObscure = false,
@@ -72,10 +74,10 @@ class _AppTextFieldState extends State<AppTextField> {
             filled: true,
             fillColor: _color,
             prefixIcon:
-                widget.iconPath != null
+                widget.prefixIconPath != null
                     ? Padding(
                       padding: EdgeInsetsDirectional.only(start: 14.w),
-                      child: SvgPicture.asset(widget.iconPath!),
+                      child: SvgPicture.asset(widget.prefixIconPath!),
                     )
                     : null,
             prefixIconConstraints: BoxConstraints(minWidth: 40).w,
@@ -94,6 +96,8 @@ class _AppTextFieldState extends State<AppTextField> {
                         });
                       },
                     )
+                    : widget.suffixIcon != null
+                    ? Icon(widget.suffixIcon, color: AppColors.black, size: 24)
                     : null,
             hintText: widget.hintText,
             hintStyle: TextStyle(

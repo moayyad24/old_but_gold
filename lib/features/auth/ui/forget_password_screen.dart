@@ -39,7 +39,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 AppTextField(
                   fieldTitle: t.auth.email,
                   hintText: t.auth.emailExample,
-                  iconPath: 'assets/icons/user_icon.svg',
+                  prefixIconPath: 'assets/icons/user_icon.svg',
                   myController: TextEditingController(),
                   checkValid: (_) {
                     return null;

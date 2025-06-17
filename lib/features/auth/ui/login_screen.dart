@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   AppTextField(
                     fieldTitle: t.auth.email,
                     hintText: t.auth.emailExample,
-                    iconPath: 'assets/icons/user_icon.svg',
+                    prefixIconPath: 'assets/icons/user_icon.svg',
                     myController: emailController,
                     checkValid: (v) {
                       return InputValidator.validateEmail(v!);
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   AppTextField(
                     fieldTitle: t.auth.password,
                     hintText: t.auth.enterYourPassword,
-                    iconPath: 'assets/icons/lock.svg',
+                    prefixIconPath: 'assets/icons/lock.svg',
                     myController: passwordController,
                     isObscure: true,
                     checkValid: (v) {
