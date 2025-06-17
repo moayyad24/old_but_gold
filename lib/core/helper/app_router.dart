@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
-import 'package:old_but_gold/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:old_but_gold/features/auth/data/repos/auth/auth_repo_impl.dart';
 import 'package:old_but_gold/features/auth/manager/login_cubit/login_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/register_cubit/register_cubit.dart';
+import 'package:old_but_gold/features/auth/manager/forget_password_cubit/forget_password_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_cubit.dart';
 import 'package:old_but_gold/features/auth/ui/forget_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/login_screen.dart';
+import 'package:old_but_gold/features/auth/ui/set_new_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/sign_up_screen.dart';
 import 'package:old_but_gold/features/auth/ui/verify_code_screen.dart';
 import 'package:old_but_gold/features/home/ui/home_screen.dart';
@@ -30,6 +32,8 @@ class AppRouter {
         return _buildSignUpScreen();
       case Routes.forgetPasswordScreen:
         return _buildForgetPasswordScreen();
+      case Routes.setNewPasswordScreen:
+        return _buildResetPasswordScreen();
       case Routes.verifyCodeScreen:
         return _buildVerifyCodeScreen();
       //Home
@@ -73,6 +77,16 @@ class AppRouter {
 
   Route _buildForgetPasswordScreen() {
     return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+  }
+
+  Route _buildResetPasswordScreen() {
+    return MaterialPageRoute(
+      builder:
+          (_) => BlocProvider(
+            create: (context) => ForgetPasswordCubit(),
+            child: const SetNewPasswordScreen(),
+          ),
+    );
   }
 
   Route _buildVerifyCodeScreen() {

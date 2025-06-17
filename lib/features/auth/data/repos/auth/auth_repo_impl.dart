@@ -5,7 +5,7 @@ import 'package:old_but_gold/core/helper/api_service.dart';
 import 'package:old_but_gold/features/auth/data/models/login_model.dart';
 import 'package:old_but_gold/features/auth/data/models/register_model.dart';
 import 'package:old_but_gold/features/auth/data/models/verify_email_model.dart';
-import 'package:old_but_gold/features/auth/data/repos/auth_repo.dart';
+import 'package:old_but_gold/features/auth/data/repos/auth/auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final ApiService apiService;

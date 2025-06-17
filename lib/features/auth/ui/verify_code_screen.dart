@@ -1,7 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
@@ -95,13 +95,14 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                   child: AppConfirmButton(
                     text: t.auth.verify,
                     onPressed: () {
-                      FormData data = FormData.fromMap({
-                        'code': code,
-                        'email': email,
-                      });
-                      BlocProvider.of<VerifyEmailCubit>(
-                        context,
-                      ).verifyEmail(data);
+                      // FormData data = FormData.fromMap({
+                      //   'code': code,
+                      //   'email': email,
+                      // });
+                      // BlocProvider.of<VerifyEmailCubit>(
+                      //   context,
+                      // ).verifyEmail(data);
+                      Navigator.pushNamed(context, Routes.setNewPasswordScreen);
                     },
                   ),
                 ),

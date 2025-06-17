@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
-import 'package:old_but_gold/features/auth/data/repos/auth_repo.dart';
+import 'package:old_but_gold/features/auth/data/repos/auth/auth_repo.dart';
 import 'package:old_but_gold/features/auth/manager/register_cubit/register_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

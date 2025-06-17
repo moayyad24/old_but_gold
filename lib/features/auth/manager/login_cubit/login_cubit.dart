@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:old_but_gold/features/auth/data/repos/auth_repo.dart';
+import 'package:old_but_gold/features/auth/data/repos/auth/auth_repo.dart';
 import 'package:old_but_gold/features/auth/manager/login_cubit/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
