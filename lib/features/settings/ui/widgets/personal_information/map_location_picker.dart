@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
@@ -24,6 +25,7 @@ class MapLocationPickerState extends State<MapLocationPicker> {
   bool _isMapMoving = false;
   LocationState _locationState = LocationState.loading;
   String? _errorMessage;
+  bool _buttonLoading = false;
 
   @override
   void initState() {
@@ -129,11 +131,29 @@ class MapLocationPickerState extends State<MapLocationPicker> {
     }
   }
 
-  void _confirmAddress() {
+  Future<String?> _getAddressFromAPI(double lat, double lng) async {
+    final dio = Dio();
+    try {
+      final response = await dio.get(
+        'https://nominatim.openstreetmap.org/reverse',
+        queryParameters: {'format': 'json', 'lat': lat, 'lon': lng},
+      );
+
+      if (response.statusCode == 200) {
+        final data = response.data; // Dio automatically decodes JSON
+        return "${data['address']['city']}, ${data['address']['country']}";
+      }
+      return null;
+    } on DioException catch (e) {
+      // Handle Dio-specific errors (e.g., no internet, timeout)
+      debugPrint('Error fetching address: ${e.message}');
+      return null;
+    }
+  }
+
+  void _confirmAddress(String? countryCity) async {
     if (_selectedPosition != null) {
-      //ToDo: implement this
-      print('${_selectedPosition!.latitude}, ${_selectedPosition!.longitude}');
-      // Navigator.pop(context, _selectedPosition);
+      Navigator.pop(context, countryCity);
     }
   }
 
@@ -181,18 +201,6 @@ class MapLocationPickerState extends State<MapLocationPicker> {
           onCameraMove: _onCameraMove,
           onCameraIdle: _onCameraIdle,
           zoomControlsEnabled: false,
-          cameraTargetBounds: CameraTargetBounds(
-            LatLngBounds(
-              northeast: const LatLng(
-                37.3,
-                42.4,
-              ), // Northwest Syria (near Turkey border)
-              southwest: const LatLng(
-                32.3,
-                35.6,
-              ), // Southeast Syria (near Jordan border)
-            ),
-          ),
         ),
         Center(
           child: AnimatedSwitcher(
@@ -226,7 +234,17 @@ class MapLocationPickerState extends State<MapLocationPicker> {
             padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 24.w),
             child: AppConfirmButton(
               text: 'Confirm your location',
-              onPressed: _confirmAddress,
+              isLoading: _buttonLoading,
+              onPressed: () async {
+                setState(() {
+                  _buttonLoading = true;
+                });
+                String? countryCity = await _getAddressFromAPI(
+                  _selectedPosition!.latitude,
+                  _selectedPosition!.longitude,
+                );
+                _confirmAddress(countryCity);
+              },
             ),
           ),
         ),
