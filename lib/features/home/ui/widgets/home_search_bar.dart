@@ -9,7 +9,7 @@ class HomeSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 0,
-      width: 345,
+      width: 345.w,
       child: TextField(
         decoration: InputDecoration(
           prefixIcon: Padding(

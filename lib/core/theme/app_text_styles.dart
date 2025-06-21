@@ -31,6 +31,11 @@ class AppTextStyles {
     fontSize: 13.sp,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle semiBold15 = TextStyle(
+    color: Colors.black,
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w600,
+  );
   static TextStyle semiBold17 = TextStyle(
     color: Colors.black,
     fontSize: 17.sp,
