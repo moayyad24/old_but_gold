@@ -8,6 +8,7 @@ class Routes {
   static const String forgetPasswordScreen = '/forgetPasswordScreen';
   static const String setNewPasswordScreen = '/setNewPasswordScreen';
   static const String verifyCodeScreen = '/verifyCodeScreen';
+  static const String checkCodeScreen = '/checkCodeScreen';
   //Home
   static const String homeScreen = '/homeScreen';
   //Settings

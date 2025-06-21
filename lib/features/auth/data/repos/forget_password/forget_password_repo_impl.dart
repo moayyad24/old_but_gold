@@ -9,7 +9,7 @@ class ForgetPasswordRepoImpl extends ForgetPasswordRepo {
 
   ForgetPasswordRepoImpl(this.apiService);
   @override
-  Future<Either<Failure, bool>> checkEmail(String email) async {
+  Future<Either<Failure, bool>> checkEmail(email) async {
     try {
       Map<String, dynamic> response = await apiService.post(
         endPoint: 'checkEmail',

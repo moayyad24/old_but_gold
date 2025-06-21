@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/features/auth/data/repos/auth/auth_repo_impl.dart';
+import 'package:old_but_gold/features/auth/data/repos/forget_password/forget_password_repo_impl.dart';
 import 'package:old_but_gold/features/auth/manager/login_cubit/login_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/register_cubit/register_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/forget_password_cubit/forget_password_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_cubit.dart';
+import 'package:old_but_gold/features/auth/ui/check_code_screen.dart';
 import 'package:old_but_gold/features/auth/ui/forget_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/login_screen.dart';
 import 'package:old_but_gold/features/auth/ui/set_new_password_screen.dart';
@@ -33,9 +35,11 @@ class AppRouter {
       case Routes.forgetPasswordScreen:
         return _buildForgetPasswordScreen();
       case Routes.setNewPasswordScreen:
-        return _buildResetPasswordScreen();
+        return _buildSetNewPasswordScreen();
       case Routes.verifyCodeScreen:
         return _buildVerifyCodeScreen();
+      case Routes.checkCodeScreen:
+        return _buildCheckCodeScreen();
       //Home
       case Routes.homeScreen:
         return _buildHomeScreen();
@@ -76,17 +80,19 @@ class AppRouter {
   }
 
   Route _buildForgetPasswordScreen() {
-    return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
-  }
-
-  Route _buildResetPasswordScreen() {
     return MaterialPageRoute(
       builder:
           (_) => BlocProvider(
-            create: (context) => ForgetPasswordCubit(),
-            child: const SetNewPasswordScreen(),
+            create:
+                (context) =>
+                    ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()),
+            child: const ForgetPasswordScreen(),
           ),
     );
+  }
+
+  Route _buildSetNewPasswordScreen() {
+    return MaterialPageRoute(builder: (_) => const SetNewPasswordScreen());
   }
 
   Route _buildVerifyCodeScreen() {
@@ -95,6 +101,18 @@ class AppRouter {
           (_) => BlocProvider(
             create: (context) => VerifyEmailCubit(getIt.get<AuthRepoImpl>()),
             child: const VerifyCodeScreen(),
+          ),
+    );
+  }
+
+  Route _buildCheckCodeScreen() {
+    return MaterialPageRoute(
+      builder:
+          (_) => BlocProvider(
+            create:
+                (context) =>
+                    ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()),
+            child: const CheckCodeScreen(),
           ),
     );
   }
