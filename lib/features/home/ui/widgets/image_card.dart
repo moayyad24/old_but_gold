@@ -6,23 +6,18 @@ import 'package:old_but_gold/core/theme/app_text_styles.dart';
 class ImageCard extends StatelessWidget {
   final String imagePath;
   final String title;
-  final double width;
-  final double height;
+
 
   const ImageCard({
     super.key,
     required this.imagePath,
     required this.title,
-    this.width = 164,
-    this.height = 221,
+
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width.w,
-      height: height.h,
-      margin: const EdgeInsets.all(30),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14.r),
         image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),
