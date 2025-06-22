@@ -7,17 +7,12 @@ class ImageCard extends StatelessWidget {
   final String imagePath;
   final String title;
 
-
-  const ImageCard({
-    super.key,
-    required this.imagePath,
-    required this.title,
-
-  });
+  const ImageCard({super.key, required this.imagePath, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 164,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14.r),
         image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),

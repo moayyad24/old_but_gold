@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/features/home/ui/widgets/categories_list_view.dart';
 import 'package:old_but_gold/features/home/ui/widgets/home_content_area.dart';
 import 'package:old_but_gold/features/home/ui/widgets/items_grid_view.dart';
+import 'package:old_but_gold/features/home/ui/widgets/items_list_view_with_background_image.dart';
+import 'package:old_but_gold/features/home/ui/widgets/list_title.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -14,15 +15,10 @@ class HomeBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CategoriesListView(),
-          Padding(
-            padding: const EdgeInsetsDirectional.only(
-              start: 24.0,
-              bottom: 16,
-              top: 40,
-            ),
-            child: Text('Nearby', style: AppTextStyles.bold20),
-          ),
+          ListTitle(title: 'Nearby'),
           ItemsGridView(),
+          ListTitle(title: 'Lowest Prices Ever'),
+          ItemsListViewWithBackgroundImage(),
         ],
       ),
     );

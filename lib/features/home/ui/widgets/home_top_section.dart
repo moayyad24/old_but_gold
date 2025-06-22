@@ -8,7 +8,7 @@ class HomeSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: 280,
+      expandedHeight: 260,
       flexibleSpace: FlexibleSpaceBar(background: HomeTopSection()),
       leading: Padding(
         padding: const EdgeInsetsDirectional.only(start: 20.0, top: 10),
