@@ -10,6 +10,7 @@ class Routes {
   static const String verifyCodeScreen = '/verifyCodeScreen';
   static const String checkCodeScreen = '/checkCodeScreen';
   //Home
+  static const String mainScreen = '/mainScreen';
   static const String homeScreen = '/homeScreen';
   //Settings
   static const String personalInformationScreen = '/personalInformationScreen';

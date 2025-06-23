@@ -59,7 +59,7 @@ class IntroductionScreen extends StatelessWidget {
                     GetStartedButton(
                       onPressed: () {
                         if (cubit.currentIndex == introList.length - 1) {
-                          Navigator.pushNamed(context, Routes.homeScreen);
+                          Navigator.pushNamed(context, Routes.mainScreen);
                         }
                         cubit.nextPage();
                       },

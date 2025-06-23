@@ -18,6 +18,7 @@ import 'package:old_but_gold/features/home/ui/home_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/introduction_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/onboarding_screen.dart';
 import 'package:old_but_gold/features/settings/ui/personal_information_screen.dart';
+import 'package:old_but_gold/main_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -41,6 +42,8 @@ class AppRouter {
       case Routes.checkCodeScreen:
         return _buildCheckCodeScreen();
       //Home
+      case Routes.mainScreen:
+        return _buildMainScreen();
       case Routes.homeScreen:
         return _buildHomeScreen();
       //Settings
@@ -115,6 +118,10 @@ class AppRouter {
             child: const CheckCodeScreen(),
           ),
     );
+  }
+
+  Route _buildMainScreen() {
+    return MaterialPageRoute(builder: (_) => const MainScreen());
   }
 
   Route _buildHomeScreen() {
