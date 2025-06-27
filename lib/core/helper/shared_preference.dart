@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LocalStorageService {
   static SharedPreferences? _preferences;
@@ -49,22 +50,34 @@ class LocalStorageService {
 
   // Specific getters/setters for better type safety
   String? getString(String key) => _preferences?.getString(key);
-  Future<bool> setString(String key, String value) => 
+  Future<bool> setString(String key, String value) =>
       _preferences?.setString(key, value) ?? Future.value(false);
 
   int? getInt(String key) => _preferences?.getInt(key);
-  Future<bool> setInt(String key, int value) => 
+  Future<bool> setInt(String key, int value) =>
       _preferences?.setInt(key, value) ?? Future.value(false);
 
   bool? getBool(String key) => _preferences?.getBool(key);
-  Future<bool> setBool(String key, bool value) => 
+  Future<bool> setBool(String key, bool value) =>
       _preferences?.setBool(key, value) ?? Future.value(false);
 
   double? getDouble(String key) => _preferences?.getDouble(key);
-  Future<bool> setDouble(String key, double value) => 
+  Future<bool> setDouble(String key, double value) =>
       _preferences?.setDouble(key, value) ?? Future.value(false);
 
   List<String>? getStringList(String key) => _preferences?.getStringList(key);
-  Future<bool> setStringList(String key, List<String> value) => 
+  Future<bool> setStringList(String key, List<String> value) =>
       _preferences?.setStringList(key, value) ?? Future.value(false);
+
+  /// Set a secure value with a FlutterSecureStorage
+  Future<void> setSecuredString(String key, String value) async {
+    final storage = FlutterSecureStorage();
+    return await storage.write(key: key, value: value);
+  }
+
+  /// get a secure value from a FlutterSecureStorage
+  Future<String?> getSecuredString(String key, String value) async {
+    final storage = FlutterSecureStorage();
+    return await storage.read(key: key);
+  }
 }
