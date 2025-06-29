@@ -124,7 +124,7 @@ class AppTheme {
     hintStyle: TextStyle(color: AppColors.greyB7B7B7, fontSize: 14),
   );
 
-  static CardTheme get _cardTheme => const CardTheme(
+  static CardThemeData get _cardTheme => const CardThemeData(
     color: AppColors.whiteFFFFFF,
     elevation: 2,
     margin: EdgeInsets.zero,
