@@ -81,16 +81,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     },
                   ),
                   SizedBox(height: 13.h),
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text(
-                      t.auth.usePhoneInstead,
-                      style: AppTextStyles.semiBold13.copyWith(
-                        color: AppColors.blue2E8DFA,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
                   SizedBox(height: 34.h),
                   Text(
                     t.auth.weMayUseYourEmailAddress,
@@ -102,7 +92,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   TermsAndPrivacyText(),
                   SizedBox(height: 53.h),
                   BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
-                    listener: (context, state) {
+                    listener: (context, state) async {
                       if (state is ForgetPasswordFailure) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -112,20 +102,23 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           ),
                         );
                       } else if (state is ForgetPasswordSuccess) {
-                        Navigator.of(context).pushNamed(Routes.checkCodeScreen);
+                        await Future.wait([
+                          storeUserEmail(emailController.text),
+                          Navigator.of(
+                            context,
+                          ).pushNamed(Routes.checkCodeScreen),
+                        ]);
                       }
                     },
                     builder: (context, state) {
                       return AppConfirmButton(
                         text: t.auth.recoverPassword,
+                        isLoading: (state is ForgetPasswordLoading),
                         onPressed: () async {
                           if (formkey.currentState!.validate()) {
-                            await Future.wait([
-                              storeUserEmail(emailController.text),
-                              BlocProvider.of<ForgetPasswordCubit>(
-                                context,
-                              ).checkEmail(emailController.text),
-                            ]);
+                            BlocProvider.of<ForgetPasswordCubit>(
+                              context,
+                            ).checkEmail(emailController.text);
                           }
                         },
                       );

@@ -2,11 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
+import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/input_validator.dart';
+import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
-import 'package:old_but_gold/features/auth/manager/register_cubit/register_cubit.dart';
-import 'package:old_but_gold/features/auth/manager/register_cubit/register_state.dart';
+import 'package:old_but_gold/features/auth/manager/forget_password_cubit/forget_password_cubit.dart';
+import 'package:old_but_gold/features/auth/manager/forget_password_cubit/forget_password_state.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/app_text_field.dart';
@@ -26,13 +29,14 @@ class _SetNewPasswordScreenState extends State<SetNewPasswordScreen> {
   late TextEditingController confirmPasswordController;
   late GlobalKey<FormState> formkey;
   late bool isApplyToPrivacyPolicy;
-
+  late LocalStorageService storage;
   @override
   void initState() {
     passwordController = TextEditingController();
     confirmPasswordController = TextEditingController();
     formkey = GlobalKey();
     isApplyToPrivacyPolicy = false;
+    storage = getIt<LocalStorageService>();
     super.initState();
   }
 
@@ -100,6 +104,8 @@ class _SetNewPasswordScreenState extends State<SetNewPasswordScreen> {
                   SizedBox(height: 30.h),
                   SetNewPasswordConfirmButton(
                     formkey: formkey,
+                    email: storage.getString('user_email')!,
+                    code: storage.getString('code')!,
                     password: passwordController,
                     confirmPassword: confirmPasswordController,
                     isApplyToPrivacyPolicy: isApplyToPrivacyPolicy,
@@ -118,57 +124,62 @@ class SetNewPasswordConfirmButton extends StatelessWidget {
   const SetNewPasswordConfirmButton({
     super.key,
     required this.formkey,
-
+    required this.email,
+    required this.code,
     required this.password,
     required this.confirmPassword,
     required this.isApplyToPrivacyPolicy,
   });
 
   final GlobalKey<FormState> formkey;
-
+  final String email;
+  final String code;
   final TextEditingController password;
   final TextEditingController confirmPassword;
   final bool isApplyToPrivacyPolicy;
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterState>(
+    return BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
       listener: (context, state) {
-        if (state is RegisterFailure) {
+        if (state is ForgetPasswordFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(state.errorMessage),
               backgroundColor: Colors.red,
             ),
           );
-        } else if (state is RegisterSuccess) {
-          //Todo implement this
+        } else if (state is ForgetPasswordSuccess) {
+          Navigator.pushReplacementNamed(context, Routes.loginScreen);
         }
       },
       builder: (context, state) {
         return AppConfirmButton(
-          text: t.auth.signUp,
+          text: 'Create New Password',
           onPressed: () async {
-            if (formkey.currentState!.validate()) {
-              if (isApplyToPrivacyPolicy) {
-                FormData data = FormData.fromMap({
-                  'password': password.text,
-                  'password_confirmation': confirmPassword.text,
-                });
-                await BlocProvider.of<RegisterCubit>(context).register(data);
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
+            !isApplyToPrivacyPolicy
+                ? ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
                       t.auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue,
                     ),
                     backgroundColor: Colors.red,
                   ),
-                );
-              }
+                )
+                : null;
+            if (formkey.currentState!.validate() && isApplyToPrivacyPolicy) {
+              FormData data = FormData.fromMap({
+                'email': email,
+                'password': password.text,
+                'password_confirmation': confirmPassword.text,
+                'code': code,
+              });
+              await BlocProvider.of<ForgetPasswordCubit>(
+                context,
+              ).changePassword(data);
             }
           },
-          isLoading: (state is RegisterLoading) ? true : false,
+          isLoading: (state is ForgetPasswordLoading),
         );
       },
     );

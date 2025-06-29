@@ -35,4 +35,19 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
       },
     );
   }
+
+  Future<void> changePassword(FormData data) async {
+    emit(ForgetPasswordLoading());
+    var result = await forgetPasswordRepo.changePassword(data);
+    result.fold(
+      (f) {
+        //failure
+        emit(ForgetPasswordFailure(errorMessage: f.message));
+      },
+      (s) async {
+        //success
+        emit(ForgetPasswordSuccess());
+      },
+    );
+  }
 }

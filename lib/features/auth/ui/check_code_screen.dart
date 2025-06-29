@@ -10,7 +10,6 @@ import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/manager/forget_password_cubit/forget_password_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/forget_password_cubit/forget_password_state.dart';
-import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_state.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
@@ -34,6 +33,11 @@ class _VerifyCodeScreenState extends State<CheckCodeScreen> {
     super.initState();
   }
 
+  Future<void> storeVerificationCode(String code) async {
+    final LocalStorageService storage = getIt<LocalStorageService>();
+    await storage.setString('code', code);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +49,7 @@ class _VerifyCodeScreenState extends State<CheckCodeScreen> {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text(t.auth.verifyCode, style: AppTextStyles.bold26),
+                Text('Check Code', style: AppTextStyles.bold26),
                 SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 42),
@@ -72,8 +76,8 @@ class _VerifyCodeScreenState extends State<CheckCodeScreen> {
                   ),
                 ),
                 SizedBox(height: 36.h),
-                BlocListener<ForgetPasswordCubit, ForgetPasswordState>(
-                  listener: (context, state) {
+                BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
+                  listener: (context, state) async {
                     if (state is ForgetPasswordFailure) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -81,22 +85,30 @@ class _VerifyCodeScreenState extends State<CheckCodeScreen> {
                           backgroundColor: Colors.red,
                         ),
                       );
-                    } else if (state is VerifyEmailSuccess) {
-                      Navigator.pushNamed(context, Routes.setNewPasswordScreen);
+                    } else if (state is ForgetPasswordSuccess) {
+                      await Future.wait([
+                        storeVerificationCode(code),
+                        Navigator.pushNamed(
+                          context,
+                          Routes.setNewPasswordScreen,
+                        ),
+                      ]);
                     }
                   },
-                  child: AppConfirmButton(
-                    text: t.auth.verify,
-                    onPressed: () {
-                      FormData data = FormData.fromMap({
-                        'code': code,
-                        'email': email,
-                      });
-                      BlocProvider.of<ForgetPasswordCubit>(
-                        context,
-                      ).checkCode(data);
-                    },
-                  ),
+                  builder:
+                      (context, state) => AppConfirmButton(
+                        text: t.auth.verify,
+                        isLoading: (state is ForgetPasswordLoading),
+                        onPressed: () async {
+                          FormData data = FormData.fromMap({
+                            'code': code,
+                            'email': email,
+                          });
+                          BlocProvider.of<ForgetPasswordCubit>(
+                            context,
+                          ).checkCode(data);
+                        },
+                      ),
                 ),
               ],
             ),

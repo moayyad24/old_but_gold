@@ -95,7 +95,15 @@ class AppRouter {
   }
 
   Route _buildSetNewPasswordScreen() {
-    return MaterialPageRoute(builder: (_) => const SetNewPasswordScreen());
+    return MaterialPageRoute(
+      builder:
+          (_) => BlocProvider(
+            create:
+                (context) =>
+                    ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()),
+            child: const SetNewPasswordScreen(),
+          ),
+    );
   }
 
   Route _buildVerifyCodeScreen() {
