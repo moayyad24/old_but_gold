@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/app_router.dart';
+import 'package:old_but_gold/core/helper/route_manager.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_theme.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
@@ -30,6 +32,8 @@ class OldButGold extends StatelessWidget {
         supportedLocales: AppLocaleUtils.supportedLocales,
         localizationsDelegates: [...GlobalMaterialLocalizations.delegates],
         theme: AppTheme().defaultTheme,
+        initialRoute:
+            isLoggedInUser ? Routes.mainScreen : Routes.onboardingScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );

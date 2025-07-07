@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/db_keys.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/input_validator.dart';
@@ -104,8 +105,8 @@ class _SetNewPasswordScreenState extends State<SetNewPasswordScreen> {
                   SizedBox(height: 30.h),
                   SetNewPasswordConfirmButton(
                     formkey: formkey,
-                    email: storage.getString('user_email')!,
-                    code: storage.getString('code')!,
+                    email: storage.getString(DbKeys.userEmail)!,
+                    code: storage.getString(DbKeys.verificationCode)!,
                     password: passwordController,
                     confirmPassword: confirmPasswordController,
                     isApplyToPrivacyPolicy: isApplyToPrivacyPolicy,

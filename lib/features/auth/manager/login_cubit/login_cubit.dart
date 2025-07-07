@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:old_but_gold/core/constants/db_keys.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/features/auth/data/repos/auth/auth_repo.dart';
@@ -10,7 +11,7 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.authRepo) : super(LoginInitial());
   Future<void> storeUserToken(String token) async {
     final LocalStorageService storage = getIt<LocalStorageService>();
-    await storage.setSecuredString('token', token);
+    await storage.setSecuredString(DbKeys.userToken, token);
   }
 
   Future<void> login(FormData data) async {

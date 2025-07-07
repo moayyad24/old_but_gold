@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/db_keys.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
@@ -29,7 +30,7 @@ class _VerifyCodeScreenState extends State<CheckCodeScreen> {
   @override
   void initState() {
     storage = getIt<LocalStorageService>();
-    email = storage.getString('user_email')!;
+    email = storage.getString(DbKeys.userEmail)!;
     super.initState();
   }
 

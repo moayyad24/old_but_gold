@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:old_but_gold/core/constants/db_keys.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/features/auth/data/repos/auth/auth_repo.dart';
@@ -10,7 +11,7 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
   VerifyEmailCubit(this.authRepo) : super(VerifyEmailInitial());
   Future<void> storeUserToken(String token) async {
     final LocalStorageService storage = getIt<LocalStorageService>();
-    await storage.setSecuredString('token', token);
+    await storage.setSecuredString(DbKeys.userToken, token);
   }
 
   Future<void> verifyEmail(FormData data) async {

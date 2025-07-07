@@ -1,6 +1,6 @@
 class Routes {
   //OnBoarding
-  static const String onboardingScreen = '/';
+  static const String onboardingScreen = '/onboardingScreen';
   static const String introductionScreen = '/introductionScreen';
   //Auth
   static const String loginScreen = '/loginScreen';
