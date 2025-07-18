@@ -7,6 +7,7 @@ import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
+import 'package:old_but_gold/core/widgets/app_snack_bar.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/verify_email_cubit/verify_email_state.dart';
@@ -83,11 +84,9 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                 BlocListener<VerifyEmailCubit, VerifyEmailState>(
                   listener: (context, state) {
                     if (state is VerifyEmailFailure) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(state.errorMessage),
-                          backgroundColor: Colors.red,
-                        ),
+                      AppSnackBar.showError(
+                        context,
+                        message: state.errorMessage,
                       );
                     } else if (state is VerifyEmailSuccess) {
                       //ToDo: navigate to home screen

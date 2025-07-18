@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/input_validator.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
+import 'package:old_but_gold/core/widgets/app_snack_bar.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/manager/register_cubit/register_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/register_cubit/register_state.dart';
@@ -168,12 +169,7 @@ class SignUpConfirmButton extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage),
-              backgroundColor: Colors.red,
-            ),
-          );
+          AppSnackBar.showError(context, message: state.errorMessage);
         } else if (state is RegisterSuccess) {
           BlocProvider.of<RegisterCubit>(context).storeUserEmail(email.text);
           Navigator.pushNamed(context, Routes.verifyCodeScreen);
@@ -192,13 +188,10 @@ class SignUpConfirmButton extends StatelessWidget {
                 });
                 await BlocProvider.of<RegisterCubit>(context).register(data);
               } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
+                AppSnackBar.showError(
+                  context,
+                  message:
                       t.auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue,
-                    ),
-                    backgroundColor: Colors.red,
-                  ),
                 );
               }
             }

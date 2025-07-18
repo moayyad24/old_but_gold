@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/input_validator.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
+import 'package:old_but_gold/core/widgets/app_snack_bar.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/manager/login_cubit/login_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/login_cubit/login_state.dart';
@@ -157,12 +158,7 @@ class LoginConfirmButton extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage),
-              backgroundColor: Colors.red,
-            ),
-          );
+          AppSnackBar.showError(context, message: state.errorMessage);
         } else if (state is LoginSuccess) {
           Navigator.of(context).pushNamed(Routes.personalInformationScreen);
         }
@@ -179,13 +175,10 @@ class LoginConfirmButton extends StatelessWidget {
                 });
                 await BlocProvider.of<LoginCubit>(context).login(data);
               } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
+                AppSnackBar.showSuccess(
+                  context,
+                  message:
                       t.auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue,
-                    ),
-                    backgroundColor: Colors.red,
-                  ),
                 );
               }
             }

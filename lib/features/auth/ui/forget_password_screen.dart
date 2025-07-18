@@ -7,6 +7,7 @@ import 'package:old_but_gold/core/helper/input_validator.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
+import 'package:old_but_gold/core/widgets/app_snack_bar.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/manager/forget_password_cubit/forget_password_cubit.dart';
 import 'package:old_but_gold/features/auth/manager/forget_password_cubit/forget_password_state.dart';
@@ -94,12 +95,9 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
                     listener: (context, state) async {
                       if (state is ForgetPasswordFailure) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(state.errorMessage),
-                            backgroundColor: Colors.red,
-                            behavior: SnackBarBehavior.floating,
-                          ),
+                        AppSnackBar.showError(
+                          context,
+                          message: state.errorMessage,
                         );
                       } else if (state is ForgetPasswordSuccess) {
                         await Future.wait([
