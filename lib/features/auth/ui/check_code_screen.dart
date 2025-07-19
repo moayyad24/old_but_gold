@@ -37,7 +37,7 @@ class _VerifyCodeScreenState extends State<CheckCodeScreen> {
 
   Future<void> storeVerificationCode(String code) async {
     final LocalStorageService storage = getIt<LocalStorageService>();
-    await storage.setString('code', code);
+    await storage.setString(DbKeys.verificationCode, code);
   }
 
   @override
@@ -51,7 +51,7 @@ class _VerifyCodeScreenState extends State<CheckCodeScreen> {
               children: [
                 DragHandle(),
                 SizedBox(height: 20.h),
-                Text('Check Code', style: AppTextStyles.bold26),
+                Text(t.auth.checkCode, style: AppTextStyles.bold26),
                 SizedBox(height: 10.h),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 42),

@@ -160,7 +160,7 @@ class LoginConfirmButton extends StatelessWidget {
         if (state is LoginFailure) {
           AppSnackBar.showError(context, message: state.errorMessage);
         } else if (state is LoginSuccess) {
-          Navigator.of(context).pushNamed(Routes.personalInformationScreen);
+          Navigator.of(context).pushNamed(Routes.mainScreen);
         }
       },
       builder: (context, state) {
@@ -175,7 +175,7 @@ class LoginConfirmButton extends StatelessWidget {
                 });
                 await BlocProvider.of<LoginCubit>(context).login(data);
               } else {
-                AppSnackBar.showSuccess(
+                AppSnackBar.showError(
                   context,
                   message:
                       t.auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue,

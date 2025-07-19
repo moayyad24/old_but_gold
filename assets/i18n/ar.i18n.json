@@ -32,7 +32,11 @@
         "verify": "تحقق",
         "resend": "إعادة الإرسال",
         "resendInSeconds": "إعادة الإرسال خلال $remainingTime ثانية",
-        "pleaseAcceptOurPrivacyTermsAndPoliciesToContinue": "يرجى الموافقة على سياسة الخصوصية وشروط الخدمة"
+        "pleaseAcceptOurPrivacyTermsAndPoliciesToContinue": "يرجى الموافقة على سياسة الخصوصية وشروط الخدمة",
+        "resetPassword": "إعادة تعيين كلمة المرور",
+        "createANewPasswordForYourAccount": "إنشاء كلمة مرور جديدة لحسابك",
+        "createNewPassword": "إنشاء كلمة مرور جديدة",
+        "checkCode": "تحقق من الرمز"
     },
     "personalInfo": {
         "personalInformation": "المعلومات الشخصية",

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:old_but_gold/core/constants/db_keys.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/features/auth/data/repos/auth/auth_repo.dart';
@@ -11,7 +12,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   Future<void> storeUserEmail(String email) async {
     final LocalStorageService storage = getIt<LocalStorageService>();
-    await storage.setString('user_email', email);
+    await storage.setString(DbKeys.userEmail, email);
   }
 
   Future<void> register(FormData data) async {

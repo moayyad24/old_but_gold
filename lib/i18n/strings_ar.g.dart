@@ -83,6 +83,10 @@ class _TranslationsAuthAr implements TranslationsAuthEn {
 	@override String get resend => 'إعادة الإرسال';
 	@override String resendInSeconds({required Object remainingTime}) => 'إعادة الإرسال خلال ${remainingTime} ثانية';
 	@override String get pleaseAcceptOurPrivacyTermsAndPoliciesToContinue => 'يرجى الموافقة على سياسة الخصوصية وشروط الخدمة';
+	@override String get resetPassword => 'إعادة تعيين كلمة المرور';
+	@override String get createANewPasswordForYourAccount => 'إنشاء كلمة مرور جديدة لحسابك';
+	@override String get createNewPassword => 'إنشاء كلمة مرور جديدة';
+	@override String get checkCode => 'تحقق من الرمز';
 }
 
 // Path: personalInfo
@@ -202,6 +206,10 @@ extension on TranslationsAr {
 			case 'auth.resend': return 'إعادة الإرسال';
 			case 'auth.resendInSeconds': return ({required Object remainingTime}) => 'إعادة الإرسال خلال ${remainingTime} ثانية';
 			case 'auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue': return 'يرجى الموافقة على سياسة الخصوصية وشروط الخدمة';
+			case 'auth.resetPassword': return 'إعادة تعيين كلمة المرور';
+			case 'auth.createANewPasswordForYourAccount': return 'إنشاء كلمة مرور جديدة لحسابك';
+			case 'auth.createNewPassword': return 'إنشاء كلمة مرور جديدة';
+			case 'auth.checkCode': return 'تحقق من الرمز';
 			case 'personalInfo.personalInformation': return 'المعلومات الشخصية';
 			case 'personalInfo.phoneNumber': return 'رقم الهاتف';
 			case 'personalInfo.pleaseEnterPhoneNumber': return 'يرجى إدخال رقم الهاتف';

@@ -32,7 +32,11 @@
         "verify": "Verify",
         "resend": "Resend",
         "resendInSeconds": "Resend in $remainingTime seconds",
-        "pleaseAcceptOurPrivacyTermsAndPoliciesToContinue": "Please accept our privacy terms and policies to continue."
+        "pleaseAcceptOurPrivacyTermsAndPoliciesToContinue": "Please accept our privacy terms and policies to continue.",
+        "resetPassword": "Reset Password",
+        "createANewPasswordForYourAccount": "Create a new password for your account",
+        "createNewPassword": "Create New Password",
+        "checkCode": "Check Code"
     },
     "personalInfo": {
         "personalInformation": "Personal Information",

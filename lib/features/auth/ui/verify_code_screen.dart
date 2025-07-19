@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -81,7 +82,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                   ),
                 ),
                 SizedBox(height: 36.h),
-                BlocListener<VerifyEmailCubit, VerifyEmailState>(
+                BlocConsumer<VerifyEmailCubit, VerifyEmailState>(
                   listener: (context, state) {
                     if (state is VerifyEmailFailure) {
                       AppSnackBar.showError(
@@ -89,22 +90,26 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                         message: state.errorMessage,
                       );
                     } else if (state is VerifyEmailSuccess) {
-                      //ToDo: navigate to home screen
+                      Navigator.pushReplacementNamed(
+                        context,
+                        Routes.personalInformationScreen,
+                      );
                     }
                   },
-                  child: AppConfirmButton(
-                    text: t.auth.verify,
-                    onPressed: () {
-                      // FormData data = FormData.fromMap({
-                      //   'code': code,
-                      //   'email': email,
-                      // });
-                      // BlocProvider.of<VerifyEmailCubit>(
-                      //   context,
-                      // ).verifyEmail(data);
-                      Navigator.pushNamed(context, Routes.setNewPasswordScreen);
-                    },
-                  ),
+                  builder:
+                      (context, state) => AppConfirmButton(
+                        text: t.auth.verify,
+                        isLoading: state is VerifyEmailLoading,
+                        onPressed: () {
+                          FormData data = FormData.fromMap({
+                            'code': code,
+                            'email': email,
+                          });
+                          BlocProvider.of<VerifyEmailCubit>(
+                            context,
+                          ).verifyEmail(data);
+                        },
+                      ),
                 ),
               ],
             ),

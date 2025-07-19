@@ -14,7 +14,6 @@ import 'package:old_but_gold/features/auth/ui/login_screen.dart';
 import 'package:old_but_gold/features/auth/ui/set_new_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/sign_up_screen.dart';
 import 'package:old_but_gold/features/auth/ui/verify_code_screen.dart';
-import 'package:old_but_gold/features/home/ui/home_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/introduction_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/onboarding_screen.dart';
 import 'package:old_but_gold/features/settings/ui/personal_information_screen.dart';
@@ -44,8 +43,6 @@ class AppRouter {
       //Home
       case Routes.mainScreen:
         return _buildMainScreen();
-      case Routes.homeScreen:
-        return _buildHomeScreen();
       //Settings
       case Routes.personalInformationScreen:
         return _buildPersonalInformationScreen();
@@ -130,10 +127,6 @@ class AppRouter {
 
   Route _buildMainScreen() {
     return MaterialPageRoute(builder: (_) => const MainScreen());
-  }
-
-  Route _buildHomeScreen() {
-    return MaterialPageRoute(builder: (_) => const HomeScreen());
   }
 
   Route _buildPersonalInformationScreen() {

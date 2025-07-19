@@ -63,12 +63,12 @@ class _SetNewPasswordScreenState extends State<SetNewPasswordScreen> {
                 children: [
                   const DragHandle(),
                   SizedBox(height: 20.h),
-                  Text('Reset Password', style: AppTextStyles.bold26),
+                  Text(t.auth.resetPassword, style: AppTextStyles.bold26),
                   SizedBox(height: 10.h),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 42),
                     child: Text(
-                      'Create a new password for your account',
+                      t.auth.createANewPasswordForYourAccount,
                       style: AppTextStyles.medium15,
                       textAlign: TextAlign.center,
                     ),
@@ -152,7 +152,7 @@ class SetNewPasswordConfirmButton extends StatelessWidget {
       },
       builder: (context, state) {
         return AppConfirmButton(
-          text: 'Create New Password',
+          text: t.auth.createNewPassword,
           onPressed: () async {
             !isApplyToPrivacyPolicy
                 ? AppSnackBar.showError(

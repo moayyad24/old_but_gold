@@ -86,6 +86,10 @@ class TranslationsAuthEn {
 	String get resend => 'Resend';
 	String resendInSeconds({required Object remainingTime}) => 'Resend in ${remainingTime} seconds';
 	String get pleaseAcceptOurPrivacyTermsAndPoliciesToContinue => 'Please accept our privacy terms and policies to continue.';
+	String get resetPassword => 'Reset Password';
+	String get createANewPasswordForYourAccount => 'Create a new password for your account';
+	String get createNewPassword => 'Create New Password';
+	String get checkCode => 'Check Code';
 }
 
 // Path: personalInfo
@@ -205,6 +209,10 @@ extension on Translations {
 			case 'auth.resend': return 'Resend';
 			case 'auth.resendInSeconds': return ({required Object remainingTime}) => 'Resend in ${remainingTime} seconds';
 			case 'auth.pleaseAcceptOurPrivacyTermsAndPoliciesToContinue': return 'Please accept our privacy terms and policies to continue.';
+			case 'auth.resetPassword': return 'Reset Password';
+			case 'auth.createANewPasswordForYourAccount': return 'Create a new password for your account';
+			case 'auth.createNewPassword': return 'Create New Password';
+			case 'auth.checkCode': return 'Check Code';
 			case 'personalInfo.personalInformation': return 'Personal Information';
 			case 'personalInfo.phoneNumber': return 'Phone Number';
 			case 'personalInfo.pleaseEnterPhoneNumber': return 'Please enter phone number';
