@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:intl/intl.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
-import 'package:old_but_gold/features/settings/ui/widgets/personal_information/choose_date.dart';
+import 'package:old_but_gold/features/profile/ui/widgets/personal_information/choose_date.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class DatePickerRow extends StatefulWidget {

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
@@ -105,11 +106,32 @@ class MapLocationPickerState extends State<MapLocationPicker> {
 
   Future<void> _enableLocationServices() async {
     try {
-      final enabled = await Geolocator.openLocationSettings();
-      if (enabled) {
-        setState(() => _locationState = LocationState.loading);
-        await _initLocation();
-      }
+      await Geolocator.openLocationSettings();
+      // Check every second for 20 seconds
+      const interval = Duration(seconds: 1);
+      const timeout = Duration(seconds: 20);
+      final timer = Timer.periodic(interval, (timer) async {
+        final enabled = await Geolocator.isLocationServiceEnabled();
+        if (enabled) {
+          timer.cancel();
+          if (mounted) {
+            setState(() => _locationState = LocationState.loading);
+            await _initLocation();
+          }
+        }
+      });
+      // Cancel timer after timeout
+      Future.delayed(timeout, () {
+        if (timer.isActive) {
+          timer.cancel();
+          if (mounted) {
+            setState(() {
+              _locationState = LocationState.error;
+              _errorMessage = 'Location services not enabled';
+            });
+          }
+        }
+      });
     } catch (e) {
       setState(() {
         _locationState = LocationState.error;
@@ -140,12 +162,11 @@ class MapLocationPickerState extends State<MapLocationPicker> {
       );
 
       if (response.statusCode == 200) {
-        final data = response.data; // Dio automatically decodes JSON
+        final data = response.data;
         return "${data['address']['city']}, ${data['address']['country']}";
       }
-      return null;
+      return "Error occurred, Please reselect your location";
     } on DioException catch (e) {
-      // Handle Dio-specific errors (e.g., no internet, timeout)
       debugPrint('Error fetching address: ${e.message}');
       return null;
     }
@@ -259,34 +280,26 @@ class MapLocationPickerState extends State<MapLocationPicker> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.location_off, size: 60.w, color: Colors.red),
+            SvgPicture.asset('assets/icons/warning.svg'),
             SizedBox(height: 24.h),
             Text(
-              _errorMessage ?? 'Location error',
-              style: AppTextStyles.medium16.copyWith(color: Colors.red),
+              _errorMessage ?? 'Please enable your location',
+              style: AppTextStyles.semiBold20,
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 24.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: _initLocation,
-                  child: const Text('Retry'),
-                ),
-                SizedBox(width: 16.w),
-                if (_locationState == LocationState.permissionDenied)
-                  ElevatedButton(
-                    onPressed: _openAppSettings,
-                    child: const Text('Open Settings'),
-                  )
-                else if (_locationState == LocationState.serviceDisabled)
-                  ElevatedButton(
-                    onPressed: _enableLocationServices,
-                    child: const Text('Enable Location'),
-                  ),
-              ],
-            ),
+            SizedBox(height: 40.h),
+            if (_locationState == LocationState.permissionDenied)
+              ElevatedButton(
+                onPressed: _openAppSettings,
+                child: const Text('Open Settings'),
+              )
+            else if (_locationState == LocationState.serviceDisabled)
+              AppConfirmButton(
+                text: 'Enable Location',
+                onPressed: () async {
+                  await _enableLocationServices();
+                },
+              ),
           ],
         ),
       ),

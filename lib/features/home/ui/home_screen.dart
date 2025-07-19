@@ -6,8 +6,6 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(slivers: [HomeSliverAppBar(), HomeSliverBody()]),
-    );
+    return CustomScrollView(slivers: [HomeSliverAppBar(), HomeSliverBody()]);
   }
 }

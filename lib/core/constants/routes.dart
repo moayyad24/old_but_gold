@@ -12,5 +12,6 @@ class Routes {
   //Home
   static const String mainScreen = '/mainScreen';
   //Settings
+  //Profile
   static const String personalInformationScreen = '/personalInformationScreen';
 }

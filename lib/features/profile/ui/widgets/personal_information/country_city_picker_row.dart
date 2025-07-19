@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/constants/test_constants.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
-import 'package:old_but_gold/features/settings/ui/widgets/personal_information/choose_country_or_city.dart';
+import 'package:old_but_gold/features/profile/ui/widgets/personal_information/choose_country_or_city.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class CountryCityPickerRow extends StatefulWidget {

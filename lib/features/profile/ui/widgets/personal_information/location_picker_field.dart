@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_but_gold/core/widgets/app_text_field.dart';
-import 'package:old_but_gold/features/settings/ui/widgets/personal_information/map_location_picker.dart';
+import 'package:old_but_gold/features/profile/ui/widgets/personal_information/map_location_picker.dart';
 
 class LocationPickerField extends StatefulWidget {
   const LocationPickerField({super.key});
