@@ -22,4 +22,19 @@ class ProfileInformationCubit extends Cubit<ProfileInformationState> {
       },
     );
   }
+
+  Future<void> getPersonalInformation() async {
+    emit(GetProfileInformationLoading());
+    var result = await profileRepo.getPersonalInformation();
+    result.fold(
+      (f) {
+        //failure
+        emit(ProfileInformationFailure(errorMessage: f.message));
+      },
+      (s) async {
+        //success
+        emit(GetProfileInformationSuccess(personalInformationModel: s));
+      },
+    );
+  }
 }

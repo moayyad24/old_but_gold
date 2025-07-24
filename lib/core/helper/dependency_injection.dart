@@ -18,7 +18,7 @@ Future<void> setupGetIt() async {
   //Navigator helper
   getIt.registerLazySingleton<NavigationService>(() => NavigationService());
   //ApiService
-  getIt.registerLazySingleton<ApiService>(() => ApiService(Dio()));
+  getIt.registerSingleton<ApiService>(ApiService(Dio()));
 
   //Auth
   getIt.registerLazySingleton<AuthRepoImpl>(

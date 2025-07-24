@@ -23,15 +23,15 @@ class PersonalInformationModel {
 
   factory PersonalInformationModel.fromJson(Map<String, dynamic> json) {
     return PersonalInformationModel(
-      id: json['id'] as int,
+      id: json['id'],
       name: json['name'] as String,
       email: json['email'] as String,
-      gender: json['gender'] as String?,
-      birthday: DateTime.parse(json['birthday']),
-      phone: json['phone'],
-      longitude: json['longitude'],
-      latitude: json['latitude'],
-      address: json['address'] as String,
+      gender: json['gender'] ?? '',
+      birthday: DateTime.parse(json['birthday'] ?? '2023-12-25T10:30:45.500Z'),
+      phone: (json['phone'] as int).toString(),
+      longitude: (json['longitude'] as int).toString(),
+      latitude: (json['latitude'] as int).toString(),
+      address: json['address'] ?? '',
     );
   }
   Map<String, dynamic> toMap() {

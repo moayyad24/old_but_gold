@@ -38,7 +38,7 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
   late TextEditingController locationController;
   late LocalStorageService storage;
   late GlobalKey<FormState> formkey;
-  late DateTime? birthDate;
+  DateTime? birthDate;
   late String? lat;
   late String? long;
   @override
@@ -49,6 +49,11 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
     phoneNumberController = TextEditingController();
     locationController = TextEditingController();
     storage = getIt.get<LocalStorageService>();
+    if (storage.getString(DbKeys.latitude) != null) {
+      BlocProvider.of<ProfileInformationCubit>(
+        context,
+      ).getPersonalInformation();
+    }
     super.initState();
   }
 
@@ -73,103 +78,106 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          AuthAppBar(
-            dots: [DotState.completed, DotState.completed, DotState.current],
-          ),
-          ContentArea(
-            child: Form(
-              key: formkey,
-              child: Column(
+      body: BlocConsumer<ProfileInformationCubit, ProfileInformationState>(
+        listener: (context, state) {
+          if (state is ProfileInformationFailure) {
+            AppSnackBar.showError(context, message: state.errorMessage);
+          } else if (state is GetProfileInformationSuccess) {
+            firstNameController.text = state.personalInformationModel.name;
+            lastNameController.text = state.personalInformationModel.name;
+            phoneNumberController.text = state.personalInformationModel.phone;
+            locationController.text = state.personalInformationModel.address;
+            birthDate = state.personalInformationModel.birthday;
+          } else if (state is ProfileInformationSuccess) {
+            AppSnackBar.showSuccess(context, message: 'Successfully Updated');
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return state is GetProfileInformationLoading
+              ? Center(child: CircularProgressIndicator())
+              : Column(
                 children: [
-                  DragHandle(),
-                  SizedBox(height: 20.h),
-                  Text(
-                    t.personalInfo.personalInformation,
-                    style: AppTextStyles.bold26,
+                  AuthAppBar(
+                    dots: [
+                      DotState.completed,
+                      DotState.completed,
+                      DotState.current,
+                    ],
                   ),
-                  SizedBox(height: 36.h),
-                  FirstAndLastNameField(
-                    firstName: firstNameController,
-                    lastName: lastNameController,
-                  ),
-                  SizedBox(height: 30.h),
-                  DatePickerRow(
-                    initialDate: DateTime(1998, 1, 1),
-                    onDateSelected: (date) {
-                      birthDate = date;
-                    },
-                  ),
-                  SizedBox(height: 30.h),
-                  LocationPickerField(location: locationController),
-                  SizedBox(height: 30.h),
-                  PhoneNumberField(
-                    fieldTitle: t.personalInfo.phoneNumber,
-                    hintText: '+213 542-382-179',
-                    myController: phoneNumberController,
-                    checkValid: (v) {
-                      return InputValidator.validatePhone(v!);
-                    },
-                    countryCode: '+963', // Syria country code
-                  ),
-                  SizedBox(height: 40.h),
-                  Text(
-                    t.personalInfo.weMayUseYourPhoneNumber,
-                    style: AppTextStyles.medium14.copyWith(
-                      color: AppColors.grey666666,
+                  ContentArea(
+                    child: Form(
+                      key: formkey,
+                      child: Column(
+                        children: [
+                          DragHandle(),
+                          SizedBox(height: 20.h),
+                          Text(
+                            t.personalInfo.personalInformation,
+                            style: AppTextStyles.bold26,
+                          ),
+                          SizedBox(height: 36.h),
+                          FirstAndLastNameField(
+                            firstName: firstNameController,
+                            lastName: lastNameController,
+                          ),
+                          SizedBox(height: 30.h),
+                          DatePickerRow(
+                            initialDate: birthDate ?? DateTime(1998, 1, 1),
+                            onDateSelected: (date) {
+                              birthDate = date;
+                            },
+                          ),
+                          SizedBox(height: 30.h),
+                          LocationPickerField(location: locationController),
+                          SizedBox(height: 30.h),
+                          PhoneNumberField(
+                            fieldTitle: t.personalInfo.phoneNumber,
+                            hintText: '+213 542-382-179',
+                            myController: phoneNumberController,
+                            checkValid: (v) {
+                              return InputValidator.validatePhone(v!);
+                            },
+                            countryCode: '+963', // Syria country code
+                          ),
+                          SizedBox(height: 40.h),
+                          Text(
+                            t.personalInfo.weMayUseYourPhoneNumber,
+                            style: AppTextStyles.medium14.copyWith(
+                              color: AppColors.grey666666,
+                            ),
+                          ),
+                          SizedBox(height: 35.h),
+                          AppConfirmButton(
+                            text: t.personalInfo.confirmYourInfo,
+                            isLoading: state is ProfileInformationLoading,
+                            onPressed: () async {
+                              _getLatLong();
+                              if (formkey.currentState!.validate()) {
+                                FormData data = FormData.fromMap(
+                                  PersonalInformationModel(
+                                    name:
+                                        '${firstNameController.text} ${lastNameController.text}',
+                                    birthday: birthDate!,
+                                    phone: phoneNumberController.text,
+                                    longitude: long!,
+                                    latitude: lat!,
+                                    address: locationController.text,
+                                  ).toMap(),
+                                );
+                                await context
+                                    .read<ProfileInformationCubit>()
+                                    .createPersonalInformation(data);
+                              }
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  SizedBox(height: 35.h),
-                  BlocConsumer<
-                    ProfileInformationCubit,
-                    ProfileInformationState
-                  >(
-                    listener: (context, state) {
-                      if (state is ProfileInformationFailure) {
-                        AppSnackBar.showError(
-                          context,
-                          message: state.errorMessage,
-                        );
-                      } else if (state is ProfileInformationSuccess) {
-                        AppSnackBar.showSuccess(
-                          context,
-                          message: 'Successfully Updated',
-                        );
-                        Navigator.pop(context);
-                      }
-                    },
-                    builder: (context, state) {
-                      return AppConfirmButton(
-                        text: t.personalInfo.confirmYourInfo,
-                        isLoading: state is ProfileInformationLoading,
-                        onPressed: () async {
-                          _getLatLong();
-                          if (formkey.currentState!.validate()) {
-                            FormData data = FormData.fromMap(
-                              PersonalInformationModel(
-                                name:
-                                    '${firstNameController.text} ${lastNameController.text}',
-                                birthday: birthDate!,
-                                phone: phoneNumberController.text,
-                                longitude: long!,
-                                latitude: lat!,
-                                address: locationController.text,
-                              ).toMap(),
-                            );
-                            await context
-                                .read<ProfileInformationCubit>()
-                                .createPersonalInformation(data);
-                          }
-                        },
-                      );
-                    },
-                  ),
                 ],
-              ),
-            ),
-          ),
-        ],
+              );
+        },
       ),
     );
   }

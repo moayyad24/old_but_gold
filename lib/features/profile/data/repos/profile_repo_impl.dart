@@ -52,7 +52,7 @@ class ProfileRepoImpl implements ProfileRepo {
       logger.d('📥 Received response: ${response.toString()}');
 
       logger.d('🔨 Parsing response into PersonalInformationModel');
-      var user = PersonalInformationModel.fromJson(response);
+      var user = PersonalInformationModel.fromJson(response['data']);
       logger.i(
         '✅ Successfully fetched personal information for user ID: ${user.id}',
       );
