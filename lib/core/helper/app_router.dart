@@ -16,6 +16,8 @@ import 'package:old_but_gold/features/auth/ui/sign_up_screen.dart';
 import 'package:old_but_gold/features/auth/ui/verify_code_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/introduction_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/onboarding_screen.dart';
+import 'package:old_but_gold/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:old_but_gold/features/profile/manager/profile_information_cubit/profile_information_cubit.dart';
 import 'package:old_but_gold/features/profile/ui/personal_information_screen.dart';
 import 'package:old_but_gold/main_screen.dart';
 
@@ -130,6 +132,14 @@ class AppRouter {
   }
 
   Route _buildPersonalInformationScreen() {
-    return MaterialPageRoute(builder: (_) => const PersonalInformationScreen());
+    return MaterialPageRoute(
+      builder:
+          (_) => BlocProvider(
+            create:
+                (context) =>
+                    ProfileInformationCubit(getIt.get<ProfileRepoImpl>()),
+            child: const PersonalInformationScreen(),
+          ),
+    );
   }
 }

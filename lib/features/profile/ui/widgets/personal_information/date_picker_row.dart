@@ -36,6 +36,7 @@ class _DatePickerRowState extends State<DatePickerRow> {
   String _formatNumber(int number) => number.toString().padLeft(2, '0');
 
   Future<void> _showDatePicker(BuildContext context) async {
+    FocusScope.of(context).requestFocus(FocusNode());
     final date = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => ChooseDate()),

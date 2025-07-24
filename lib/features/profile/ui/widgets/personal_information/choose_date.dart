@@ -15,49 +15,54 @@ class ChooseDate extends StatelessWidget {
   Widget build(BuildContext context) {
     DateTime? selectedDate;
     return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: UiParameters.dPadding,
-            child: TextWithIconAppBar(title: t.personalInfo.chooseDateOfBirth),
-          ),
-          Spacer(flex: 3),
-          AdoptiveCalendar(
-            initialDate: DateTime(1990, 01, 01),
-            minYear: 1940,
-            maxYear: DateTime.now().year,
-            datePickerOnly: true,
-            fontColor: Colors.black,
-            selectedColor: AppColors.mainFFE09C,
-            backgroundColor: AppColors.whiteFFFFFF,
-            contentPadding: EdgeInsets.only(left: 16, right: 16, top: 16),
-            onSelection: (date) {
-              selectedDate = date;
-            },
-          ),
-          Spacer(),
-          Padding(
-            padding: UiParameters.hPadding,
-            child: Column(
-              children: [
-                Text(
-                  t.personalInfo.weMayUseYourDateOfBirth,
-                  style: AppTextStyles.medium14.copyWith(
-                    color: AppColors.grey666666,
-                  ),
-                ),
-                50.verticalSpace,
-                AppConfirmButton(
-                  text: t.personalInfo.confirmYourInfo,
-                  onPressed: () {
-                    Navigator.pop(context, selectedDate);
-                  },
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: UiParameters.dPadding,
+              child: TextWithIconAppBar(
+                title: t.personalInfo.chooseDateOfBirth,
+              ),
             ),
-          ),
-          Spacer(flex: 2),
-        ],
+            50.verticalSpace,
+            AdoptiveCalendar(
+              initialDate: DateTime(1990, 01, 01),
+              minYear: 1940,
+              maxYear: DateTime.now().year,
+              datePickerOnly: true,
+              fontColor: Colors.black,
+              headingColor: Colors.black,
+              iconColor: AppColors.green006A6F,
+              selectedColor: AppColors.mainFFE09C,
+              backgroundColor: AppColors.whiteFFFFFF,
+              contentPadding: EdgeInsets.only(left: 16, right: 16, top: 16),
+              onSelection: (date) {
+                selectedDate = date;
+              },
+            ),
+            50.verticalSpace,
+            Padding(
+              padding: UiParameters.hPadding,
+              child: Column(
+                children: [
+                  Text(
+                    t.personalInfo.weMayUseYourDateOfBirth,
+                    style: AppTextStyles.medium14.copyWith(
+                      color: AppColors.grey666666,
+                    ),
+                  ),
+                  50.verticalSpace,
+                  AppConfirmButton(
+                    text: t.personalInfo.confirmYourInfo,
+                    onPressed: () {
+                      Navigator.pop(context, selectedDate);
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

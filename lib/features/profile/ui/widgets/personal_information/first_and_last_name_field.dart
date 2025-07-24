@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/helper/input_validator.dart';
 import 'package:old_but_gold/core/widgets/app_text_field.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class FirstAndLastNameField extends StatelessWidget {
-  const FirstAndLastNameField({super.key});
+  final TextEditingController firstName;
+  final TextEditingController lastName;
+  const FirstAndLastNameField({
+    super.key,
+    required this.firstName,
+    required this.lastName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +21,9 @@ class FirstAndLastNameField extends StatelessWidget {
           child: AppTextField(
             hintText: t.personalInfo.required,
             fieldTitle: t.personalInfo.firstName,
-            myController: TextEditingController(),
-            checkValid: (_) {
-              return null;
+            myController: firstName,
+            checkValid: (v) {
+              return InputValidator.validateUsername(v!);
             },
           ),
         ),
@@ -25,9 +32,9 @@ class FirstAndLastNameField extends StatelessWidget {
           child: AppTextField(
             hintText: t.personalInfo.required,
             fieldTitle: t.personalInfo.lastName,
-            myController: TextEditingController(),
-            checkValid: (_) {
-              return null;
+            myController: lastName,
+            checkValid: (v) {
+              return InputValidator.validateUsername(v!);
             },
           ),
         ),

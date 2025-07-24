@@ -5,6 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:old_but_gold/core/constants/db_keys.dart';
+import 'package:old_but_gold/core/helper/dependency_injection.dart';
+import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
@@ -27,11 +30,13 @@ class MapLocationPickerState extends State<MapLocationPicker> {
   LocationState _locationState = LocationState.loading;
   String? _errorMessage;
   bool _buttonLoading = false;
+  late LocalStorageService storage;
 
   @override
   void initState() {
     super.initState();
     _initLocation();
+    storage = getIt.get<LocalStorageService>();
   }
 
   Future<void> _initLocation() async {
@@ -207,6 +212,11 @@ class MapLocationPickerState extends State<MapLocationPicker> {
     }
   }
 
+  Future<void> _storeLatLong(double lat, double long) async {
+    await storage.setString(DbKeys.latitude, lat.toString());
+    await storage.setString(DbKeys.longitude, long.toString());
+  }
+
   Widget _buildMapContent() {
     return Stack(
       children: [
@@ -260,6 +270,10 @@ class MapLocationPickerState extends State<MapLocationPicker> {
                 setState(() {
                   _buttonLoading = true;
                 });
+                await _storeLatLong(
+                  _selectedPosition!.latitude,
+                  _selectedPosition!.longitude,
+                );
                 String? countryCity = await _getAddressFromAPI(
                   _selectedPosition!.latitude,
                   _selectedPosition!.longitude,

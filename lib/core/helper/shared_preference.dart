@@ -191,12 +191,8 @@ class LocalStorageService {
       const storage = FlutterSecureStorage();
       await storage.write(key: key, value: value);
       logger.i('Secured string saved successfully for key: $key');
-    } catch (e, stackTrace) {
-      logger.e(
-        'Error saving secured string for key: $key',
-        error: e,
-        stackTrace: stackTrace,
-      );
+    } catch (e) {
+      logger.e('Error saving secured string for key: $key', error: e);
       rethrow;
     }
   }
@@ -208,12 +204,20 @@ class LocalStorageService {
       final value = await storage.read(key: key);
       logger.t('Retrieved secured string: ${value != null ? '*****' : 'null'}');
       return value;
-    } catch (e, stackTrace) {
-      logger.e(
-        'Error getting secured string for key: $key',
-        error: e,
-        stackTrace: stackTrace,
-      );
+    } catch (e) {
+      logger.e('Error getting secured string for key: $key', error: e);
+      rethrow;
+    }
+  }
+
+  Future<void> deleteSecuredStorage() async {
+    try {
+      logger.d('Deleting secured storage-------');
+      const storage = FlutterSecureStorage();
+      await storage.deleteAll();
+      logger.t('Successfully deleted');
+    } catch (e) {
+      logger.e('Error deleting secured storage:', error: e);
       rethrow;
     }
   }

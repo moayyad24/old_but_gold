@@ -20,7 +20,7 @@ class AppTextField extends StatefulWidget {
     this.prefixIconPath,
     this.suffixIcon,
     required this.myController,
-    required this.checkValid,
+    this.checkValid,
     this.isObscure = false,
   });
 

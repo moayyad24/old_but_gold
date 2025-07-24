@@ -56,7 +56,7 @@ class ServerFailure extends Failure {
     } else if (statusCode == 400) {
       return ServerFailure(response['message']['errorDetails'][0]);
     } else if (statusCode == 401) {
-      return ServerFailure(response['message']['errorDetails'][0]);
+      return ServerFailure(response['error']);
     } else {
       return ServerFailure(t.failures.unexpectedResponse);
     }
