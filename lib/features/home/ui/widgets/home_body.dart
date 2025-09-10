@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:old_but_gold/core/widgets/app_content_area.dart';
 import 'package:old_but_gold/features/home/ui/widgets/categories_list_view.dart';
-import 'package:old_but_gold/features/home/ui/widgets/home_content_area.dart';
 import 'package:old_but_gold/features/home/ui/widgets/items_grid_view.dart';
 import 'package:old_but_gold/features/home/ui/widgets/items_list_view.dart';
 import 'package:old_but_gold/features/home/ui/widgets/items_list_view_with_background_image.dart';
@@ -11,7 +11,7 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomeContentArea(
+    return AppContentArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

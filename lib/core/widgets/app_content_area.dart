@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
-class HomeContentArea extends StatelessWidget {
+class AppContentArea extends StatelessWidget {
   final Widget child;
-  const HomeContentArea({super.key, required this.child});
+  final double? topPadding;
+  const AppContentArea({super.key, required this.child, this.topPadding});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class HomeContentArea extends StatelessWidget {
         border: Border.all(color: AppColors.greyC2C2C2),
       ),
       margin: EdgeInsets.only(top: 25),
-      padding: EdgeInsets.only(top: 70),
+      padding: EdgeInsets.only(top: topPadding ?? 70),
       child: child,
     );
   }

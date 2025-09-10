@@ -47,14 +47,34 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
   //Bold
+  static TextStyle bold12 = TextStyle(
+    color: Colors.black,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle bold16 = TextStyle(
     color: Colors.black,
     fontSize: 16.sp,
     fontWeight: FontWeight.bold,
   );
+  static TextStyle bold18 = TextStyle(
+    color: Colors.black,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle bold20 = TextStyle(
     color: Colors.black,
     fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle bold22 = TextStyle(
+    color: Colors.black,
+    fontSize: 22.sp,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle bold24 = TextStyle(
+    color: Colors.black,
+    fontSize: 24.sp,
     fontWeight: FontWeight.bold,
   );
   static TextStyle bold26 = TextStyle(
