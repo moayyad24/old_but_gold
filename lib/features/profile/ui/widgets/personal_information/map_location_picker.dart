@@ -13,7 +13,7 @@ import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
-import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
+import 'package:old_but_gold/core/widgets/custom_stepper.dart';
 
 class MapLocationPicker extends StatefulWidget {
   const MapLocationPicker({super.key});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
@@ -42,7 +43,9 @@ class AppBottomNavigationBar extends StatelessWidget {
             label: 'Add',
             index: 2,
             currentIndex: currentIndex,
-            onTap: onIndexChanged,
+            onTap: (i) {
+              Navigator.pushNamed(context, Routes.createPostScreen);
+            },
           ),
           _NavBarItem(
             icon: 'assets/icons/inbox.svg',

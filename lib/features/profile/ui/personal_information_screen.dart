@@ -13,7 +13,7 @@ import 'package:old_but_gold/core/widgets/app_snack_bar.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
-import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
+import 'package:old_but_gold/core/widgets/custom_stepper.dart';
 import 'package:old_but_gold/features/profile/data/models/personal_information_model.dart';
 import 'package:old_but_gold/features/profile/manager/profile_information_cubit/profile_information_cubit.dart';
 import 'package:old_but_gold/features/profile/manager/profile_information_cubit/profile_information_state.dart';

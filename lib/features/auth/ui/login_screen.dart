@@ -13,7 +13,7 @@ import 'package:old_but_gold/features/auth/ui/widgets/auth_app_bar.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/app_text_field.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
-import 'package:old_but_gold/features/auth/ui/widgets/custom_stepper.dart';
+import 'package:old_but_gold/core/widgets/custom_stepper.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/forget_password_text.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/google_auth_button.dart';
 import 'package:old_but_gold/features/auth/ui/widgets/or_divider.dart';

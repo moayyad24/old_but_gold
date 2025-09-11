@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_back_button.dart';
 import 'package:old_but_gold/core/widgets/custom_stepper.dart';
-import 'package:old_but_gold/i18n/strings.g.dart';
 
-class AuthAppBar extends StatelessWidget {
+class CreatePostAppBar extends StatelessWidget {
   final List<DotState>? dots;
-  const AuthAppBar({super.key, this.dots});
+  const CreatePostAppBar({super.key, this.dots});
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +16,7 @@ class AuthAppBar extends StatelessWidget {
         children: [
           AppBackButton(),
           dots != null ? CustomStepper(dots: dots!) : SizedBox.shrink(),
-          Text(
-            t.auth.skip,
-            style: AppTextStyles.bold16.copyWith(
-              decoration: TextDecoration.underline,
-              decorationThickness: 1.5,
-              decorationColor: Colors.black,
-            ),
-          ),
+          SizedBox(width: 30),
         ],
       ),
     );
