@@ -19,6 +19,7 @@ class ProfileBody extends StatelessWidget {
       children: [
         AppContentArea(
           topPadding: 50,
+          boxShadow: true,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
