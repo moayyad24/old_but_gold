@@ -18,7 +18,11 @@ class AppContentArea extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteFFFDF2,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(34)),
-        border: Border.all(color: AppColors.greyC2C2C2),
+        border: Border(
+          top: BorderSide(color: AppColors.greyC2C2C2),
+          left: BorderSide(color: AppColors.greyC2C2C2),
+          right: BorderSide(color: AppColors.greyC2C2C2),
+        ),
         boxShadow: [
           if (boxShadow == true)
             const BoxShadow(

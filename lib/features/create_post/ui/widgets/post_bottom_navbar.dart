@@ -3,9 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
-
 class PostBottomNavBar extends StatelessWidget {
-  const PostBottomNavBar({super.key});
+  final String iconLabel;
+  final Widget? leading;
+  final void Function()? onPressed;
+  const PostBottomNavBar({
+    super.key,
+    required this.iconLabel,
+    this.onPressed,
+    this.leading,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +33,10 @@ class PostBottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            ?leading,
+            Spacer(),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: onPressed,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.mainFFE09C,
                 foregroundColor: AppColors.black,
@@ -43,7 +52,7 @@ class PostBottomNavBar extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('Next', style: AppTextStyles.bold20),
+                  Text(iconLabel, style: AppTextStyles.bold20),
                   SizedBox(width: 18.w),
                   Icon(Icons.arrow_forward, size: 24),
                 ],
