@@ -14,6 +14,7 @@ import 'package:old_but_gold/features/auth/ui/login_screen.dart';
 import 'package:old_but_gold/features/auth/ui/set_new_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/sign_up_screen.dart';
 import 'package:old_but_gold/features/auth/ui/verify_code_screen.dart';
+import 'package:old_but_gold/features/create_post/ui/categories_screen.dart';
 import 'package:old_but_gold/features/create_post/ui/create_post_main_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/introduction_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/onboarding_screen.dart';
@@ -49,6 +50,8 @@ class AppRouter {
       //Create Post
       case Routes.createPostScreen:
         return _buildCreatePostScreen();
+      case Routes.categoryScreen:
+        return _buildCategoryScreen();
       //Settings
       case Routes.personalInformationScreen:
         return _buildPersonalInformationScreen();
@@ -137,6 +140,10 @@ class AppRouter {
 
   Route _buildCreatePostScreen() {
     return MaterialPageRoute(builder: (_) => const CreatePostMainScreen());
+  }
+
+  Route _buildCategoryScreen() {
+    return MaterialPageRoute(builder: (_) => const CategoriesScreen());
   }
 
   Route _buildPersonalInformationScreen() {

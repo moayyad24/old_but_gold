@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/app_text_field.dart';
@@ -39,7 +40,9 @@ class CreatePostScreen extends StatelessWidget {
                 ),
                 23.verticalSpace,
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.categoryScreen);
+                  },
                   child: Row(
                     children: [
                       Expanded(

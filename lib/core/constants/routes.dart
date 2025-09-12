@@ -16,4 +16,5 @@ class Routes {
   static const String personalInformationScreen = '/personalInformationScreen';
   //Create Post
   static const String createPostScreen = '/createPostScreen';
+  static const String categoryScreen = '/categoryScreen';
 }

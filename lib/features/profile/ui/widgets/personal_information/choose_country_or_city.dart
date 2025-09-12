@@ -6,7 +6,7 @@ import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
 import 'package:old_but_gold/core/widgets/search_text_field.dart';
-import 'package:old_but_gold/features/settings/ui/widgets/text_with_icon_app_bar.dart';
+import 'package:old_but_gold/core/widgets/text_with_icon_app_bar.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
 class ChooseCountryOrCity extends StatefulWidget {
