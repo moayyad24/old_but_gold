@@ -28,59 +28,61 @@ class CreatePostScreen extends StatelessWidget {
           CreatePostAppBar(
             dots: [DotState.current, DotState.next, DotState.next],
           ),
-          ContentArea(
-            child: Form(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  DragHandle(),
-                  20.verticalSpace,
-                  Text('Create a Post', style: AppTextStyles.bold26),
-                  36.verticalSpace,
-                  AppTextField(
-                    fieldTitle: 'Item Name',
-                    hintText: 'Enter the name of the item',
-                    prefixIconPath: 'assets/icons/promo_code.svg',
-                    myController: TextEditingController(),
-                    checkValid: (v) {
-                      return '';
-                    },
-                  ),
-                  23.verticalSpace,
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.categoryScreen);
-                    },
-                    child: Row(
+          Expanded(
+            child: ContentArea(
+              child: Form(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    DragHandle(),
+                    20.verticalSpace,
+                    Text('Create a Post', style: AppTextStyles.bold26),
+                    36.verticalSpace,
+                    AppTextField(
+                      fieldTitle: 'Item Name',
+                      hintText: 'Enter the name of the item',
+                      prefixIconPath: 'assets/icons/promo_code.svg',
+                      myController: TextEditingController(),
+                      checkValid: (v) {
+                        return '';
+                      },
+                    ),
+                    23.verticalSpace,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.categoryScreen);
+                      },
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: _buildContainer('Category', 'Electronics'),
+                          ),
+                          SizedBox(width: 10.w),
+                          Expanded(
+                            child: _buildContainer('Sub-Category', 'Phones'),
+                          ),
+                        ],
+                      ),
+                    ),
+                    23.verticalSpace,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: _buildContainer('Category', 'Electronics'),
-                        ),
-                        SizedBox(width: 10.w),
-                        Expanded(
-                          child: _buildContainer('Sub-Category', 'Phones'),
+                        Text('Price', style: AppTextStyles.medium14),
+                        SizedBox(height: 8.h),
+                        Row(
+                          children: [
+                            Expanded(child: _buildPriceTextField('\$\$\$\$')),
+                            SizedBox(width: 10.w),
+                            Expanded(child: _buildDropdown('Fixe')),
+                          ],
                         ),
                       ],
                     ),
-                  ),
-                  23.verticalSpace,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Price', style: AppTextStyles.medium14),
-                      SizedBox(height: 8.h),
-                      Row(
-                        children: [
-                          Expanded(child: _buildPriceTextField('\$\$\$\$')),
-                          SizedBox(width: 10.w),
-                          Expanded(child: _buildDropdown('Fixe')),
-                        ],
-                      ),
-                    ],
-                  ),
-                  23.verticalSpace,
-                  UploadImageBox(),
-                ],
+                    23.verticalSpace,
+                    UploadImageBox(),
+                  ],
+                ),
               ),
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
@@ -11,29 +12,37 @@ class ImageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 164,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14.r),
-        image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 15,
-            color: AppColors.greyC2C2C2,
-            offset: const Offset(-3, -2),
-            spreadRadius: 1,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, Routes.itemPreviewScreen);
+      },
+      child: Container(
+        width: 164,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14.r),
+          image: DecorationImage(
+            image: AssetImage(imagePath),
+            fit: BoxFit.cover,
           ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          _buildFavIcon(),
-          Spacer(),
-          _buildPrice(),
-          8.verticalSpace,
-          _buildTitleOverlay(),
-        ],
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 15,
+              color: AppColors.greyC2C2C2,
+              offset: const Offset(-3, -2),
+              spreadRadius: 1,
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            _buildFavIcon(),
+            Spacer(),
+            _buildPrice(),
+            8.verticalSpace,
+            _buildTitleOverlay(),
+          ],
+        ),
       ),
     );
   }

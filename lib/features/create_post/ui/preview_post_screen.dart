@@ -8,7 +8,7 @@ import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/create_post_app_bar.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/description_card.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/post_bottom_navbar.dart';
-import 'package:old_but_gold/features/create_post/ui/widgets/product_images.dart';
+import 'package:old_but_gold/core/widgets/product_images.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/product_name_card.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/user_picture_name_card.dart';
 
@@ -41,37 +41,39 @@ class PreviewPostScreen extends StatelessWidget {
           CreatePostAppBar(
             dots: [DotState.completed, DotState.completed, DotState.current],
           ),
-          ContentArea(
-            applyPadding: false,
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                SizedBox(
-                  height: 730.h,
-                  child: Column(
-                    children: [
-                      10.verticalSpace,
-                      DragHandle(),
-                      20.verticalSpace,
-                      Text('Preview', style: AppTextStyles.bold26),
-                      20.verticalSpace,
-                      ProductImages(),
-                    ],
+          Expanded(
+            child: ContentArea(
+              applyPadding: false,
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  SizedBox(
+                    height: 730.h,
+                    child: Column(
+                      children: [
+                        10.verticalSpace,
+                        DragHandle(),
+                        20.verticalSpace,
+                        Text('Preview', style: AppTextStyles.bold26),
+                        20.verticalSpace,
+                        ProductImages(),
+                      ],
+                    ),
                   ),
-                ),
-                AppContentArea(
-                  topPadding: 20,
-                  child: Column(
-                    children: [
-                      ProductNameCard(),
-                      20.verticalSpace,
-                      DescriptionCard(),
-                      20.verticalSpace,
-                      UserPictureNameCard(),
-                    ],
+                  AppContentArea(
+                    topPadding: 20,
+                    child: Column(
+                      children: [
+                        ProductNameCard(),
+                        20.verticalSpace,
+                        DescriptionCard(),
+                        20.verticalSpace,
+                        UserPictureNameCard(),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

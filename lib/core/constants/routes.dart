@@ -18,4 +18,6 @@ class Routes {
   static const String createPostScreen = '/createPostScreen';
   static const String categoryScreen = '/categoryScreen';
   static const String previewPostScreen = '/previewPostScreen';
+  //Item Preview
+  static const String itemPreviewScreen = '/itemPreviewScreen';
 }

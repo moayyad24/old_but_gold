@@ -17,6 +17,7 @@ import 'package:old_but_gold/features/auth/ui/verify_code_screen.dart';
 import 'package:old_but_gold/features/create_post/ui/categories_screen.dart';
 import 'package:old_but_gold/features/create_post/ui/create_post_screen.dart';
 import 'package:old_but_gold/features/create_post/ui/preview_post_screen.dart';
+import 'package:old_but_gold/features/item_preview/ui/item_preview_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/introduction_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/onboarding_screen.dart';
 import 'package:old_but_gold/features/profile/data/repos/profile_repo_impl.dart';
@@ -58,6 +59,9 @@ class AppRouter {
       //Settings
       case Routes.personalInformationScreen:
         return _buildPersonalInformationScreen();
+      //Item Preview
+      case Routes.itemPreviewScreen:
+        return _buildItePreviewScreen();
       default:
         return null;
     }
@@ -73,67 +77,58 @@ class AppRouter {
 
   Route _buildLoginScreen() {
     return MaterialPageRoute(
-      builder:
-          (_) => BlocProvider(
-            create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
-            child: const LoginScreen(),
-          ),
+      builder: (_) => BlocProvider(
+        create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
+        child: const LoginScreen(),
+      ),
     );
   }
 
   Route _buildSignUpScreen() {
     return MaterialPageRoute(
-      builder:
-          (_) => BlocProvider(
-            create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>()),
-            child: const SignUpScreen(),
-          ),
+      builder: (_) => BlocProvider(
+        create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>()),
+        child: const SignUpScreen(),
+      ),
     );
   }
 
   Route _buildForgetPasswordScreen() {
     return MaterialPageRoute(
-      builder:
-          (_) => BlocProvider(
-            create:
-                (context) =>
-                    ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()),
-            child: const ForgetPasswordScreen(),
-          ),
+      builder: (_) => BlocProvider(
+        create: (context) =>
+            ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()),
+        child: const ForgetPasswordScreen(),
+      ),
     );
   }
 
   Route _buildSetNewPasswordScreen() {
     return MaterialPageRoute(
-      builder:
-          (_) => BlocProvider(
-            create:
-                (context) =>
-                    ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()),
-            child: const SetNewPasswordScreen(),
-          ),
+      builder: (_) => BlocProvider(
+        create: (context) =>
+            ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()),
+        child: const SetNewPasswordScreen(),
+      ),
     );
   }
 
   Route _buildVerifyCodeScreen() {
     return MaterialPageRoute(
-      builder:
-          (_) => BlocProvider(
-            create: (context) => VerifyEmailCubit(getIt.get<AuthRepoImpl>()),
-            child: const VerifyCodeScreen(),
-          ),
+      builder: (_) => BlocProvider(
+        create: (context) => VerifyEmailCubit(getIt.get<AuthRepoImpl>()),
+        child: const VerifyCodeScreen(),
+      ),
     );
   }
 
   Route _buildCheckCodeScreen() {
     return MaterialPageRoute(
-      builder:
-          (_) => BlocProvider(
-            create:
-                (context) =>
-                    ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()),
-            child: const CheckCodeScreen(),
-          ),
+      builder: (_) => BlocProvider(
+        create: (context) =>
+            ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()),
+        child: const CheckCodeScreen(),
+      ),
     );
   }
 
@@ -155,13 +150,15 @@ class AppRouter {
 
   Route _buildPersonalInformationScreen() {
     return MaterialPageRoute(
-      builder:
-          (_) => BlocProvider(
-            create:
-                (context) =>
-                    ProfileInformationCubit(getIt.get<ProfileRepoImpl>()),
-            child: const PersonalInformationScreen(),
-          ),
+      builder: (_) => BlocProvider(
+        create: (context) =>
+            ProfileInformationCubit(getIt.get<ProfileRepoImpl>()),
+        child: const PersonalInformationScreen(),
+      ),
     );
+  }
+
+  Route _buildItePreviewScreen() {
+    return MaterialPageRoute(builder: (_) => const ItemPreviewScreen());
   }
 }

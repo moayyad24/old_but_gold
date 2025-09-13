@@ -35,7 +35,7 @@ class PostBottomNavBar extends StatelessWidget {
           children: [
             ?leading,
             Spacer(),
-            ElevatedButton(
+            ElevatedButton.icon(
               onPressed: onPressed,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.mainFFE09C,
@@ -49,14 +49,9 @@ class PostBottomNavBar extends StatelessWidget {
                 elevation: 0,
                 minimumSize: Size(139.w, 48.h),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(iconLabel, style: AppTextStyles.bold20),
-                  SizedBox(width: 18.w),
-                  Icon(Icons.arrow_forward, size: 24),
-                ],
-              ),
+              iconAlignment: IconAlignment.end,
+              icon: Icon(Icons.arrow_forward, size: 24),
+              label: Text(iconLabel, style: AppTextStyles.bold20),
             ),
           ],
         ),

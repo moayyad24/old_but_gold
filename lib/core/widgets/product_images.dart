@@ -37,7 +37,7 @@ class _ProductImagesState extends State<ProductImages> {
           ),
         ),
         Positioned(
-          bottom: 70.h,
+          bottom: 50.h,
           child: DotsIndicator(
             dotsCount: productImages.length,
             currentDot: _currentPage,

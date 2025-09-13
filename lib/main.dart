@@ -19,7 +19,7 @@ void main() async {
   runApp(
     TranslationProvider(
       child: DevicePreview(
-        enabled: false,
+        enabled: true,
         builder: (context) => OldButGold(appRouter: AppRouter()),
       ),
     ),
