@@ -22,6 +22,7 @@ import 'package:old_but_gold/features/onboarding/ui/introduction_screen.dart';
 import 'package:old_but_gold/features/onboarding/ui/onboarding_screen.dart';
 import 'package:old_but_gold/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:old_but_gold/features/profile/manager/profile_information_cubit/profile_information_cubit.dart';
+import 'package:old_but_gold/features/profile/ui/buyers_profile_screen.dart';
 import 'package:old_but_gold/features/profile/ui/personal_information_screen.dart';
 import 'package:old_but_gold/features/settings/ui/settings_screen.dart';
 import 'package:old_but_gold/main_screen.dart';
@@ -57,9 +58,12 @@ class AppRouter {
         return _buildCategoryScreen();
       case Routes.previewPostScreen:
         return _buildPreviewPostScreen();
-      //Settings
+      //Profile
       case Routes.personalInformationScreen:
         return _buildPersonalInformationScreen();
+      case Routes.buyersProfileScreen:
+        return _buildBuyersProfileScreen();
+      //Settings
       case Routes.settingsScreen:
         return _buildSettingsScreen();
       //Item Preview
@@ -159,6 +163,10 @@ class AppRouter {
         child: const PersonalInformationScreen(),
       ),
     );
+  }
+
+  Route _buildBuyersProfileScreen() {
+    return MaterialPageRoute(builder: (_) => const BuyersProfileScreen());
   }
 
   Route _buildSettingsScreen() {

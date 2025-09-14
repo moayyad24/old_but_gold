@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
+import 'package:old_but_gold/core/widgets/app_back_button.dart';
 import 'package:old_but_gold/core/widgets/app_content_area.dart';
 import 'package:old_but_gold/core/widgets/product_images.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/description_card.dart';
@@ -89,25 +89,7 @@ class ItemPreviewAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            width: 38.w,
-            height: 38.w,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.mainFFEECA,
-                elevation: 3,
-                padding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(color: AppColors.black.withAlpha(50)),
-                ),
-              ),
-              child: Icon(Icons.arrow_back, size: 24, color: AppColors.black),
-            ),
-          ),
+          AppBackButton(),
           InkWell(
             onTap: () {},
             child: SvgPicture.asset('assets/icons/liked.svg'),

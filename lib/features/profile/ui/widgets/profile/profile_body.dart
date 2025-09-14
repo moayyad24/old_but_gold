@@ -48,7 +48,11 @@ class ProfileButtonsRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ProfileButton(title: 'Edit', icon: Icons.edit_square),
+          ProfileButton(
+            title: 'Edit',
+            icon: Icons.edit_square,
+            onPressed: () {},
+          ),
           7.horizontalSpace,
           ProfileButton(
             title: 'Preferences',

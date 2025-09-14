@@ -20,6 +20,7 @@ class AppBackButton extends StatelessWidget {
           padding: EdgeInsets.zero,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
+            side: BorderSide(color: AppColors.black.withAlpha(50)),
           ),
         ),
         child: Icon(icon, size: 24, color: AppColors.black),
