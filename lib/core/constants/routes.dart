@@ -12,6 +12,7 @@ class Routes {
   //Home
   static const String mainScreen = '/mainScreen';
   //Settings
+  static const String settingsScreen = '/settingsScreen';
   //Profile
   static const String personalInformationScreen = '/personalInformationScreen';
   //Create Post

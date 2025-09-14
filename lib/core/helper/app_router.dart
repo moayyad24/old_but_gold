@@ -23,6 +23,7 @@ import 'package:old_but_gold/features/onboarding/ui/onboarding_screen.dart';
 import 'package:old_but_gold/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:old_but_gold/features/profile/manager/profile_information_cubit/profile_information_cubit.dart';
 import 'package:old_but_gold/features/profile/ui/personal_information_screen.dart';
+import 'package:old_but_gold/features/settings/ui/settings_screen.dart';
 import 'package:old_but_gold/main_screen.dart';
 
 class AppRouter {
@@ -59,6 +60,8 @@ class AppRouter {
       //Settings
       case Routes.personalInformationScreen:
         return _buildPersonalInformationScreen();
+      case Routes.settingsScreen:
+        return _buildSettingsScreen();
       //Item Preview
       case Routes.itemPreviewScreen:
         return _buildItePreviewScreen();
@@ -156,6 +159,10 @@ class AppRouter {
         child: const PersonalInformationScreen(),
       ),
     );
+  }
+
+  Route _buildSettingsScreen() {
+    return MaterialPageRoute(builder: (_) => const SettingsScreen());
   }
 
   Route _buildItePreviewScreen() {

@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
@@ -53,6 +54,9 @@ class ProfileButtonsRow extends StatelessWidget {
             title: 'Preferences',
             icon: Icons.tune,
             backgroundColor: Color(0xFFFFF4DB),
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.settingsScreen);
+            },
           ),
         ],
       ),
@@ -103,12 +107,11 @@ class AboutSection extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     decoration: TextDecoration.underline,
                   ),
-                  recognizer:
-                      TapGestureRecognizer()
-                        ..onTap = () {
-                          // Handle click action
-                          debugPrint("Read more clicked");
-                        },
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      // Handle click action
+                      debugPrint("Read more clicked");
+                    },
                 ),
               ],
             ),

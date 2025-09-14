@@ -8,12 +8,14 @@ class ProfileButton extends StatelessWidget {
   final IconData icon;
   final Color? backgroundColor;
   final Color? borderColor;
+  final void Function()? onPressed;
   const ProfileButton({
     super.key,
     required this.title,
     required this.icon,
     this.backgroundColor,
     this.borderColor,
+    this.onPressed,
   });
 
   @override
@@ -29,7 +31,7 @@ class ProfileButton extends StatelessWidget {
         ],
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
           side: BorderSide(color: borderColor ?? Color(0xFFFFDC91), width: 2),
