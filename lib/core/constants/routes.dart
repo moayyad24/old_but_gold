@@ -22,4 +22,6 @@ class Routes {
   static const String previewPostScreen = '/previewPostScreen';
   //Item Preview
   static const String itemPreviewScreen = '/itemPreviewScreen';
+  //Search
+  static const String searchScreen = '/searchScreen';
 }

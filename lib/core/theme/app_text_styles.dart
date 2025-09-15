@@ -20,6 +20,11 @@ class AppTextStyles {
     fontSize: 16.sp,
     fontWeight: FontWeight.w500,
   );
+  static TextStyle medium18 = TextStyle(
+    color: Colors.black,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+  );
   static TextStyle medium20 = TextStyle(
     color: Colors.black,
     fontSize: 20.sp,

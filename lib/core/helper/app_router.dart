@@ -24,6 +24,7 @@ import 'package:old_but_gold/features/profile/data/repos/profile_repo_impl.dart'
 import 'package:old_but_gold/features/profile/manager/profile_information_cubit/profile_information_cubit.dart';
 import 'package:old_but_gold/features/profile/ui/buyers_profile_screen.dart';
 import 'package:old_but_gold/features/profile/ui/personal_information_screen.dart';
+import 'package:old_but_gold/features/search/ui/search_screen.dart';
 import 'package:old_but_gold/features/settings/ui/settings_screen.dart';
 import 'package:old_but_gold/main_screen.dart';
 
@@ -69,6 +70,9 @@ class AppRouter {
       //Item Preview
       case Routes.itemPreviewScreen:
         return _buildItePreviewScreen();
+      //Search
+      case Routes.searchScreen:
+        return _buildSearchScreen();
       default:
         return null;
     }
@@ -175,5 +179,9 @@ class AppRouter {
 
   Route _buildItePreviewScreen() {
     return MaterialPageRoute(builder: (_) => const ItemPreviewScreen());
+  }
+
+  Route _buildSearchScreen() {
+    return MaterialPageRoute(builder: (_) => const SearchScreen());
   }
 }

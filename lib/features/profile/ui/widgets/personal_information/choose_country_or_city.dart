@@ -5,7 +5,7 @@ import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_confirm_button.dart';
-import 'package:old_but_gold/core/widgets/search_text_field.dart';
+import 'package:old_but_gold/core/widgets/app_search_text_field.dart';
 import 'package:old_but_gold/core/widgets/text_with_icon_app_bar.dart';
 import 'package:old_but_gold/i18n/strings.g.dart';
 
@@ -47,11 +47,10 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
   void _filterData() {
     setState(() {
       final query = _searchController.text.toLowerCase();
-      _filteredData =
-          widget.dataList.where((item) {
-            return item['name']!.toLowerCase().contains(query) ||
-                item['ar']!.toLowerCase().contains(query);
-          }).toList();
+      _filteredData = widget.dataList.where((item) {
+        return item['name']!.toLowerCase().contains(query) ||
+            item['ar']!.toLowerCase().contains(query);
+      }).toList();
     });
   }
 
@@ -65,18 +64,16 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
             child: Column(
               children: [
                 TextWithIconAppBar(
-                  title:
-                      !widget.isCity
-                          ? t.personalInfo.chooseCountry
-                          : t.personalInfo.chooseCity,
+                  title: !widget.isCity
+                      ? t.personalInfo.chooseCountry
+                      : t.personalInfo.chooseCity,
                 ),
                 SizedBox(height: 20.h),
-                SearchTextField(
+                AppSearchTextField(
                   searchController: _searchController,
-                  hintText:
-                      !widget.isCity
-                          ? t.personalInfo.searchForCountryName
-                          : t.personalInfo.searchForCityName,
+                  hintText: !widget.isCity
+                      ? t.personalInfo.searchForCountryName
+                      : t.personalInfo.searchForCityName,
                 ),
               ],
             ),
@@ -97,10 +94,9 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
                   child: Container(
                     padding: EdgeInsets.only(left: 24, right: 24).r,
                     decoration: BoxDecoration(
-                      color:
-                          _selectedData == data['name']!
-                              ? Color(0xFFFFF7E6)
-                              : null,
+                      color: _selectedData == data['name']!
+                          ? Color(0xFFFFF7E6)
+                          : null,
                       border: Border(
                         bottom: BorderSide(
                           width: 1,
@@ -123,10 +119,9 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
                               ),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color:
-                                    _selectedData == data['name']!
-                                        ? AppColors.mainFFE09C
-                                        : AppColors.greyF8F8F8,
+                                color: _selectedData == data['name']!
+                                    ? AppColors.mainFFE09C
+                                    : AppColors.greyF8F8F8,
                                 border: Border.all(
                                   color: AppColors.greyB7B7B7,
                                   width: 2,
@@ -190,8 +185,12 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
           ),
           Container(
             height: 95.h,
-            padding:
-                EdgeInsets.only(left: 24, right: 24, top: 18, bottom: 27).r,
+            padding: EdgeInsets.only(
+              left: 24,
+              right: 24,
+              top: 18,
+              bottom: 27,
+            ).r,
             decoration: BoxDecoration(
               color: AppColors.whiteFFFDF2,
               border: Border(
@@ -200,10 +199,9 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
             ),
             child: AppConfirmButton(
               onPressed: () => Navigator.pop(context, _selectedData),
-              text:
-                  !widget.isCity
-                      ? t.personalInfo.confirmYourCountry
-                      : t.personalInfo.confirmYourCity,
+              text: !widget.isCity
+                  ? t.personalInfo.confirmYourCountry
+                  : t.personalInfo.confirmYourCity,
             ),
           ),
         ],
