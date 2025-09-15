@@ -16,7 +16,7 @@ class AuthAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AppBackButton(),
+          AppBarButton(),
           dots != null ? CustomStepper(dots: dots!) : SizedBox.shrink(),
           Text(
             t.auth.skip,

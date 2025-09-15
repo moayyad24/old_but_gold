@@ -12,7 +12,7 @@ class TextWithIconAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(title, style: AppTextStyles.bold26),
-        AppBackButton(icon: Icons.cancel),
+        AppBarButton(icon: Icons.cancel),
       ],
     );
   }

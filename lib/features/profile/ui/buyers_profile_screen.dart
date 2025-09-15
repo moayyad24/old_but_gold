@@ -23,7 +23,7 @@ class BuyersProfileScreen extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        AppBackButton(),
+                        AppBarButton(),
                         14.horizontalSpace,
                         Text('Buyer’s Profile', style: AppTextStyles.bold28),
                       ],

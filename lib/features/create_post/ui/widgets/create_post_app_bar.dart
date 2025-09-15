@@ -14,7 +14,7 @@ class CreatePostAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AppBackButton(),
+          AppBarButton(),
           dots != null ? CustomStepper(dots: dots!) : SizedBox.shrink(),
           SizedBox(width: 30),
         ],

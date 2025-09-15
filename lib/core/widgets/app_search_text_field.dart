@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/app_back_button.dart';
+import 'package:old_but_gold/features/search/ui/widgets/filter_bottom_sheet.dart';
 
 class AppSearchTextField extends StatelessWidget {
   const AppSearchTextField({
@@ -37,7 +38,10 @@ class AppSearchTextField extends StatelessWidget {
         prefixIconConstraints: BoxConstraints(minWidth: 40).w,
         suffixIcon: Padding(
           padding: const EdgeInsets.all(6.0),
-          child: AppBackButton(icon: Icons.display_settings_sharp),
+          child: AppBarButton(
+            icon: Icons.display_settings_sharp,
+            onTap: () => FilterBottomSheet.show(context),
+          ),
         ),
         hintStyle: AppTextStyles.medium18.copyWith(color: AppColors.grey666666),
         contentPadding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 17.w),

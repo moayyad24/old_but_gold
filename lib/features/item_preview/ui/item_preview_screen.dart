@@ -89,7 +89,7 @@ class ItemPreviewAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AppBackButton(),
+          AppBarButton(),
           InkWell(
             onTap: () {},
             child: SvgPicture.asset('assets/icons/liked.svg'),

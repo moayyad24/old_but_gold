@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 
-class AppBackButton extends StatelessWidget {
+class AppBarButton extends StatelessWidget {
   final IconData? icon;
-  const AppBackButton({super.key, this.icon = Icons.arrow_back_rounded});
+  final void Function()? onTap;
+  const AppBarButton({
+    super.key,
+    this.icon = Icons.arrow_back_rounded,
+    this.onTap,
+  });
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 38.w,
       height: 38.w,
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
+        onPressed:
+            onTap ??
+            () {
+              Navigator.pop(context);
+            },
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.mainFFEECA,
           elevation: 3,

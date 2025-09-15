@@ -13,7 +13,7 @@ class SettingsAppBar extends StatelessWidget {
       padding: UiParameters.dPadding,
       child: Row(
         children: [
-          AppBackButton(),
+          AppBarButton(),
           14.horizontalSpace,
           Text('Settings', style: AppTextStyles.bold26),
         ],
