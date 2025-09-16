@@ -12,20 +12,16 @@ class ItemsGridView extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 24),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 4 / 6,
+        childAspectRatio: 3 / 4,
         crossAxisSpacing: 18,
+        mainAxisSpacing: 21,
       ),
       itemCount: 6,
       itemBuilder: (context, index) {
-        return Padding(
-          padding: EdgeInsets.only(
-            top: index % 2 == 0 ? 0 : 15.0,
-            bottom: index % 2 != 0 ? 0 : 15.0,
-          ),
-          child: ImageCard(
-            imagePath: 'assets/images/test_image.png',
-            title: 'iPhone 15 Pro max',
-          ),
+        return ImageCard(
+          imagePath: 'assets/images/test_image.png',
+          title: 'iPhone 15 Pro max',
+          isFavorite: index == 2,
         );
       },
     );

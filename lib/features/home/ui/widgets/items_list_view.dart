@@ -16,8 +16,9 @@ class ItemsListView extends StatelessWidget {
         itemCount: 4,
         itemBuilder: (context, index) {
           return ImageCard(
-            imagePath: 'assets/images/test_image.png',
+            imagePath: 'assets/images/test_image_01.png',
             title: 'iPhone 15 Pro max',
+            isFavorite: index == 2,
           );
         },
         separatorBuilder: (context, index) {

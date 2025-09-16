@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/features/home/ui/widgets/image_card.dart';
+
 class ItemsListViewWithBackgroundImage extends StatelessWidget {
   const ItemsListViewWithBackgroundImage({super.key});
 
@@ -26,8 +27,9 @@ class ItemsListViewWithBackgroundImage extends StatelessWidget {
         itemCount: 4,
         itemBuilder: (context, index) {
           return ImageCard(
-            imagePath: 'assets/images/test_image.png',
+            imagePath: 'assets/images/test_image_01.png',
             title: 'iPhone 15 Pro max',
+            isFavorite: index == 2,
           );
         },
         separatorBuilder: (context, index) {
