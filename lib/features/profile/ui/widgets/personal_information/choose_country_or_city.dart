@@ -67,6 +67,7 @@ class _ChooseCountryOrCityState extends State<ChooseCountryOrCity> {
                   title: !widget.isCity
                       ? t.personalInfo.chooseCountry
                       : t.personalInfo.chooseCity,
+                  icon: Icons.cancel,
                 ),
                 SizedBox(height: 20.h),
                 AppSearchTextField(

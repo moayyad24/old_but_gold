@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
-import 'package:old_but_gold/core/widgets/app_bar_icon.dart';
+import 'package:old_but_gold/core/widgets/app_bar_button.dart';
 
 class ProfileTopBar extends StatelessWidget {
   const ProfileTopBar({super.key});
@@ -11,7 +11,10 @@ class ProfileTopBar extends StatelessWidget {
       decoration: BoxDecoration(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [Text('Profile', style: AppTextStyles.bold26), AppBarIcon()],
+        children: [
+          Text('Profile', style: AppTextStyles.bold26),
+          AppBarButton(),
+        ],
       ),
     );
   }

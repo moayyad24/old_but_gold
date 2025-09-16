@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
-import 'package:old_but_gold/core/widgets/app_back_button.dart';
+import 'package:old_but_gold/core/widgets/app_bar_button.dart';
 import 'package:old_but_gold/core/widgets/app_content_area.dart';
 import 'package:old_but_gold/core/widgets/product_images.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/description_card.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
-import 'package:old_but_gold/core/widgets/app_back_button.dart';
+import 'package:old_but_gold/core/widgets/app_bar_button.dart';
 import 'package:old_but_gold/core/widgets/top_gradient_container.dart';
 import 'package:old_but_gold/features/profile/ui/widgets/profile/buyers_profile_body.dart';
 import 'package:old_but_gold/features/profile/ui/widgets/profile/profile_picture_and_name.dart';

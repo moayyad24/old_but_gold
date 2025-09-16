@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
-import 'package:old_but_gold/core/widgets/app_back_button.dart';
+import 'package:old_but_gold/core/widgets/app_bar_button.dart';
 import 'package:old_but_gold/features/search/ui/widgets/filter_bottom_sheet.dart';
 
 class AppSearchTextField extends StatelessWidget {

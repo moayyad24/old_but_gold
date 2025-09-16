@@ -22,6 +22,7 @@ class ChooseDate extends StatelessWidget {
               padding: UiParameters.dPadding,
               child: TextWithIconAppBar(
                 title: t.personalInfo.chooseDateOfBirth,
+                icon: Icons.cancel,
               ),
             ),
             50.verticalSpace,

@@ -15,7 +15,7 @@ class CategoriesScreen extends StatelessWidget {
         children: [
           Padding(
             padding: UiParameters.dPadding,
-            child: TextWithIconAppBar(title: 'Categories'),
+            child: TextWithIconAppBar(title: 'Categories', icon: Icons.cancel),
           ),
           ContentArea(
             child: Column(children: [DragHandle(), CategoriesList()]),

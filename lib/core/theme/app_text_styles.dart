@@ -5,6 +5,11 @@ class AppTextStyles {
   //Regular
 
   //Medium
+  static TextStyle medium12 = TextStyle(
+    color: Colors.black,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
+  );
   static TextStyle medium14 = TextStyle(
     color: Colors.black,
     fontSize: 14.sp,
