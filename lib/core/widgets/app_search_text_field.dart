@@ -37,9 +37,10 @@ class AppSearchTextField extends StatelessWidget {
         ),
         prefixIconConstraints: BoxConstraints(minWidth: 40).w,
         suffixIcon: Padding(
-          padding: const EdgeInsets.all(6.0),
+          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 7),
           child: AppBarButton(
-            icon: Icons.display_settings_sharp,
+            svgPath: 'assets/icons/preferences.svg',
+            elevation: false,
             onTap: () => FilterBottomSheet.show(context),
           ),
         ),

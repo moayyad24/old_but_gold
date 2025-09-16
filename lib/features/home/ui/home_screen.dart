@@ -6,6 +6,9 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(slivers: [HomeSliverAppBar(), HomeSliverBody()]);
+    return Container(
+      color: Color(0xFFFDE5B1),
+      child: CustomScrollView(slivers: [HomeSliverAppBar(), HomeSliverBody()]),
+    );
   }
 }
