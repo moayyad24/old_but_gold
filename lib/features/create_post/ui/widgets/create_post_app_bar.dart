@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_bar_button.dart';
 import 'package:old_but_gold/core/widgets/custom_stepper.dart';
@@ -15,8 +16,8 @@ class CreatePostAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           AppBarButton(),
-          dots != null ? CustomStepper(dots: dots!) : SizedBox.shrink(),
-          SizedBox(width: 30),
+          CustomStepper(dots: dots!),
+          38.horizontalSpace,
         ],
       ),
     );

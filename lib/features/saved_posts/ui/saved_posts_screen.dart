@@ -37,21 +37,25 @@ class SavedPostsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SliverList.separated(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return ProductCard(
-                  imageUrl: 'assets/images/test_image.png',
-                  title: 'AirJordan shoes',
-                  description: 'Pre-owned iPhone 15 in excellent condition...',
-                  location: 'Nearby',
-                  price: 25.99,
-                  onFavoriteTap: () {
-                    // print("Favorite tapped!");
-                  },
-                );
-              },
-              separatorBuilder: (context, index) => 10.verticalSpace,
+            SliverPadding(
+              padding: EdgeInsets.only(top: 20),
+              sliver: SliverList.separated(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return ProductCard(
+                    imageUrl: 'assets/images/test_image.png',
+                    title: 'AirJordan shoes',
+                    description:
+                        'Pre-owned iPhone 15 in excellent condition...',
+                    location: 'Nearby',
+                    price: 25.99,
+                    onFavoriteTap: () {
+                      // print("Favorite tapped!");
+                    },
+                  );
+                },
+                separatorBuilder: (context, index) => 20.verticalSpace,
+              ),
             ),
           ],
         ),

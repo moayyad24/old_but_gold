@@ -70,6 +70,7 @@ class ImageCard extends StatelessWidget {
         height: 32,
         width: 83,
         alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(horizontal: 10).r,
         decoration: BoxDecoration(
           color: Color(0xFFB0E1E3),
           borderRadius: BorderRadiusDirectional.only(
@@ -77,9 +78,16 @@ class ImageCard extends StatelessWidget {
             bottomStart: Radius.circular(9.r),
           ),
         ),
-        child: Text(
-          '125.5 \$',
-          style: AppTextStyles.bold16.copyWith(color: Color(0xFF006A6F)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '125.5',
+              style: AppTextStyles.bold16.copyWith(color: Color(0xFF006A6F)),
+            ),
+            5.horizontalSpace,
+            SvgPicture.asset('assets/icons/dollar.svg', width: 18),
+          ],
         ),
       ),
     );

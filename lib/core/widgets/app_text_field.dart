@@ -12,6 +12,7 @@ class AppTextField extends StatefulWidget {
   final TextEditingController myController;
   final String? Function(String?)? checkValid;
   final bool isObscure;
+  final int? maxLines;
 
   const AppTextField({
     super.key,
@@ -22,6 +23,7 @@ class AppTextField extends StatefulWidget {
     required this.myController,
     this.checkValid,
     this.isObscure = false,
+    this.maxLines,
   });
 
   @override
@@ -67,38 +69,37 @@ class _AppTextFieldState extends State<AppTextField> {
           focusNode: _focusNode,
           validator: widget.checkValid,
           controller: widget.myController,
+          maxLines: widget.maxLines,
           obscureText: widget.isObscure ? _obscureText : false,
           style: AppTextStyles.medium16,
           cursorColor: AppColors.blue0D87F9,
           decoration: InputDecoration(
             filled: true,
             fillColor: _color,
-            prefixIcon:
-                widget.prefixIconPath != null
-                    ? Padding(
-                      padding: EdgeInsetsDirectional.only(start: 14.w),
-                      child: SvgPicture.asset(widget.prefixIconPath!),
-                    )
-                    : null,
+            prefixIcon: widget.prefixIconPath != null
+                ? Padding(
+                    padding: EdgeInsetsDirectional.only(start: 14.w),
+                    child: SvgPicture.asset(widget.prefixIconPath!),
+                  )
+                : null,
             prefixIconConstraints: BoxConstraints(minWidth: 40).w,
             isDense: true,
-            suffixIcon:
-                widget.isObscure
-                    ? IconButton(
-                      icon: Icon(
-                        _obscureText ? Icons.visibility_off : Icons.visibility,
-                        color: AppColors.grey666666,
-                        size: 24,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _obscureText = !_obscureText;
-                        });
-                      },
-                    )
-                    : widget.suffixIcon != null
-                    ? Icon(widget.suffixIcon, color: AppColors.black, size: 24)
-                    : null,
+            suffixIcon: widget.isObscure
+                ? IconButton(
+                    icon: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.visibility,
+                      color: AppColors.grey666666,
+                      size: 24,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                  )
+                : widget.suffixIcon != null
+                ? Icon(widget.suffixIcon, color: AppColors.black, size: 24)
+                : null,
             hintText: widget.hintText,
             hintStyle: TextStyle(
               color: AppColors.darkGrey666666,

@@ -13,20 +13,20 @@ class CustomStepper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 150,
       height: 30.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: dots.length,
-        separatorBuilder:
-            (context, index) => SizedBox(
-              width: 40.w,
-              child: Divider(
-                thickness: 3,
-                height: 27.h,
-                color: AppColors.darkGrey666666,
-              ),
-            ),
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        separatorBuilder: (context, index) => SizedBox(
+          width: 40.w,
+          child: Divider(
+            thickness: 3,
+            height: 27.h,
+            color: AppColors.darkGrey666666,
+          ),
+        ),
         itemBuilder: (context, index) {
           switch (dots[index]) {
             case DotState.completed:

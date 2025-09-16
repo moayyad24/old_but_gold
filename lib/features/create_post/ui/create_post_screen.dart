@@ -5,6 +5,7 @@ import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/app_text_field.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
+import 'package:old_but_gold/core/widgets/custom_choice_chip.dart';
 import 'package:old_but_gold/core/widgets/custom_stepper.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/create_post_app_bar.dart';
@@ -18,16 +19,14 @@ class CreatePostScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: PostBottomNavBar(
-        iconLabel: 'Next',
+        iconLabel: 'Preview',
         onPressed: () {
           Navigator.pushNamed(context, Routes.previewPostScreen);
         },
       ),
       body: Column(
         children: [
-          CreatePostAppBar(
-            dots: [DotState.current, DotState.next, DotState.next],
-          ),
+          CreatePostAppBar(dots: [DotState.current, DotState.next]),
           Expanded(
             child: ContentArea(
               child: Form(
@@ -80,7 +79,44 @@ class CreatePostScreen extends StatelessWidget {
                       ],
                     ),
                     23.verticalSpace,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Product State', style: AppTextStyles.medium14),
+                        SizedBox(height: 8.h),
+                        Row(
+                          children: [
+                            CustomChoiceChip(
+                              label: "Brand New",
+                              icon: Icons.location_on,
+                              selected: true,
+                              onSelected: (val) {},
+                            ),
+                            10.horizontalSpace,
+                            CustomChoiceChip(
+                              label: "Used",
+                              icon: Icons.fiber_new,
+                              selected: false,
+                              onSelected: (val) {},
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    23.verticalSpace,
+                    AppTextField(
+                      fieldTitle: 'Description',
+                      hintText:
+                          'Pre-owned iPhone 15 in excellent condition—enjoy its sleek design, powerful performance, and advanced camera at a great value...',
+                      myController: TextEditingController(),
+                      maxLines: 4,
+                      checkValid: (v) {
+                        return '';
+                      },
+                    ),
+                    23.verticalSpace,
                     UploadImageBox(),
+                    23.verticalSpace,
                   ],
                 ),
               ),
