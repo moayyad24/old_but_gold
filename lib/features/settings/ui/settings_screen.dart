@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/content_area.dart';
+import 'package:old_but_gold/core/widgets/top_gradient_container.dart';
 import 'package:old_but_gold/features/home/ui/widgets/home_search_bar.dart';
 import 'package:old_but_gold/features/settings/ui/widgets/settings_app_bar.dart';
 
@@ -12,21 +13,23 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          SettingsAppBar(),
-          32.verticalSpace,
-          Expanded(
-            child: Stack(
-              clipBehavior: Clip.none,
-              alignment: Alignment.center,
-              children: [
-                ContentArea(applyPadding: false, child: SettingsBody()),
-                HomeSearchBar(),
-              ],
+      body: TopGradientContainer(
+        child: Column(
+          children: [
+            SettingsAppBar(),
+            32.verticalSpace,
+            Expanded(
+              child: Stack(
+                clipBehavior: Clip.none,
+                alignment: Alignment.center,
+                children: [
+                  ContentArea(applyPadding: false, child: SettingsBody()),
+                  HomeSearchBar(),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

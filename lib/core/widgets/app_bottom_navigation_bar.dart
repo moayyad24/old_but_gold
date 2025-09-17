@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
+import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
@@ -94,7 +95,7 @@ class _NavBarItem extends StatelessWidget {
         width: 70.w,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeIn,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           gradient: isSelected
               ? const LinearGradient(
@@ -104,8 +105,8 @@ class _NavBarItem extends StatelessWidget {
                     Color(0xFFFFFFFF),
                   ],
                   stops: [0, 0.76, 1],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
+                  begin: AlignmentDirectional.centerStart,
+                  end: AlignmentDirectional.centerEnd,
                 )
               : null,
         ),
@@ -115,14 +116,7 @@ class _NavBarItem extends StatelessWidget {
           children: [
             SvgPicture.asset(icon),
             const SizedBox(height: 4),
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-              ),
-            ),
+            Text(label, style: AppTextStyles.bold12),
           ],
         ),
       ),

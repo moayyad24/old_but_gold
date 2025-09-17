@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
 class ProductCard extends StatelessWidget {
@@ -103,11 +104,17 @@ class ProductCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(9.r),
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
-                              "${price.toStringAsFixed(2)} \$",
-                              style: AppTextStyles.bold16,
+                              price.toStringAsFixed(2),
+                              style: AppTextStyles.bold16.copyWith(
+                                color: AppColors.green006A6F,
+                              ),
+                            ),
+                            SvgPicture.asset(
+                              'assets/icons/dollar.svg',
+                              width: 18,
                             ),
                           ],
                         ),

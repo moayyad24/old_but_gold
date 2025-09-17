@@ -29,6 +29,7 @@ class ProfileBody extends StatelessWidget {
               ReviewsSection(),
               48.verticalSpace,
               ItemListings(),
+              20.verticalSpace,
             ],
           ),
         ),
@@ -50,13 +51,13 @@ class ProfileButtonsRow extends StatelessWidget {
         children: [
           ProfileButton(
             title: 'Edit',
-            icon: Icons.edit_square,
+            iconPath: 'assets/icons/edit_solid.svg',
             onPressed: () {},
           ),
           7.horizontalSpace,
           ProfileButton(
             title: 'Preferences',
-            icon: Icons.tune,
+            iconPath: 'assets/icons/preferences.svg',
             backgroundColor: Color(0xFFFFF4DB),
             onPressed: () {
               Navigator.pushNamed(context, Routes.settingsScreen);
@@ -195,7 +196,7 @@ class ReviewCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Icon(Icons.star, color: Colors.amber, size: 22),
+                SvgPicture.asset('assets/icons/star_fill.svg'),
                 4.horizontalSpace,
                 Text("4.5", style: AppTextStyles.semiBold20),
               ],

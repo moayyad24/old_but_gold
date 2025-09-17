@@ -45,14 +45,14 @@ class BuyersProfileButtonsRow extends StatelessWidget {
         children: [
           ProfileButton(
             title: 'Add Friend',
-            icon: Icons.person_add,
+            iconPath: 'assets/icons/friends_filled.svg',
             backgroundColor: Color(0xFFFFF4DB),
             onPressed: () {},
           ),
           7.horizontalSpace,
           ProfileButton(
             title: 'Contact',
-            icon: Icons.message,
+            iconPath: 'assets/icons/inbox.svg',
             onPressed: () {},
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/widgets/app_bar_button.dart';
 
@@ -13,7 +14,12 @@ class ProfileTopBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text('Profile', style: AppTextStyles.bold26),
-          AppBarButton(),
+          AppBarButton(
+            onTap: () {
+              Navigator.pushNamed(context, Routes.settingsScreen);
+            },
+            icon: Icons.settings_rounded,
+          ),
         ],
       ),
     );
