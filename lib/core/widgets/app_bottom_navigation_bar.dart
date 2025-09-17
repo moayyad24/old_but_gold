@@ -48,11 +48,13 @@ class AppBottomNavigationBar extends StatelessWidget {
             },
           ),
           _NavBarItem(
-            icon: 'assets/icons/inbox.svg',
-            label: 'Inbox',
+            icon: 'assets/icons/search_icon.svg',
+            label: 'Search',
             index: 3,
             currentIndex: currentIndex,
-            onTap: onIndexChanged,
+            onTap: (i) {
+              Navigator.pushNamed(context, Routes.searchScreen);
+            },
           ),
           _NavBarItem(
             icon: 'assets/icons/profile.svg',
@@ -94,19 +96,18 @@ class _NavBarItem extends StatelessWidget {
         curve: Curves.easeIn,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          gradient:
-              isSelected
-                  ? const LinearGradient(
-                    colors: [
-                      Color(0xFFFFDC91),
-                      Color(0xFFFFDC90),
-                      Color(0xFFFFFFFF),
-                    ],
-                    stops: [0, 0.76, 1],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  )
-                  : null,
+          gradient: isSelected
+              ? const LinearGradient(
+                  colors: [
+                    Color(0xFFFFDC91),
+                    Color(0xFFFFDC90),
+                    Color(0xFFFFFFFF),
+                  ],
+                  stops: [0, 0.76, 1],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                )
+              : null,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
