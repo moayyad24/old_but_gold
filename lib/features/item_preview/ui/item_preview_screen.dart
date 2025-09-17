@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:old_but_gold/core/helper/launch_url.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
 import 'package:old_but_gold/core/widgets/app_bar_button.dart';
 import 'package:old_but_gold/core/widgets/app_content_area.dart';
+import 'package:old_but_gold/core/widgets/app_snack_bar.dart';
 import 'package:old_but_gold/core/widgets/product_images.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/description_card.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/post_bottom_navbar.dart';
@@ -22,7 +24,21 @@ class ItemPreviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: PostBottomNavBar(
-        onPressed: () {},
+        onPressed: () async {
+          try {
+            await LaunchUrl.openWhatsApp(
+              phone: '988638916',
+              message: 'Hello, I saw your offer on OBG',
+            );
+          } catch (e) {
+            if (context.mounted) {
+              AppSnackBar.showError(
+                context,
+                message: 'Could not launch WhatsApp',
+              );
+            }
+          }
+        },
         iconLabel: 'Send an Offer',
         leading: Container(
           height: 44.h,
