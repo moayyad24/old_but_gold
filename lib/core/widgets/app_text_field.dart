@@ -23,7 +23,7 @@ class AppTextField extends StatefulWidget {
     required this.myController,
     this.checkValid,
     this.isObscure = false,
-    this.maxLines,
+    this.maxLines = 1,
   });
 
   @override

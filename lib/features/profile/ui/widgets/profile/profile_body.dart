@@ -52,7 +52,9 @@ class ProfileButtonsRow extends StatelessWidget {
           ProfileButton(
             title: 'Edit',
             iconPath: 'assets/icons/edit_solid.svg',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.personalInformationScreen);
+            },
           ),
           7.horizontalSpace,
           ProfileButton(
