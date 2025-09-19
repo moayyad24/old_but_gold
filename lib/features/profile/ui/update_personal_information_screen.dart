@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -82,8 +81,10 @@ class _UpdatePersonalInformationScreenState
             locationController.text = state.personalInformationModel.address;
             birthDate = state.personalInformationModel.birthday;
           } else if (state is ProfileInformationSuccess) {
-            AppSnackBar.showSuccess(context, message: 'Successfully Updated');
-            Navigator.pop(context);
+            AppSnackBar.showSuccess(
+              context,
+              message: 'Your profile updated successfully',
+            );
           }
         },
         builder: (context, state) {
@@ -147,17 +148,15 @@ class _UpdatePersonalInformationScreenState
                               onPressed: () async {
                                 _getLatLong();
                                 if (formkey.currentState!.validate()) {
-                                  FormData data = FormData.fromMap(
-                                    PersonalInformationModel(
-                                      firstName: firstNameController.text,
-                                      lastName: lastNameController.text,
-                                      birthday: birthDate!,
-                                      phone: phoneNumberController.text,
-                                      longitude: long!,
-                                      latitude: lat!,
-                                      address: locationController.text,
-                                    ).toMap(),
-                                  );
+                                  var data = PersonalInformationModel(
+                                    firstName: firstNameController.text,
+                                    lastName: lastNameController.text,
+                                    birthday: birthDate!,
+                                    phone: '+${phoneNumberController.text}',
+                                    longitude: long!,
+                                    latitude: lat!,
+                                    address: locationController.text,
+                                  ).toMap();
                                   await context
                                       .read<ProfileInformationCubit>()
                                       .updatePersonalInformation(data);

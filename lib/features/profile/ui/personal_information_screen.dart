@@ -147,7 +147,7 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                               firstName: firstNameController.text,
                               lastName: lastNameController.text,
                               birthday: birthDate!,
-                              phone: phoneNumberController.text,
+                              phone: '+${phoneNumberController.text}',
                               longitude: lat!,
                               latitude: long!,
                               address: locationController.text,

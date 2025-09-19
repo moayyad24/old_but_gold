@@ -9,7 +9,7 @@ class ProfileInformationStorage {
   /// Save model
   static Future<void> save(PersonalInformationModel model) async {
     LocalStorageService prefs = getIt<LocalStorageService>();
-    final jsonString = jsonEncode(model.toMap());
+    final jsonString = jsonEncode(model.toJson());
     await prefs.setString(_key, jsonString);
   }
 

@@ -51,6 +51,7 @@ class ProfileRepoImpl implements ProfileRepo {
       Map<String, dynamic> response = await apiService.put(
         endPoint: 'profile/1',
         data: data,
+        options: Options(contentType: Headers.formUrlEncodedContentType),
       );
       logger.d('📥 Received update personal information response: $response');
 

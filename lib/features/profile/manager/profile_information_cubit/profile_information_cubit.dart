@@ -31,7 +31,7 @@ class ProfileInformationCubit extends Cubit<ProfileInformationState> {
     );
   }
 
-  Future<void> updatePersonalInformation(FormData data) async {
+  Future<void> updatePersonalInformation(Map<String, dynamic> data) async {
     emit(ProfileInformationLoading());
     var result = await profileRepo.updatePersonalInformation(data);
     result.fold(

@@ -52,11 +52,15 @@ class ServerFailure extends Failure {
     if (statusCode >= 500) {
       return ServerFailure(t.failures.serverError(statusCode: statusCode));
     } else if (statusCode == 422) {
-      return ServerFailure(response['errors']['email'][0]);
+      return ServerFailure(
+        response['errors']['email'][0] ?? response.toString(),
+      );
     } else if (statusCode == 400) {
       return ServerFailure(response['message']['errorDetails'][0]);
     } else if (statusCode == 401) {
-      return ServerFailure(response['error']);
+      return ServerFailure(
+        response['error'] as String? ?? response['message']['errorDetails'][0],
+      );
     } else {
       return ServerFailure(t.failures.unexpectedResponse);
     }

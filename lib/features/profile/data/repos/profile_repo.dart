@@ -5,6 +5,8 @@ import 'package:old_but_gold/features/profile/data/models/personal_information_m
 
 abstract class ProfileRepo {
   Future<Either<Failure, bool>> createPersonalInformation(FormData data);
-  Future<Either<Failure, bool>> updatePersonalInformation(FormData data);
+  Future<Either<Failure, bool>> updatePersonalInformation(
+    Map<String, dynamic> data,
+  );
   Future<Either<Failure, PersonalInformationModel>> getPersonalInformation();
 }

@@ -28,11 +28,11 @@ class PersonalInformationModel {
       id: json['id'],
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String,
-      email: json['email'] as String,
+      email: json['email'] as String? ?? '',
       birthday: DateTime.parse(json['birthday'] ?? '2023-12-25T10:30:45.500Z'),
-      phone: (json['phone'] as int).toString(),
-      longitude: (json['longitude'] as int).toString(),
-      latitude: (json['latitude'] as int).toString(),
+      phone: (json['phone']).toString(),
+      longitude: (json['longitude']).toString(),
+      latitude: (json['latitude']).toString(),
       address: json['address'] ?? '',
       photoUrl: json['photo'] ?? '',
     );
@@ -40,6 +40,17 @@ class PersonalInformationModel {
   Map<String, dynamic> toMap() {
     return {
       'name': '$firstName $lastName',
+      'phone': phone,
+      'longitude': longitude,
+      'latitude': latitude,
+      'address': address,
+    };
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'firstName': firstName,
+      'lastName': lastName,
       'phone': phone,
       'longitude': longitude,
       'latitude': latitude,
