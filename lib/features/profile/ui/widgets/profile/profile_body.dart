@@ -2,7 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:old_but_gold/core/constants/db_keys.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
+import 'package:old_but_gold/core/helper/dependency_injection.dart';
+import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 import 'package:old_but_gold/core/theme/ui_parameters.dart';
@@ -53,7 +56,17 @@ class ProfileButtonsRow extends StatelessWidget {
             title: 'Edit',
             iconPath: 'assets/icons/edit_solid.svg',
             onPressed: () {
-              Navigator.pushNamed(context, Routes.personalInformationScreen);
+              bool? profileStatus = getIt<LocalStorageService>().getBool(
+                DbKeys.hasProfileInfo,
+              );
+              if (profileStatus == true) {
+                Navigator.pushNamed(
+                  context,
+                  Routes.updatePersonalInformationScreen,
+                );
+              } else {
+                Navigator.pushNamed(context, Routes.personalInformationScreen);
+              }
             },
           ),
           7.horizontalSpace,

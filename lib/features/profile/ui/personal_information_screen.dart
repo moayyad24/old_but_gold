@@ -2,8 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:old_but_gold/core/constants/db_keys.dart';
+import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/input_validator.dart';
+import 'package:old_but_gold/core/helper/profile_information_storage.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
@@ -38,8 +41,8 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
   late LocalStorageService storage;
   late GlobalKey<FormState> formkey;
   DateTime? birthDate;
-  late String lat;
-  late String long;
+  late String? lat;
+  late String? long;
   @override
   void initState() {
     formkey = GlobalKey<FormState>();
@@ -49,6 +52,15 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
     locationController = TextEditingController();
     storage = getIt.get<LocalStorageService>();
     super.initState();
+  }
+
+  void _getLatLong() {
+    lat = storage.getString(DbKeys.latitude);
+    long = storage.getString(DbKeys.latitude);
+    if (lat == null || long == null) {
+      AppSnackBar.showError(context, message: 'Please Select Your Location');
+      return;
+    }
   }
 
   @override
@@ -64,12 +76,12 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocConsumer<ProfileInformationCubit, ProfileInformationState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state is ProfileInformationFailure) {
             AppSnackBar.showError(context, message: state.errorMessage);
           } else if (state is ProfileInformationSuccess) {
             AppSnackBar.showSuccess(context, message: 'Successfully Updated');
-            Navigator.pop(context);
+            Navigator.pushReplacementNamed(context, Routes.mainScreen);
           }
         },
         builder: (context, state) {
@@ -129,18 +141,20 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                         text: t.personalInfo.confirmYourInfo,
                         isLoading: state is ProfileInformationLoading,
                         onPressed: () async {
+                          _getLatLong();
                           if (formkey.currentState!.validate()) {
-                            FormData data = FormData.fromMap(
-                              PersonalInformationModel(
-                                firstName: firstNameController.text,
-                                lastName: lastNameController.text,
-                                birthday: birthDate!,
-                                phone: phoneNumberController.text,
-                                longitude: long,
-                                latitude: lat,
-                                address: locationController.text,
-                              ).toMap(),
+                            var user = PersonalInformationModel(
+                              firstName: firstNameController.text,
+                              lastName: lastNameController.text,
+                              birthday: birthDate!,
+                              phone: phoneNumberController.text,
+                              longitude: lat!,
+                              latitude: long!,
+                              address: locationController.text,
                             );
+                            FormData data = FormData.fromMap(user.toMap());
+                            //store user profile info
+                            ProfileInformationStorage.save(user);
                             await context
                                 .read<ProfileInformationCubit>()
                                 .createPersonalInformation(data);

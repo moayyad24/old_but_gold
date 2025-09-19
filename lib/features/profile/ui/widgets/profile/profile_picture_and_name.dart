@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:old_but_gold/core/constants/db_keys.dart';
+import 'package:old_but_gold/core/helper/dependency_injection.dart';
+import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
 
@@ -27,7 +30,12 @@ class ProfilePictureAndName extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Azeddine Miche', style: AppTextStyles.bold22),
+            Text(
+              getIt<LocalStorageService>()
+                  .getBool(DbKeys.hasProfileInfo)
+                  .toString(),
+              style: AppTextStyles.bold22,
+            ),
             Row(
               children: [
                 SvgPicture.asset('assets/icons/mingcute_star.svg'),

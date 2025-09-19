@@ -40,12 +40,10 @@ class PersonalInformationModel {
   Map<String, dynamic> toMap() {
     return {
       'name': '$firstName $lastName',
-      'birthday': birthday.toIso8601String(),
       'phone': phone,
       'longitude': longitude,
       'latitude': latitude,
       'address': address,
-      'photo': photoUrl,
     };
   }
 }
