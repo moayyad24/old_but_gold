@@ -18,7 +18,11 @@ Future<void> setupGetIt() async {
   //Navigator helper
   getIt.registerLazySingleton<NavigationService>(() => NavigationService());
   //ApiService
-  getIt.registerSingleton<ApiService>(ApiService(Dio()));
+  final api = await ApiService.create(
+    dio: Dio(),
+    baseUrl: 'http://192.168.1.117:8000/api/',
+  );
+  getIt.registerSingleton<ApiService>(api);
 
   //Auth
   getIt.registerLazySingleton<AuthRepoImpl>(

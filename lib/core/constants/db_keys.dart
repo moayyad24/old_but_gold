@@ -5,4 +5,5 @@ class DbKeys {
   static const seenOnboarding = 'seenOnboarding';
   static const latitude = 'latitude';
   static const longitude = 'longitude';
+  static const hasProfileInfo = 'hasProfileInfo';
 }

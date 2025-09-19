@@ -24,6 +24,7 @@ import 'package:old_but_gold/features/profile/data/repos/profile_repo_impl.dart'
 import 'package:old_but_gold/features/profile/manager/profile_information_cubit/profile_information_cubit.dart';
 import 'package:old_but_gold/features/profile/ui/buyers_profile_screen.dart';
 import 'package:old_but_gold/features/profile/ui/personal_information_screen.dart';
+import 'package:old_but_gold/features/profile/ui/update_personal_information_screen.dart';
 import 'package:old_but_gold/features/search/ui/search_screen.dart';
 import 'package:old_but_gold/features/settings/ui/settings_screen.dart';
 import 'package:old_but_gold/main_screen.dart';
@@ -62,6 +63,8 @@ class AppRouter {
       //Profile
       case Routes.personalInformationScreen:
         return _buildPersonalInformationScreen();
+      case Routes.updatePersonalInformationScreen:
+        return _buildUpdatePersonalInformationScreen();
       case Routes.buyersProfileScreen:
         return _buildBuyersProfileScreen();
       //Settings
@@ -89,7 +92,8 @@ class AppRouter {
   Route _buildLoginScreen() {
     return MaterialPageRoute(
       builder: (_) => BlocProvider(
-        create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
+        create: (context) =>
+            LoginCubit(getIt.get<AuthRepoImpl>(), getIt.get<ProfileRepoImpl>()),
         child: const LoginScreen(),
       ),
     );
@@ -165,6 +169,16 @@ class AppRouter {
         create: (context) =>
             ProfileInformationCubit(getIt.get<ProfileRepoImpl>()),
         child: const PersonalInformationScreen(),
+      ),
+    );
+  }
+
+  Route _buildUpdatePersonalInformationScreen() {
+    return MaterialPageRoute(
+      builder: (_) => BlocProvider(
+        create: (context) =>
+            ProfileInformationCubit(getIt.get<ProfileRepoImpl>()),
+        child: const UpdatePersonalInformationScreen(),
       ),
     );
   }

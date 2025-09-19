@@ -18,7 +18,7 @@ class InputValidator {
       RegExp(_usernamePattern).hasMatch(username);
 
   static bool isValidEmail(String email) =>
-      RegExp(_emailPattern).hasMatch(email);
+      RegExp(_emailPattern).hasMatch(email.trim());
 
   static bool isValidPassword(String password) =>
       RegExp(_passwordPattern).hasMatch(password);
