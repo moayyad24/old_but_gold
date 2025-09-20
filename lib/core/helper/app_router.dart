@@ -14,6 +14,8 @@ import 'package:old_but_gold/features/auth/ui/login_screen.dart';
 import 'package:old_but_gold/features/auth/ui/set_new_password_screen.dart';
 import 'package:old_but_gold/features/auth/ui/sign_up_screen.dart';
 import 'package:old_but_gold/features/auth/ui/verify_code_screen.dart';
+import 'package:old_but_gold/features/create_post/data/repos/create_post_repo_impl.dart';
+import 'package:old_but_gold/features/create_post/manager/categories_cubit/categories_cubit.dart';
 import 'package:old_but_gold/features/create_post/ui/categories_screen.dart';
 import 'package:old_but_gold/features/create_post/ui/create_post_screen.dart';
 import 'package:old_but_gold/features/create_post/ui/preview_post_screen.dart';
@@ -156,7 +158,13 @@ class AppRouter {
   }
 
   Route _buildCategoryScreen() {
-    return MaterialPageRoute(builder: (_) => const CategoriesScreen());
+    return MaterialPageRoute(
+      builder: (_) => BlocProvider(
+        create: (context) =>
+            CategoriesCubit(getIt.get<CreatePostRepoImpl>())..getCategories(),
+        child: const CategoriesScreen(),
+      ),
+    );
   }
 
   Route _buildPreviewPostScreen() {

@@ -6,6 +6,7 @@ import 'package:old_but_gold/core/helper/navigation_service.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/features/auth/data/repos/auth/auth_repo_impl.dart';
 import 'package:old_but_gold/features/auth/data/repos/forget_password/forget_password_repo_impl.dart';
+import 'package:old_but_gold/features/create_post/data/repos/create_post_repo_impl.dart';
 import 'package:old_but_gold/features/profile/data/repos/profile_repo_impl.dart';
 
 final getIt = GetIt.instance;
@@ -34,5 +35,9 @@ Future<void> setupGetIt() async {
   //Profile
   getIt.registerLazySingleton<ProfileRepoImpl>(
     () => ProfileRepoImpl(getIt.get<ApiService>()),
+  );
+  //Create Post
+  getIt.registerLazySingleton<CreatePostRepoImpl>(
+    () => CreatePostRepoImpl(getIt.get<ApiService>()),
   );
 }
