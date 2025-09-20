@@ -15,13 +15,21 @@ class CategoriesList extends StatefulWidget {
 
 class _CategoriesListState extends State<CategoriesList> {
   int? selectedIndex;
+  String? selectedCategory;
+  String? selectedSubCategory;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {
         if (state is CategoriesLoading) {
-          return CircularProgressIndicator();
+          return Padding(
+            padding: const EdgeInsets.only(top: 300),
+            child: SizedBox(
+              width: double.infinity,
+              child: Center(child: CircularProgressIndicator()),
+            ),
+          );
         } else if (state is CategoriesSuccess) {
           return ListView.separated(
             shrinkWrap: true,
@@ -42,7 +50,19 @@ class _CategoriesListState extends State<CategoriesList> {
                       onTap: () {
                         setState(() {
                           selectedIndex = isSelected ? null : index;
+                          selectedCategory =
+                              state.categoriesModel.data[index].name.en;
                         });
+                        if (state
+                            .categoriesModel
+                            .data[index]
+                            .subCategories
+                            .isEmpty) {
+                          Navigator.pop(context, {
+                            'category': selectedCategory,
+                            'subCategory': '',
+                          });
+                        }
                       },
                       child: CategoryCard(
                         title: state.categoriesModel.data[index].name.en,
@@ -65,25 +85,36 @@ class _CategoriesListState extends State<CategoriesList> {
                               .data[index]
                               .subCategories
                               .map(
-                                (sub) => Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                    vertical: 8,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.mainFFEECA,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      const Icon(Icons.label, size: 16),
-                                      const SizedBox(width: 6),
-                                      Text(
-                                        sub.name.en,
-                                        style: AppTextStyles.medium14,
-                                      ),
-                                    ],
+                                (sub) => GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      selectedSubCategory = sub.name.en;
+                                      Navigator.pop(context, {
+                                        'category': selectedCategory,
+                                        'subCategory': selectedSubCategory,
+                                      });
+                                    });
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                      vertical: 8,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.mainFFEECA,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        const Icon(Icons.label, size: 16),
+                                        const SizedBox(width: 6),
+                                        Text(
+                                          sub.name.en,
+                                          style: AppTextStyles.medium14,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               )

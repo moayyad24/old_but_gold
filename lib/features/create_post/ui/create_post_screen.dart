@@ -8,12 +8,21 @@ import 'package:old_but_gold/core/widgets/content_area.dart';
 import 'package:old_but_gold/core/widgets/custom_choice_chip.dart';
 import 'package:old_but_gold/core/widgets/custom_stepper.dart';
 import 'package:old_but_gold/core/widgets/drag_handle.dart';
+import 'package:old_but_gold/features/create_post/ui/widgets/category_selector.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/create_post_app_bar.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/post_bottom_navbar.dart';
 import 'package:old_but_gold/features/create_post/ui/widgets/upload_image_box.dart';
 
-class CreatePostScreen extends StatelessWidget {
+class CreatePostScreen extends StatefulWidget {
   const CreatePostScreen({super.key});
+
+  @override
+  State<CreatePostScreen> createState() => _CreatePostScreenState();
+}
+
+class _CreatePostScreenState extends State<CreatePostScreen> {
+  String? category;
+  String? subCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -47,21 +56,23 @@ class CreatePostScreen extends StatelessWidget {
                       },
                     ),
                     23.verticalSpace,
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.categoryScreen);
+                    CategorySelector(
+                      category: category,
+                      subCategory: subCategory,
+                      onTap: () async {
+                        final categories =
+                            await Navigator.pushNamed(
+                                  context,
+                                  Routes.categoryScreen,
+                                )
+                                as Map<String, dynamic>;
+                        if (categories.isNotEmpty) {
+                          setState(() {
+                            category = categories['category'];
+                            subCategory = categories['subCategory'];
+                          });
+                        }
                       },
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: _buildContainer('Category', 'Electronics'),
-                          ),
-                          SizedBox(width: 10.w),
-                          Expanded(
-                            child: _buildContainer('Sub-Category', 'Phones'),
-                          ),
-                        ],
-                      ),
                     ),
                     23.verticalSpace,
                     Column(
@@ -124,39 +135,6 @@ class CreatePostScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildContainer(String title, String hint) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(title, style: AppTextStyles.medium14),
-        SizedBox(height: 8.h),
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 12.h),
-          decoration: BoxDecoration(
-            color: AppColors.whiteFFFFFF,
-            borderRadius: BorderRadius.circular(12.r),
-            border: Border.all(color: AppColors.greyC2C2C2, width: 1),
-          ),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.only(start: 10.0, end: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  hint,
-                  style: AppTextStyles.medium14.copyWith(
-                    color: AppColors.grey666666,
-                  ),
-                ),
-                Icon(Icons.unfold_more, size: 24, color: AppColors.black),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 
