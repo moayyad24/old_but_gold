@@ -105,4 +105,32 @@ class ProfileRepoImpl implements ProfileRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, bool>> updateImage(data) async {
+    logger.i('🔄 Starting updating image with data: ${data.fields}');
+    try {
+      logger.d('📤 Sending image update request');
+      Map<String, dynamic> response = await apiService.post(
+        endPoint: 'profile/1',
+        data: data,
+      );
+      logger.d('📥 Received image update response: $response');
+
+      String status = response['status'];
+      bool success = status == 'success';
+      logger.i(
+        success
+            ? '✅ Image updated successfully'
+            : '⚠️ Image update failed with status: $status',
+      );
+      return right(success);
+    } on DioException catch (e) {
+      logger.e('❌ Image update failed with DioError', error: e);
+      return left(ServerFailure.fromDioError(e));
+    } catch (e) {
+      logger.e('❌ Unexpected Image update error', error: e);
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

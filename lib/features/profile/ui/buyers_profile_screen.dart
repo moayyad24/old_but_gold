@@ -29,7 +29,10 @@ class BuyersProfileScreen extends StatelessWidget {
                       ],
                     ),
                     37.verticalSpace,
-                    ProfilePictureAndName(),
+                    ProfilePictureAndName(
+                      image: 'https://randomuser.me/api/portraits/women/44.jpg',
+                      name: 'Mohammed',
+                    ),
                     37.verticalSpace,
                   ],
                 ),

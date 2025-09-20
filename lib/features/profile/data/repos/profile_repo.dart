@@ -9,4 +9,5 @@ abstract class ProfileRepo {
     Map<String, dynamic> data,
   );
   Future<Either<Failure, PersonalInformationModel>> getPersonalInformation();
+  Future<Either<Failure, bool>> updateImage(FormData data);
 }

@@ -34,7 +34,7 @@ class PersonalInformationModel {
       longitude: (json['longitude']).toString(),
       latitude: (json['latitude']).toString(),
       address: json['address'] ?? '',
-      photoUrl: json['photo'] ?? '',
+      photoUrl: json['photo_url'] ?? '',
     );
   }
   Map<String, dynamic> toMap() {
@@ -55,6 +55,7 @@ class PersonalInformationModel {
       'longitude': longitude,
       'latitude': latitude,
       'address': address,
+      'photo_url': photoUrl,
     };
   }
 }

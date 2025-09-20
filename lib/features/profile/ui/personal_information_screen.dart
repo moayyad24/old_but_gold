@@ -6,7 +6,6 @@ import 'package:old_but_gold/core/constants/db_keys.dart';
 import 'package:old_but_gold/core/constants/routes.dart';
 import 'package:old_but_gold/core/helper/dependency_injection.dart';
 import 'package:old_but_gold/core/helper/input_validator.dart';
-import 'package:old_but_gold/core/helper/profile_information_storage.dart';
 import 'package:old_but_gold/core/helper/shared_preference.dart';
 import 'package:old_but_gold/core/theme/app_colors.dart';
 import 'package:old_but_gold/core/theme/app_text_styles.dart';
@@ -153,8 +152,6 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                               address: locationController.text,
                             );
                             FormData data = FormData.fromMap(user.toMap());
-                            //store user profile info
-                            ProfileInformationStorage.save(user);
                             await context
                                 .read<ProfileInformationCubit>()
                                 .createPersonalInformation(data);
